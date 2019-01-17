@@ -11,6 +11,7 @@ public class Computer
     public void Register(string userName, DateTime expiryDate)
     {
         int activeDays = (expiryDate - DateTime.Now).Days;
+        
         // ...
     }
 }
@@ -56,6 +57,9 @@ HtmlHelper htmlHelper;
 ---
 
 **DO NOT** use **underscores** in identifiers. Exception: *discards* (C# 7.0)
+```
+https://www.c-sharpcorner.com/article/stop-use-var-everywhere-and-think-before-use-underscore-with-private-variable-in/
+```
 ``` csharp
 // Correct
 public int age;

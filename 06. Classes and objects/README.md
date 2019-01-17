@@ -2,6 +2,28 @@
 
 ***
 
+**DO** write each class in its own file. Use the same notation for file and class name.
+``` csharp
+// Application.cs
+public class Application
+{    
+}
+
+// Program.cs
+public class Program
+{
+}
+
+// Avoid
+public class Application
+{
+    public class Program
+    {
+    }
+}
+```
+---
+
 **DO** use **PascalCasing** for _class names_, _method names_, and _properties_
 ``` csharp
 public class Person
