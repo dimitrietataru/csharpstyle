@@ -1,3 +1,0 @@
-# Structure
-
-TODO: Add content
