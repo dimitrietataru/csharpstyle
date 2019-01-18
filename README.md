@@ -1,7 +1,9 @@
 # C# coding standards, conventions, and guidelines
 
 * General
-* Structure
+* Structure and layout
+* Readability
+* Spacing
 * Types and variables
 * Expressions
 * Statements
