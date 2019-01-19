@@ -1,5 +1,4 @@
-# ✔ Follow closing curly brackets by a blank line ✔
-#
+### ✔ Follow closing curly brackets by a blank line ✔
 
 > Ensure a blank line follows closing curly brackets.  
 

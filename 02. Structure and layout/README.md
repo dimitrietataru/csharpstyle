@@ -1,5 +1,4 @@
 # Structure
-#
 
 * ✔ chain statement blocks without blank lines
 * ✔ follow closing curly brackets by a blank line
@@ -21,6 +20,7 @@
 * ❌ omit curly brackets
 * ❌ place curly brackets on same line with statements
 * ❌ use multiple blank lines in a row
-* ❌ wrap elements in opening and closing curly brackets
+* ❌ wrap elements in opening and closing curly brackets  
+
 
 > **DO NOT** use Tab characters for indentation. Use four spaces.

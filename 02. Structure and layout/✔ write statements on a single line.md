@@ -1,5 +1,4 @@
-# ✔ Write statements on a single line ✔
-#
+### ✔ Write statements on a single line ✔
 
 > Do not write multiple statements on the same line.  
 > Do not write statements and curly brackets on the same line.

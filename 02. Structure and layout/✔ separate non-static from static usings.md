@@ -1,5 +1,4 @@
-# ✔ Separate non-static from static usings ✔
-#
+### ✔ Separate non-static from static usings ✔
 
 > Separate non-static from static usings.  
 > Order usings alphabetically. First non-static, then static.  

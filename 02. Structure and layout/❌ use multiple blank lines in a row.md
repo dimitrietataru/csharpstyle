@@ -1,5 +1,4 @@
-# ❌ Do not use multiple blank lines in a row ❌
-#
+### ❌ Do not use multiple blank lines in a row ❌
 
 > To improve code readability, blank lines are required in certain situations, but are prohibited in others.  
 > This results in a consistend visual pattern and can improve recognition of unfamiliar code.  

@@ -1,5 +1,4 @@
-# ✔ Use proper order of items inside a class ✔
-#
+### ✔ Use proper order of items inside a class ✔
 
 ```
 Within a class, struct, or interface order by group:

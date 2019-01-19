@@ -1,5 +1,4 @@
-# ✔ Organize namespaces with a clearly defined structure ✔
-#
+### ✔ Organize namespaces with a clearly defined structure ✔
 
 > Use PascalCasing.
 
