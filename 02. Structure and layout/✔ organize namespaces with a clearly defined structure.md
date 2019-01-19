@@ -1,4 +1,5 @@
 ### ✔ Organize namespaces with a clearly defined structure ✔
+###
 
 > Use PascalCasing.
 
