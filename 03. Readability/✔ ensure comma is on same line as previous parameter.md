@@ -6,29 +6,29 @@
 ### ✔
 ``` csharp
 string name = GetName(
-	first,
-	last);
+    first,
+    last);
 ```
 ``` csharp
 public int this[
-	int x,
-	int y]
+    int x,
+    int y]
 {
-	// ...
+    // ...
 }
 ```
 
 ### ❌
 ``` csharp
 string name = GetName(
-	first
-	,last);
+    first
+    ,last);
 ```
 ``` csharp
 public int this[
-	int x
-	,int y]
+    int x
+    ,int y]
 {
-	// ...
+    // ...
 }
 ```

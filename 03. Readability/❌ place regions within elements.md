@@ -8,7 +8,7 @@
 #region
 public void Method()
 {
-	// ...
+    // ...
 }
 #endregion
 ```
@@ -17,8 +17,8 @@ public void Method()
 ``` csharp
 public void Method()
 {
-	#region
-	// ...
-	#endregion
+    #region
+    // ...
+    #endregion
 }
 ```

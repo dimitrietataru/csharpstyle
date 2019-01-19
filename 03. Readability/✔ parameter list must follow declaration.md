@@ -11,16 +11,16 @@ public int Sum(int a, int b, int c, int d)
 ```
 ``` csharp
 public int Sum(
-	int a, int b, int c, int d)
+    int a, int b, int c, int d)
 {
 }
 ```
 ``` csharp
 public int Sum(
-	int a,
-	int b,
-	int c,
-	int d)
+    int a,
+    int b,
+    int c,
+    int d)
 {
 }
 ```
@@ -28,25 +28,25 @@ public int Sum(
 ### ❌
 ``` csharp
 public int Sum(int a, int b, int c,
-	
-	int d)
-{
-}
-```
-``` csharp
-public int Sum(
-	
-	int a, int b, int c, int d)
+
+    int d)
 {
 }
 ```
 ``` csharp
 public int Sum(
 
-	int a,
-	int b,
-	int c,
-	int d)
+    int a, int b, int c, int d)
+{
+}
+```
+``` csharp
+public int Sum(
+
+    int a,
+    int b,
+    int c,
+    int d)
 {
 }
 ```

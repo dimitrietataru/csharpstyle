@@ -10,7 +10,7 @@
 ``` csharp
 public bool IsValid(int number)
 {
-	// ...
+    // ...
 }
 ```
 ``` csharp
@@ -22,41 +22,41 @@ int x = entries[0];
 ``` csharp
 public int this[int x]
 {
-	get { return entries[x]; }
+    get { return entries[x]; }
 }
 ```
 
 ### ❌
 ``` csharp
 public bool IsValid(
-	int number
-	)
+    int number
+    )
 {
-	// ...
+    // ...
 }
 ```
 ``` csharp
 bool isValid = IsValid(
-	100
-	);
+    100
+    );
 ```
 ``` csharp
 bool isValid = IsValid
-	(
-	100
-	);
+    (
+    100
+    );
 ```
 ``` csharp
 int x = entries[
-	0
-	];
+    0
+    ];
 ```
 ``` csharp
 public int this
 [
-	int x
+    int x
 ]
 {
-	get { return entries[x]; }
+    get { return entries[x]; }
 }
 ```

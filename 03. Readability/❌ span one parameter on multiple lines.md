@@ -11,20 +11,20 @@
 ### ✔
 ``` csharp
 return JoinStrings(
-	"a" +
-	"b",
-	"c");
+    "a" +
+    "b",
+    "c");
 ```
 ``` csharp
 return JoinStrings(
-	"a",
-	"b" + "c");
+    "a",
+    "b" + "c");
 ```
 
 ### ❌
 ``` csharp
 return JoinStrings(
-	"a",
-	"b" +
-	"c");
+    "a",
+    "b" +
+    "c");
 ```

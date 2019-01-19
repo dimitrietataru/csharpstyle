@@ -7,8 +7,8 @@
 ``` csharp
 public int Sum(int first, int second)
 {
-	int result = first + second;
-	return result;
+    int result = first + second;
+    return result;
 }
 ```
 ``` csharp
@@ -22,7 +22,7 @@ string lastName;
 ``` csharp
 public int Sum(int first, int second)
 {
-	int result = first + second; return result;
+    int result = first + second; return result;
 }
 ```
 ``` csharp
