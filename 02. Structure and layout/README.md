@@ -1,4 +1,5 @@
 # Structure
+#
 
 * ✔ chain statement blocks without blank lines
 * ✔ follow closing curly brackets by a blank line

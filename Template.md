@@ -1,13 +1,15 @@
-# **DO** 
+# ✔ Do ... ✔
+# ❌ Do not ... ❌
+#
 
 > text
 
+### ✔
 ``` csharp
-// DO
 
 ```
 
+### ❌ 
 ``` csharp
-// DON'T
 
 ```

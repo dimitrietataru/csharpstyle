@@ -1,10 +1,11 @@
 # ❌ Do not follow or precede closing curly brackets with a blank line ❌
+#
 
 > Closing curly brackets should always be preceded by statements, not blank line(s).
 > Closing curly brackets should never be followed by blank line(s).  
 
+### ✔
 ``` csharp
-// DO
 public bool Enabled
 {
     get
@@ -14,8 +15,8 @@ public bool Enabled
 }
 ```
 
+### ❌ 
 ``` csharp
-// DON'T
 public bool Enabled
 {
     get
@@ -24,7 +25,8 @@ public bool Enabled
         
     }
 }
-
+```
+``` csharp
 public bool Enabled
 {
     get
@@ -33,7 +35,8 @@ public bool Enabled
     }
     
 }
-
+```
+``` csharp
 public bool Enabled
 {
     get

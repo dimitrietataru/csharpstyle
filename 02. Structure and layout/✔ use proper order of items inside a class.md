@@ -1,4 +1,5 @@
 # ✔ Use proper order of items inside a class ✔
+#
 
 ```
 Within a class, struct, or interface order by group:
@@ -35,8 +36,8 @@ Then, order by readonly, then non-readonly:
   - non-readonly
 ```
 
+### ✔
 ``` csharp
-// DO
 public class Application
 {
     public const int const1 = 1;

@@ -1,10 +1,11 @@
 # ✔ Write single line comments with proper follow and precede elements ✔
+#
 
 > Single line comments should always be preceded by a blank line.  
 > Single line comments should never be followed by (a) blank line(s).  
 
+### ✔
 ``` csharp
-// DO
 public bool Enabled
 {
     get
@@ -15,8 +16,8 @@ public bool Enabled
 }
 ```
 
+### ❌ 
 ``` csharp
-// DON'T
 public bool Enabled
 {
     get
@@ -26,7 +27,8 @@ public bool Enabled
         return this.enabled;  
     }
 }
-
+```
+``` csharp
 public bool Enabled
 {
     get
@@ -36,7 +38,8 @@ public bool Enabled
         return this.enabled;  
     }
 }
-
+```
+``` csharp
 public bool Enabled
 {
     get
@@ -47,7 +50,8 @@ public bool Enabled
         return this.enabled;  
     }
 }
-
+```
+``` csharp
 public bool Enabled
 {
     get
