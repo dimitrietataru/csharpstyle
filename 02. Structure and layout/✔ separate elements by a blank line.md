@@ -1,4 +1,4 @@
-# **DO** separate elements by a blank line
+# ✔ Separate elements by a blank line ✔
 
 > Add a blank line between adjacent elements.
 

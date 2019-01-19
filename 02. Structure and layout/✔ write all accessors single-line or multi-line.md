@@ -1,4 +1,4 @@
-# **DO** write all accessors single-line or multi-line
+# ✔ Write all accessors single-line or multi-line ✔
 
 > Write each accessor on a single line if the accessors are short.  
 > Expand both accessors across multiple lines ith the accessors are longer.  

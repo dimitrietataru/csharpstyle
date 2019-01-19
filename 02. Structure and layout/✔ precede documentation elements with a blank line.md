@@ -1,4 +1,4 @@
-# **DO** precede documentation elements with a blank line
+# ✔ Precede documentation elements with a blank line ✔
 
 > Documentation elements should always be preceded by a blank line.  
 

@@ -1,4 +1,4 @@
-# **DO NOT** follow documentation elements with a blank line
+# ❌ Do not follow documentation elements with a blank line ❌
 
 > Documentation elements should always be followed by blocks of code.  
 

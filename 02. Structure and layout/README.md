@@ -12,14 +12,14 @@
 * ✔ write statements on a single line  
 
 
-* ✘ follow documentation elements with a blank line
-* ✘ follow or precede closing curly brackets with a blank line
-* ✘ follow or precede opening curly brackets with a blank line
-* ✘ leave blank lines at start or end of a file
-* ✘ line-wrap using statements
-* ✘ omit curly brackets
-* ✘ place curly brackets on same line with statements
-* ✘ use multiple blank lines in a row
-* ✘ wrap elements in opening and closing curly brackets
+* ❌ follow documentation elements with a blank line
+* ❌ follow or precede closing curly brackets with a blank line
+* ❌ follow or precede opening curly brackets with a blank line
+* ❌ leave blank lines at start or end of a file
+* ❌ line-wrap using statements
+* ❌ omit curly brackets
+* ❌ place curly brackets on same line with statements
+* ❌ use multiple blank lines in a row
+* ❌ wrap elements in opening and closing curly brackets
 
 > **DO NOT** use Tab characters for indentation. Use four spaces.
