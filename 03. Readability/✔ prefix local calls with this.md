@@ -1,9 +1,10 @@
-# **DO** prefix local calls with this
+### ✔ Prefix local calls with this ✔
+###
 
 > Insert the this prefix before a call to a class member.  
 
+### ✔
 ``` csharp
-// DO
 public class Student : Person
 {
     private string id;
@@ -18,8 +19,8 @@ public class Student : Person
 }
 ```
 
+### ❌
 ``` csharp
-// DON'T
 public class Student : Person
 {
     private string m_id;
