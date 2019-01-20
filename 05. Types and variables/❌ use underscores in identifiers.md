@@ -37,7 +37,7 @@ private int m_age;
 private int _age;
 ```
 ``` csharp
-private current _age;
+private int current_age;
 ```
 ``` csharp
 private string _lastName;
