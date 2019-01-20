@@ -19,6 +19,7 @@
 * ❌ line-wrap using statements
 * ❌ omit curly brackets
 * ❌ place curly brackets on same line with statements
+* ❌ place multiple namespaces within a single file
 * ❌ use multiple blank lines in a row
 * ❌ wrap elements in opening and closing curly brackets  
 
