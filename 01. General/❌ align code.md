@@ -13,7 +13,7 @@ public int count; // Allowed comment
 private string name; // this is allowed too
 ```
 ``` csharp
-// It is allowed to keep the first expression within an if statenent on first line. You can't rename the IF keyword!
+// Allowed. You can't rename the IF keyword!
 if (expression1
     && expression2
     && expression3)
