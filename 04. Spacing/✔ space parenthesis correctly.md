@@ -34,8 +34,8 @@ var x = Method(Math.Max(1, 2), Math.Sqrt(144));
 ```
 ``` csharp
 var result = longMethodCall(
-    (200 - 144) * 3 +
-    (999 / 18),
+    (200 - 144) * 3
+    + (999 / 18),
     1,
     2);
 ```

@@ -1,4 +1,4 @@
-### ✔ space attributes correctly ✔
+### ✔ Space attributes correctly ✔
 ###
 
 > Opening attribute brackets should never be followed by whitespace.  
