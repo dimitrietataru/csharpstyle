@@ -1,9 +1,8 @@
 # General
 
-* **DO** use **TODO** comments to mark work in progress.
-* **DO** vertically align curly brackets.
+* ✔ use TODO comments to mark work in progress
+* ✔ vertically align curly brackets
 
-***
 
 | Object Name      | Notation   | Length | Char Mask  |
 |:-----------------|:-----------|:-------|:-----------|

@@ -1,7 +1,9 @@
-# **DO** use **TODO** comments to mark work in progress.
+### ✔ Use TODO comments to mark work in progress ✔
+###
 
 > In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*).  
 
+### ✔
 ``` csharp
 public void Run(int counter)
 {
@@ -14,9 +16,15 @@ public void Run(int counter)
     
     // TODO: Log
 }
+```
 
-// Avoid
+### ❌ 
+``` csharp
 //TODO ...
+```
+``` csharp
 //TO DO ...
+```
+``` csharp
 // TO DO : ...
 ```
