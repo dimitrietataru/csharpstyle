@@ -4,6 +4,9 @@
 * ✔ vertically align curly brackets
 
 
+* ❌ align code
+
+
 | Object Name      | Notation   | Length | Char Mask  |
 |:-----------------|:-----------|:-------|:-----------|
 | Class name       | PascalCase |    128 | [A-z][0-9] |
