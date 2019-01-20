@@ -2,7 +2,7 @@
 ###
 
 > Break at the dot separator '.'  
-> Break at a comma ',', but it stays attacjed to the token that precedes it.  
+> Break at a comma ',', but it stays attached to the token that precedes it.  
 > Break at lambda operator '=>'  
 > Break at opening curly bracket '{' for in-line initializations.  
 > Break at logical operators.  
