@@ -11,9 +11,9 @@
 ### ✔
 ``` csharp
 return JoinStrings(
-    "a" +
-    "b",
-    "c");
+    "a very long string.."
+    + "concatenated with another very long string...",
+    "second parameter goes here");
 ```
 ``` csharp
 return JoinStrings(
@@ -25,6 +25,6 @@ return JoinStrings(
 ``` csharp
 return JoinStrings(
     "a",
-    "b" +
-    "c");
+    "b"
+    + "c");
 ```
