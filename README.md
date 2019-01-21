@@ -51,13 +51,9 @@ The document contains data collected from various sources, language styles, and 
 
 ## General
 
-  * <a name="vertically-align-curly-brackets"></a>
-    ✔ Vertically align curly brackets
-    <sup>[[link](#vertically-align-curly-brackets)]</sup>
-
+  *  ✔ Vertically align curly brackets
     * **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
-    
-        <sup>[✔]</sup>
+        <sup>✔</sup>
         ``` csharp
         namespace Company.Product
         {
@@ -82,36 +78,95 @@ The document contains data collected from various sources, language styles, and 
             }
         }
         ```
+  * ✔ Use TODO comments to mark work in progress, missing features or functionality
+    * In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*).  
+        <sup>✔</sup>
+        ``` csharp
+        public void Run(int counter)
+        {
+            // TODO: Validate input
+            
+            for (int i = 0; i < counter; ++i)
+            {
+                // ...
+            }
+            
+            // TODO: Log
+        }
+        ```
 
-### ✔ Use TODO comments to mark work in progress, missing features or functionality ✔
-###
+        <sup>❌</sup>
+        ``` csharp
+        //TODO ...
+        ```
+        ``` csharp
+        //TO DO ...
+        ```
+        ``` csharp
+        // TO DO : ...
+        ```
+  * ❌ NEVER align code ❌
+    * alignment can aid readability.. for a minute, or so. In reality.. alignment creates problems for future maintenance!  
+    * a future change that needs to touch just one line of code will leave the formerly-pleasing formatting mangled.  
+    * the smallest change, like a variable rename will break your 'neatly formatted code'.  
+    * there should be no need to modify that extra piece of code and if it is, most likely will be left behind.  
+    * these block of code can slow down reviewers and exacerbates merge conflicts.
+        <sup>✔</sup>
+        ``` csharp
+        public int count; // Allowed comment
+        private string name; // this is allowed too
+        ```
+        ``` csharp
+        // Allowed. You can't rename the IF keyword!
+        if (expression1
+            && expression2
+            && expression3)
+        {
+        }
+        ```
+        <sup>❌</sup>
+        ``` csharp
+        public int count;    // Alligned
+        private string name; // comments
 
-> In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*).  
+        public int activeItems;    // Will no longer
+        private string name; // be aligned after future edits
+        ```
+        ``` csharp
+        public  int     count;
+        private string  name;
 
-### ✔
-``` csharp
-public void Run(int counter)
-{
-    // TODO: Validate input
-    
-    for (int i = 0; i < counter; ++i)
-    {
-        // ...
-    }
-    
-    // TODO: Log
-}
-```
+        // Change access modifier
+        private readonly  int     count;
+        private string  name;
 
-### ❌ 
-``` csharp
-//TODO ...
-```
-``` csharp
-//TO DO ...
-```
-``` csharp
-// TO DO : ...
-```
+        // Add new field
+        public  int     count;
+        protected DateTime releaseDate;
+        private string  name;
+        ```
+        ``` csharp
+        public void Method(int parameter1,
+                           int parameter2,
+                           int parameter3,
+                           int parameter4);
 
+        public void AfterMethodRename(int parameter1,
+                           int parameter2,
+                           int parameter3,
+                           int parameter4);
+        ```
+        ``` csharp
+        var items = collection
+            .Where(i => i.Date.Year > 2000
+                        && i.Owner == User)
+            .ToList();
 
+        // Parameter rename leaves code unorganized and needs extra time to be fixed.
+        var items = collection
+            .Where(currentItem => currentItem.Date.Year > 2000
+                        && currentItem.Owner == User)
+            .ToList();
+        ```
+
+***
