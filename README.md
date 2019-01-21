@@ -51,8 +51,10 @@ The document contains data collected from various sources, language styles, and 
 
 ## General
 
-  *  ✔ Vertically align curly brackets.  
+  *  ✔ Vertically align curly brackets
+  
     * **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
+    
         <sup>✔</sup>
         ``` csharp
         namespace Company.Product
@@ -78,8 +80,11 @@ The document contains data collected from various sources, language styles, and 
             }
         }
         ```
-  * ✔ Use TODO comments to mark work in progress, missing features or functionality.  
-    * In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*).  
+
+  * ✔ Use TODO comments to mark work in progress, missing features or functionality
+  
+    * In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*)
+    
         <sup>✔</sup>
         ``` csharp
         public void Run(int counter)
@@ -105,12 +110,15 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         // TO DO : ...
         ```
-  * ❌ NEVER align code  
-    * alignment can aid readability.. for a minute, or so. In reality.. alignment creates problems for future maintenance!  
-    * a future change that needs to touch just one line of code will leave the formerly-pleasing formatting mangled.  
-    * the smallest change, like a variable rename will break your 'neatly formatted code'.  
-    * there should be no need to modify that extra piece of code and if it is, most likely will be left behind.  
-    * these block of code can slow down reviewers and exacerbates merge conflicts.  
+        
+  * ❌ NEVER align code
+  
+    * alignment can aid readability.. for a minute, or so. In reality.. alignment creates problems for future maintenance!
+    * a future change that needs to touch just one line of code will leave the formerly-pleasing formatting mangled.
+    * the smallest change, like a variable rename will break your 'neatly formatted code'.
+    * there should be no need to modify that extra piece of code and if it is, most likely will be left behind.
+    * these block of code can slow down reviewers and exacerbates merge conflicts.
+
         <sup>✔</sup>
         ``` csharp
         public int count; // Allowed comment
@@ -124,6 +132,7 @@ The document contains data collected from various sources, language styles, and 
         {
         }
         ```
+        
         <sup>❌</sup>
         ``` csharp
         public int count;    // Alligned
@@ -168,4 +177,5 @@ The document contains data collected from various sources, language styles, and 
                         && currentItem.Owner == User)
             .ToList();
         ```
+
 ***
