@@ -1,4 +1,4 @@
-                        ### ✔ Write query clauses on own line when spanning multiple lines ✔
+### ✔ Write query clauses on own line when spanning multiple lines ✔
 ###
 
 > Query clauses must be written on own line when spanning multiple lines.
