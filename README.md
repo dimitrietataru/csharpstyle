@@ -57,33 +57,33 @@ The document contains data collected from various sources, language styles, and 
 
     * **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
     
-      ### ✔
-      ``` csharp
-      namespace Company.Product
-      {
-          public class Program
-          {
-              static void Main(string[] args)
-              {
-                  if (expression)
-                  {
-                      // ...
-                  }
-                  else
-                  {
-                      // ...    
-                  }
+        ### ✔
+        ``` csharp
+        namespace Company.Product
+        {
+            public class Program
+            {
+                static void Main(string[] args)
+                {
+                    if (expression)
+                    {
+                        // ...
+                    }
+                    else
+                    {
+                        // ...    
+                    }
               
-                  while (expression)
-                  {
-                      // ...
-                  }
-              }
-          }
-      }
-      ```
+                    while (expression)
+                    {
+                        // ...
+                    }
+                }
+            }
+        }
+        ```
 
-### ✔ Use TODO comments to mark work in progress ✔
+### ✔ Use TODO comments to mark work in progress, missing features or functionality ✔
 ###
 
 > In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*).  
