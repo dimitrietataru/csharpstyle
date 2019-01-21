@@ -1,17 +1,6 @@
 # C# coding standards, conventions, and guidelines
 
-* General
-* Structure and layout
-* Readability
-* Spacing
-* Types and variables
-* Expressions
-* Statements
-* Classes and objects
-* Structs
-* Interfaces
-* Enums
-* System.Linq
+
 
 ***
 
@@ -30,10 +19,70 @@
 
 ---
 
-Credits:
+## Credits
+This C# style recommends best practices so that other C# developers can write code maintainable by other C# developers.
+The document contains data collected from various sources, language styles, and communities.  
+
   - [docs.microsoft.com](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/)
   - [dofactory.com](https://www.dofactory.com/reference/csharp-coding-standards)
   - [github.com/ktaranov](https://github.com/ktaranov/naming-convention/blob/master/C%23%20Coding%20Standards%20and%20Naming%20Conventions.md)
   - [c-sharpcorner.com](https://www.c-sharpcorner.com/article/stop-use-var-everywhere-and-think-before-use-underscore-with-private-variable-in/)
   - [stylecop.soyuz5.com](http://stylecop.soyuz5.com/StyleCop%20Rules.html)
-  
+  - [google.github.io](https://google.github.io/styleguide/javaguide.html)
+
+***
+
+## Table of contents
+
+* [General](#general)
+* Structure and layout
+* Readability
+* Spacing
+* Types and variables
+* Expressions
+* Statements
+* Classes and objects
+* Structs (work in progress)
+* Interfaces (work in progress)
+* Enums (work in progress)
+* System.Linq (work in progress)
+
+***
+
+## General
+
+<a name="vertically-align-curly-brackets"></a>
+### ✔ Vertically align curly brackets ✔ 
+###
+
+* <sup>[[link](#vertically-align-curly-brackets)]</sup>
+
+> **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)  
+
+### ✔
+``` csharp
+namespace Company.Product
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            if (expression)
+            {
+                // ...
+            }
+            else
+            {
+                // ...    
+            }
+            
+            while (expression)
+            {
+                // ...
+            }
+        }
+    }
+}
+```
+
+
