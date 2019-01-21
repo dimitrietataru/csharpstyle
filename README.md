@@ -52,12 +52,12 @@ The document contains data collected from various sources, language styles, and 
 ## General
 
   * <a name="vertically-align-curly-brackets"></a>
-    ✔ Vertically align curly brackets ✔
+    <sup>[✔]</sup> Vertically align curly brackets <sup>[✔]</sup>
     <sup>[[link](#vertically-align-curly-brackets)]</sup>
 
     * **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
     
-        ### ✔
+        <sup>[✔]</sup>✔<sup>[✔]</sup>
         ``` csharp
         namespace Company.Product
         {
