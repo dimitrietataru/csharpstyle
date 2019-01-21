@@ -685,7 +685,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         
-  * Do not follow or precede opening curly brackets with a blank line
+  * ✖ Do not follow or precede opening curly brackets with a blank line
   
     * Opening curly brackets should always be followed by statements, not blank line(s).
     * Opening curly brackets should never be preceded by blank line(s).
@@ -754,7 +754,6 @@ The document contains data collected from various sources, language styles, and 
 
         <sup>❌</sup>
         ``` csharp
-
 
         using System
 
