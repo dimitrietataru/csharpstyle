@@ -1,4 +1,4 @@
-### ❌ Do not place multiple namespaces within a single file.md ❌
+### ❌ Do not place multiple namespaces within a single file ❌
 ###
 
 > Ensure that each file contains only one namespace.  
