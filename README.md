@@ -35,7 +35,7 @@ The document contains data collected from various sources, language styles, and 
 ## Table of contents
 
 * [General](#general)
-* Structure and layout
+* [Structure and layout](#structure-and-layout)
 * Readability
 * Spacing
 * Types and variables
@@ -103,22 +103,18 @@ The document contains data collected from various sources, language styles, and 
         <sup>❌</sup>
         ``` csharp
         //TODO ...
-        ```
-        ``` csharp
         //TO DO ...
-        ```
-        ``` csharp
         // TO DO : ...
         ```
         
-  * <sup>❌</sup> ✘ ✖ NEVER align code
+  * ✖ NEVER align code
   
     * alignment can aid readability.. for a minute, or so. In reality.. alignment creates problems for future maintenance!
     * a future change that needs to touch just one line of code will leave the formerly-pleasing formatting mangled.
     * the smallest change, like a variable rename will break your 'neatly formatted code'.
     * there should be no need to modify that extra piece of code and if it is, most likely will be left behind.
     * these block of code can slow down reviewers and exacerbates merge conflicts.
-
+    
         <sup>✔</sup>
         ``` csharp
         public int count; // Allowed comment
@@ -179,3 +175,6 @@ The document contains data collected from various sources, language styles, and 
         ```
 
 ***
+
+## Structure and layout
+
