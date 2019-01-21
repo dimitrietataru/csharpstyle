@@ -111,7 +111,7 @@ The document contains data collected from various sources, language styles, and 
         // TO DO : ...
         ```
         
-  * ❌ NEVER align code
+  * ❌ ✘ NEVER align code
   
     * alignment can aid readability.. for a minute, or so. In reality.. alignment creates problems for future maintenance!
     * a future change that needs to touch just one line of code will leave the formerly-pleasing formatting mangled.
