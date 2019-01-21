@@ -51,38 +51,67 @@ The document contains data collected from various sources, language styles, and 
 
 ## General
 
-<a name="vertically-align-curly-brackets"></a>
-### ✔ Vertically align curly brackets ✔ 
+  * <a name="vertically-align-curly-brackets"></a>
+    ✔ Vertically align curly brackets ✔
+    <sup>[[link](#vertically-align-curly-brackets)]</sup>
+
+    * **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
+    
+      ### ✔
+      ``` csharp
+      namespace Company.Product
+      {
+          public class Program
+          {
+              static void Main(string[] args)
+              {
+                  if (expression)
+                  {
+                      // ...
+                  }
+                  else
+                  {
+                      // ...    
+                  }
+              
+                  while (expression)
+                  {
+                      // ...
+                  }
+              }
+          }
+      }
+      ```
+
+### ✔ Use TODO comments to mark work in progress ✔
 ###
 
-* <sup>[[link](#vertically-align-curly-brackets)]</sup>
-
-> **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)  
+> In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*).  
 
 ### ✔
 ``` csharp
-namespace Company.Product
+public void Run(int counter)
 {
-    public class Program
+    // TODO: Validate input
+    
+    for (int i = 0; i < counter; ++i)
     {
-        static void Main(string[] args)
-        {
-            if (expression)
-            {
-                // ...
-            }
-            else
-            {
-                // ...    
-            }
-            
-            while (expression)
-            {
-                // ...
-            }
-        }
+        // ...
     }
+    
+    // TODO: Log
 }
+```
+
+### ❌ 
+``` csharp
+//TODO ...
+```
+``` csharp
+//TO DO ...
+```
+``` csharp
+// TO DO : ...
 ```
 
 
