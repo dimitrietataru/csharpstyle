@@ -45,7 +45,7 @@ The document contains data collected from various sources, language styles, and 
   
     * **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         namespace Company.Product
         {
@@ -90,7 +90,7 @@ The document contains data collected from various sources, language styles, and 
   
     * In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*)
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public void Run(int counter)
         {
@@ -105,7 +105,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         //TODO ...
         //TO DO ...
@@ -120,7 +120,7 @@ The document contains data collected from various sources, language styles, and 
     * There should be no need to modify that extra piece of code and if it is, most likely will be left behind.
     * These block of code can slow down reviewers and exacerbates merge conflicts.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public int count; // Allowed comment
         private string name; // this is allowed too
@@ -134,7 +134,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         
-        <sup>❌</sup>
+        ✖
         ``` csharp
         public int count;    // Alligned
         private string name; // comments
@@ -1035,7 +1035,7 @@ The document contains data collected from various sources, language styles, and 
 
         ```
 
-        <sup>❌</sup>
+        <sup>✖</sup>
         ``` csharp
 
         ```
