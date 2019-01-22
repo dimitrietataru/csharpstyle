@@ -29,7 +29,7 @@ The document contains data collected from various sources, language styles, and 
 * [General](#general)
 * [Structure and layout](#structure-and-layout)
 * [Readability](#readability)
-* Spacing
+* [Spacing](#spacing)
 * Types and variables
 * Expressions
 * Statements
