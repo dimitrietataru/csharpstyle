@@ -1841,6 +1841,1058 @@ The document contains data collected from various sources, language styles, and 
         string firstName, lastName;
         ```
 
+  * ✔ Documentation lines must begin with a single space
+  
+    * Documentation header should begin with a single space.
+    * Header lines should begin with a single space after the three leading forward slashes.
+    
+        ✔
+        ``` csharp
+        /// <summary>
+        /// Insert summary text here.
+        /// </summary>
+        /// <param name="x">Parameter 'x'.</param>
+        /// <param name="y">Parameter 'y'.</param>
+        private void Method(int x, int y)
+        {
+        }
+        ```
+
+        ✖
+        ``` csharp
+        ///<summary>
+        ///Insert summary text here.
+        ///</summary>
+        /// <param name="x">Parameter 'x'.</param>
+        /// <param name="y">Parameter 'y'.</param>
+        private void Method(int x, int y)
+        {
+        }
+        ```
+
+  * ✔ Single line comments must begin with a single space
+  
+    * Single line comments should not begin with mutiple spaces, or no space.
+    
+        ✔
+        ``` csharp
+        // Single-line comment
+        ```
+        ``` csharp
+        // Another comment
+        ```
+
+        ✖
+        ``` csharp
+        //Single-line comment
+        ```
+        ``` csharp
+        //  Another comment
+        ```
+
+  * ✔ Space attributes correctly
+  
+    * Opening attribute brackets should never be followed by whitespace.
+    * Closing attribute brackets should never be preceded by whitespace.
+    
+        ✔
+        ``` csharp
+        [Attribute1]
+        [Attribute2(100)]
+        [Attribute3("string")]
+        public void Method()
+        {
+        }
+        ```
+        ``` csharp
+        [Attribute1, Attribute2(100), Attribute3("string")]
+        public void Method()
+        {
+        }
+        ```
+
+        ✖
+        ``` csharp
+        [ Attribute1]
+        [ Attribute2(100)]
+        [ Attribute3("string")]
+        public void Method()
+        {
+        }
+        ```
+        ``` csharp
+        [Attribute1 ]
+        [Attribute2(100) ]
+        [Attribute3("string") ]
+        public void Method()
+        {
+        }
+        ```
+        ``` csharp
+        [ Attribute1 ]
+        [ Attribute2(100) ]
+        [ Attribute3("string") ]
+        public void Method()
+        {
+        }
+        ```
+        ``` csharp
+        [ Attribute1, Attribute2(100), Attribute3("string") ]
+        public void Method()
+        {
+        }
+        ```
+
+  * ✔ Space colon symbol correctly
+  
+    * Colon symbol ":" 
+    * Colon should never be the only element on a single line.
+    * Colon appearing within an element declaration must always have a single space on either side, uless it's the first character on the line.
+    * Colon used in a conditional statement must always contain a single space on either side, unless it's the first character on the line.
+    * Colon appearing at the end of a case statement should never be preceded by a whitespace.
+    * Colon appearing at the end of a case statement should always be the followed by a whitespace, or be last character on the line.
+    
+        ✔
+        ``` csharp
+        public class B<T> : A
+            where T : class
+        {
+            public B(int x) : base(x)
+            {
+            }
+        }
+        ```
+        ``` csharp
+        public class B<T> : A
+            where T : class
+        {
+            public B(int x)
+                : base(x)
+            {
+            }
+        }
+        ```
+        ``` csharp
+        int x = isTrue ? 10 : 100;
+        ```
+        ``` csharp
+        int x = isTrue
+            ? 10
+            : 100;
+        ```
+        ``` csharp
+        switch (x)
+        {
+            case 1:
+                y = 1;
+                break;
+            case 2:
+                break;
+            default:
+                y = 100;
+                break;
+        }
+        ```
+
+        ✖
+        ``` csharp
+        public class B<T>:A
+            where T:class
+        {
+            public B(int x):base(x)
+            {
+            }
+        }
+        ```
+        ``` csharp
+        public class B<T>:A
+            where T:class
+        {
+            public B(int x)
+                :base(x)
+            {
+            }
+        }
+        ```
+        ``` csharp
+        int x = isTrue?10:100;
+        ```
+        ``` csharp
+        int x = isTrue
+            ?10
+            :100;
+        ```
+        ``` csharp
+        int x = isTrue
+            ?
+            10
+            :
+            100;
+        ```
+        ``` csharp
+        int x = isTrue
+            ? 10 : 100;
+        ```
+        ``` csharp
+        switch (x)
+        {
+            case 1 :
+                y = 1;
+                break;
+            case 2: break; // Accepted, but should be avoided. Be consistent!
+            default :
+                y = 100;
+                break;
+        }
+        ```
+
+  * ✔ Space commas correctly
+  
+    * Commas should always be followed by a single space, unless it is the last character on the line.
+    * Commas should never be preceded by any whitespace.
+    
+        ✔
+        ``` csharp
+        public void Method(int a, int b, int c)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        public void Method(
+            int a,
+            int b,
+            int c)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        Method(a, b, c);
+        ```
+
+        ✖
+        ``` csharp
+        public void Method(int a,int b,int c)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        public void Method(int a ,int b ,int c)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        public void Method(int a , int b , int c)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        public void Method(
+            int a
+            ,int b
+            ,int c)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        public void Method(
+            int a
+            , int b
+            , int c)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        Method(a,b,c);
+        ```
+
+  * ✔ Space curly brackets correctly
+  
+    * Opening curly brackets should always be preceded by a single space, unless it's part of a method call.
+    * Opening curly brackets should always be followed by a single space, unless it's the last character on the line.
+    * Closing curly brackets should always be followed by a single space, unless it's the last character on the line, or it's followed by closing parenthesis, comma, or semicolon.
+    * Closing curly brackets should always be preceded by a single space, unless it's the first character on the line.
+    
+        ✔
+        ``` csharp
+        public void Method()
+        {
+        }
+        ```
+        ``` csharp
+        var x = Method({ 1, 2 }, 1);
+        ```
+        ``` csharp
+        var x = Method({ 1, 2 } + { 3, 4 }, 1);
+        ```
+        ``` csharp
+        int[] ints = new[] { 1, 2, 3 };
+        ```
+        ``` csharp
+        var anon = new
+        {
+            Id = 1,
+            Name = "custom"
+        };
+        ```
+        ``` csharp
+        var anon = new { Id = 1, Name = "custom" };
+        ```
+
+        ✖
+        ``` csharp
+        public void Method() { }
+        ```
+        ``` csharp
+        public void Method() {
+        }
+        ```
+        ``` csharp
+        public void Method()
+        {}
+        ```
+        ``` csharp
+        public void Method()
+        { }
+        ```
+        ``` csharp
+        var x = Method( { 1, 2 }, 1);
+        ```
+        ``` csharp
+        var x = Method({ 1, 2 } , 1);
+        ```
+        ``` csharp
+        var x = Method( { 1, 2 } + { 3, 4 } , 1);
+        ```
+        ``` csharp
+        int[] ints = new[] {1, 2, 3};
+        ```
+        ``` csharp
+        int[] ints = new[]{ 1, 2, 3 };
+        ```
+        ``` csharp
+        int[] ints = new[] { 1, 2, 3 } ;
+        ```
+        ``` csharp
+        var anon = new
+        {
+            Id = 1, Name = "custom"
+        };
+        ```
+        ``` csharp
+        var anon = new
+        { Id = 1, Name = "custom" };
+        ```
+        ``` csharp
+        var anon = new{ Id = 1, Name = "custom" };
+        ```
+        ``` csharp
+        var anon = new{Id = 1, Name = "custom"};
+        ```
+
+  * ✔ Space increment and decrement symbols correctly
+  
+    * The should be no whitespace between the increment or decrement symbol and the item is being incremented or decremented.
+    
+        ✔
+        ``` csharp
+        int a = ++b;
+        ```
+        ``` csharp
+        int a = b++;
+        ```
+        ``` csharp
+        int a = --b;
+        ```
+        ``` csharp
+        int a = b--;
+        ```
+
+        ✖
+        ``` csharp
+        int a = ++ b;
+        ```
+        ``` csharp
+        int a = b ++;
+        ```
+        ``` csharp
+        int a = -- b;
+        ```
+        ``` csharp
+        int a = b --;
+        ```
+
+  * ✔ Space keywords correctly
+
+    ✔
+    ``` csharp
+    if (...)
+    {
+    }
+    ```
+    ``` csharp
+    while (...)
+    {
+    }
+    ```
+    ``` csharp
+    for (...)
+    {
+    }
+    ```
+    ``` csharp
+    switch (...)
+    {
+    }
+    ```
+    ``` csharp
+    return 1;
+    ```
+    ``` csharp
+    throw new Exception("message");
+    ```
+    ``` csharp
+    var strings = new string[] { "a", "b" };
+    ```
+    ``` csharp
+    var integers = new[] { 1, 2, 3 };
+    ```
+
+    ✖
+    ``` csharp
+    if(...)
+    {
+    }
+    ```
+    ``` csharp
+    while(...)
+    {
+    }
+    ```
+    ``` csharp
+    for(...)
+    {
+    }
+    ```
+    ``` csharp
+    switch(...)
+    {
+    }
+    ```
+    ``` csharp
+    return1;
+    ```
+    ``` csharp
+    var integers = new [] { 1, 2, 3 };
+    ```
+    
+    | Keyword     | Followed by space |
+    |:------------|:------------------|
+    | catch       | Yes               |
+    | fixed       | Yes               |
+    | for         | Yes               |
+    | foreach     | Yes               |
+    | from        | Yes               |
+    | group       | Yes               |
+    | if          | Yes               |
+    | in          | Yes               |
+    | into        | Yes               |
+    | join        | Yes               |
+    | let         | Yes               |
+    | lock        | Yes               |
+    | orderby     | Yes               |
+    | return      | Yes               |
+    | select      | Yes               |
+    | stackalloc  | Yes               |
+    | switch      | Yes               |
+    | throw       | Yes               |
+    | using       | Yes               |
+    | where       | Yes               |
+    | while       | Yes               |
+    | yield       | Yes               |
+    | checked     | No                |
+    | default     | No                |
+    | sizeof      | No                |
+    | typeof      | No                |
+    | unchecked   | No                |
+    | new (ctor)  | Yes               |
+    | new (array) | No                |
+    
+  * ✔ Space member access symbol correctly
+  
+    * Member access symbol should never have whitespace on either side, unless it's the first character on the line.
+    
+        ✔
+        ``` csharp
+        int x = this.count;
+        ```
+        ``` csharp
+        var item1 = this.tuplePair.Item1;
+        ```
+        ``` csharp
+        var ids = collection.Select(item => item.Id).ToList();
+        ```
+        ``` csharp
+        var ids = collection
+            .Select(item => item.Id)
+            .ToList();
+        ```
+
+        ✖
+        ``` csharp
+        int x = this. count;
+        ```
+        ``` csharp
+        int x = this .count;
+        ```
+        ``` csharp
+        int x = this . count;
+        ```
+        ``` csharp
+        var item1 = this .tuplePair .Item1;
+        ```
+        ``` csharp
+        var ids = collection. Select(item => item.Id). ToList();
+        ```
+        ``` csharp
+        var ids = collection.
+            Select(item => item.Id).
+            ToList();
+        ```
+
+  * ✔ Space negative sign correctly
+  
+    * Negative sign should always be preceded by a single space.
+    * Negative sign should never be the last character on a line.
+     * Exceptions:
+       * it's the first character after an opening square bracket
+       * it's the first character after an opening parenthesis
+       * it's the first character on the line
+       
+            ✔
+            ``` csharp
+            int x = -10;
+            ```
+            ``` csharp
+            x -= 10;
+            ```
+            ``` csharp
+            int x = -(10 + 3);
+            ```
+            ``` csharp
+            int x = dictionary[-10];
+            ```
+            ``` csharp
+            int x = Method(-10, -3);
+            ```
+            ``` csharp
+            int x = Method(
+                -10, -3);
+            ```
+            ``` csharp
+            int x = Method(
+                -10,
+                -3);
+            ```
+            ``` csharp
+            int x = Method(
+                (100 + 90)
+                - 999,
+                -3);
+            ```
+            
+            ✖
+            ``` csharp
+            int x =-10;
+            ```
+            ``` csharp
+            x-= 10;
+            ```
+            ``` csharp
+            int x =-(10 + 3);
+            ```
+            ``` csharp
+            int x = dictionary[ -10 ];
+            ```
+            ``` csharp
+            int x = Method( -10, -3);
+            ```
+            ``` csharp
+            int x = Method(
+                100,
+                 -10,
+                 -3);
+            ```
+            ``` csharp
+            int x = Method(
+                (100 + 90) -
+                999,
+                -3);
+            ```
+
+  * ✔ Space operator keyword correctly
+  
+    * The *operator* keyword should always be preceded and followed by a single space.
+    
+        ✔
+        ``` csharp
+        public Custom operator +(Custom c1, Custom c2)
+        {
+            // ...
+        }
+        ```
+
+        ✖
+        ``` csharp
+        public Custom operator+(Custom c1, Custom c2)
+        {
+            // ...
+        }
+        ```
+
+  * ✔ Space parenthesis correctly
+  
+    * Opening parenthesis should not be preceded by a whitespace, unless it is the first character on a line.
+    * Opening parenthesis is allowed to be preceded by whitespace when it's preceded by certain C# keywords (if, while, for etc..).
+    * Opening parenthesis is allowed to be preceded by whitespace when it follows an operator symbol within an expression.
+    * Closing parenthesis should not be followed by a whitespace.
+    * Closing parenthesis is not allowed to be followed by whitespace when it comes at the end of a cast.
+    * Closing parenthesis is allowed to be followed by whitespace when it's followed by certain operator symbols.
+
+        ✔
+        ``` csharp
+        public void Method()
+        {
+        }
+        ```
+        ``` csharp
+        int x = c * (a + b);
+        ```
+        ``` csharp
+        int x = (a + b) * c;
+        ```
+        ``` csharp
+        int x = (int)((a + b) / c);
+        ```
+        ``` csharp
+        if (a > b)
+        {
+        }
+        ```
+        ``` csharp
+        var x = Method(Math.Max(1, 2), Math.Sqrt(144));
+        ```
+        ``` csharp
+        var result = longMethodCall(
+            (200 - 144) * 3
+            + (999 / 18),
+            1,
+            2);
+        ```
+
+        ✖
+        ``` csharp
+        public void Method ()
+        {
+        }
+        ```
+        ``` csharp
+        int x = c*(a + b);
+        ```
+        ``` csharp
+        int x = (a + b)*c;
+        ```
+        ``` csharp
+        int x = (int) ((a + b) / c);
+        ```
+        ``` csharp
+        if(a > b)
+        {
+        }
+        ```
+        ``` csharp
+        var x = Method(Math.Max(1, 2) , Math.Sqrt(144) );
+        ```
+
+  * ✔ Space positive sign correctly
+  
+    * Positive sign should always be preceded by a single space.
+    * Positive sign should never be the last character on a line.
+      * Exceptions when:
+        * it's the first character after an opening square bracket
+        * it's the first character after an opening parenthesis
+        * it's the first character on the line
+        
+            ✔
+            ``` csharp
+            x += 10;
+            ```
+            ``` csharp
+            int x = dictionary[+10];
+            ```
+            ``` csharp
+            int x = Method(
+                (900 / 90)
+                + 100,
+                -3);
+            ```
+            ``` csharp
+            string s = "First Name" + "Middle Name" + "LastName";
+            ```
+            ``` csharp
+            string s = "First Name"
+                + "Middle Name"
+                + "LastName";
+            ```
+
+            ✖
+            ``` csharp
+            x+= 10;
+            ```
+            ``` csharp
+            int x = dictionary[ +10 ];
+            ```
+            ``` csharp
+            int x = Method(
+                (900 / 90) +
+                100,
+                -3);
+            ```
+            ``` csharp
+            string s = "First Name"+"Middle Name"+"LastName";
+            ```
+            ``` csharp
+            string s = "First Name" +
+                "Middle Name" +
+                "LastName";
+            ```
+
+  * ✔ Space semicolons correctly
+  
+    * Semicolons should always be followed by a space, unless it is the last character on the line.
+    * Semicolons should never be preceded by any whitespace.
+    
+        ✔
+        ``` csharp
+        for (int i = 0; i < 10; ++i)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        string s = "semicolons";
+        ```
+        ``` csharp
+        public int Counter { get; set; } = 100;
+        ```
+
+        ✖
+        ``` csharp
+        for (int i = 0;i < 10;++i)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        for (int i = 0 ; i < 10 ; ++i)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        string s = "semicolons" ;
+        ```
+        ``` csharp
+        public int Counter { get; set; } = 100 ;
+        ```
+        ``` csharp
+        public int Counter { get ; set ; } = 100;
+        ```
+
+  * ✔ Space square brackets correctly
+  
+    * Opening square brackets should never be followed by a whitespace, unless it's the last character on the line.
+    * Opening square brackets should never be preceded by a whitespace, unless it's the first character on the line.
+    * Closing square brackets should never be preceded by a whitespace, unless it's the first character on the line.
+    * Closing square brackets should never pe followed by a whitespace, except when it's followed by certain operators, or it is part of an array initialization.
+    
+        ✔
+        ``` csharp
+        int x = array[10];
+        ```
+        ``` csharp
+        int x = array[10] + 1;
+        ```
+        ``` csharp
+        int x = matrix[10, 10];
+        ```
+        ``` csharp
+        int[] ints = new int[2];
+        ```
+        ``` csharp
+        int[,] matrix = new int[2, 2];
+        ```
+        ``` csharp
+        int[] ints = new int[] { 1, 2, 3 };
+        ```
+        ``` csharp
+        int[] ints = { 1, 2, 3 };
+        ```
+        ``` csharp
+        int[] ints = new[] { 1, 2, 3 };
+        ```
+
+        ✖
+        ``` csharp
+        int x = array [10];
+        ```
+        ``` csharp
+        int x = array[10]+1;
+        ```
+        ``` csharp
+        int x = matrix [10,10];
+        ```
+        ``` csharp
+        int [] ints = new int[2];
+        ```
+        ``` csharp
+        int[,] matrix = new int [2, 2];
+        ```
+        ``` csharp
+        int[] ints = new int [] { 1, 2, 3 };
+        ```
+        ``` csharp
+        int[] ints = new [] { 1, 2, 3 };
+        ```
+
+  * ✔ Space symbols correctly
+  
+    * Symbols: colons, operators (arithmetic, assignment, conditional, logical, relational, shift, lambda)
+    * Symbols should always be surrounded by a single space on either side.
+    * Unary operators should be preceded by a single space, but must never be followed by any space.
+    * Exception: Unary operators preceded or followed by a parenthesis or bracket, when there should be no spaces.
+    
+        ✔
+        ``` csharp
+        int x = 10 + 20;
+        ```
+        ``` csharp
+        bool isTrue = (x == y);
+        bool isTrue = (x > y);
+        bool isTrue = (x < y);
+        bool isTrue = (x <= y);
+        bool isTrue = (x >= y);
+        bool isTrue = (x != y);
+        ```
+        ``` csharp
+        int shift = 1 << 8;
+        ```
+        ``` csharp
+        Func<int, int, int> sum = (x, y) => x + y;
+        ```
+        ``` csharp
+        var filtered = collection
+            .Where(item => item.Value >= 100)
+            .ToList();
+        ```
+        ``` csharp
+        if (!value)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        if (!(condition1 && condition2))
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        bool x = !condition;
+        ```
+
+        ✖
+        ``` csharp
+        int x = 10+20;
+        ```
+        ``` csharp
+        bool isTrue=(x == y);
+        bool isTrue = (x>y);
+        bool isTrue = (x< y);
+        bool isTrue = (x <=y);
+        bool isTrue =(x >= y);
+        bool isTrue= (x != y);
+        ```
+        ``` csharp
+        int shift = 1<<8;
+        ```
+        ``` csharp
+        Func<int, int, int> sum = (x, y)=>x + y;
+        ```
+        ``` csharp
+        var filtered = collection
+            .Where(item=>item.Value>=100)
+            .ToList();
+        ```
+        ``` csharp
+        if ( !value)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        if ( ! value)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        if (! (condition1 && condition2))
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        bool x=!condition;
+        bool x =! condition;
+        ```
+
+  * ✔ Use four forward slashes to indicate commented-out code
+  
+    * To differentiate comments from commented-out code, use four forward slashes.
+    
+        ✔
+        ``` csharp
+        public int Sum(int x, int y)
+        {
+            ////int result = x + y;
+            ////return result;
+            
+            // Return sum
+            return x + y;
+        }
+        ```
+
+        ✖
+        ``` csharp
+        public int Sum(int x, int y)
+        {
+            //int result = x + y;
+            //return result;
+            
+            // Return sum
+            return x + y;
+        }
+        ```
+        ``` csharp
+        public int Sum(int x, int y)
+        {
+            // int result = x + y;
+            // return result;
+            
+            // Return sum
+            return x + y;
+        }
+        ```
+
+  * ✖ Do not precede preprocessor keywords by space
+  
+    * Preprocessor directives should not be preceded by space(s).
+    
+        ✔
+        ``` csharp
+        #if debug
+        ```
+
+        ✖
+        ``` csharp
+        # if debug
+        ```
+        ``` csharp
+        #  if debug
+        ```
+
+  * ✖ Do not space nullable type symbols
+  
+    * Nullable type symbol should never be preceded by whitespace, unless the symbol is the first on the line.
+    
+        ✔
+        ``` csharp
+        DateTime? date;
+        ```
+        ``` csharp
+        DateTime? date1 = new DateTime(2000, 1, 1);
+        DateTime? date2 = new DateTime(3000, 1, 1);
+        var range = new { date1, date2 };
+
+        var startYear = range.date1?.Year ?? 2000;
+        ```
+        ``` csharp
+        DateTime? date1 = new DateTime(2000, 1, 1);
+        DateTime? date2 = new DateTime(3000, 1, 1);
+        var range = new { date1, date2 };
+
+        var startYear = range
+            .date1
+            ?.Year ?? 2000;
+        ```
+
+        ✖
+        ``` csharp
+        DateTime ? date;
+        ```
+        ``` csharp
+        DateTime? date1 = new DateTime(2000, 1, 1);
+        DateTime? date2 = new DateTime(3000, 1, 1);
+        var range = new { date1, date2 };
+
+        var startYear = range.date1 ? .Year ?? 2000;
+        var endYear = range.date2 ?. Year ?? 2000;
+        ```
+        ``` csharp
+        DateTime? date1 = new DateTime(2000, 1, 1);
+        DateTime? date2 = new DateTime(3000, 1, 1);
+        var range = new { date1, date2 };
+
+        var startYear = range
+            .date1?
+            .Year ?? 2000;
+        ```
+
+  * ✖ Do not use tabs
+  
+    * The length of the tab character can vary depending upn the editor used to view the code.
+    * This can cause spacing and idexing of the code to vary from the developer's intent and can make the code difficult to read and understand.
+    * EACH LEVEL OF INDENTATION SHOULD CONSIST OF FOUR SPACES.
+    
+        ✔
+        ``` csharp
+        var x = Method(
+            100,
+            200,
+            300);
+        ```
+
+        ✖
+        ``` csharp
+        var x = Method(
+                       100,
+                       200,
+                       300);
+        ```
+        ``` csharp
+        var x = Method(
+                100,
+                200,
+                300);
+        ```
+
   * ✔ GOOD
   * ✖ BAD
   
