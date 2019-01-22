@@ -71,8 +71,8 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-  * ✔ Use PascalCase and camelCase correctly
-  
+  * ✔ Use PascalCase and camelCase
+
     | Object Name      | Notation   | Length | Char Mask  |
     |:-----------------|:-----------|:-------|:-----------|
     | Class name       | PascalCase |    128 | [A-z][0-9] |
@@ -1004,24 +1004,24 @@ The document contains data collected from various sources, language styles, and 
     * Exception: Accessors within properties, events, or indexers.
     
         <sup>✔</sup>
-            ``` csharp
-            public int Count { get; set; }
-            ```
-            ``` csharp
-            public object Method()
-            {
-                return null;
-            }
-            ```
+        ``` csharp
+        public int Count { get; set; }
+        ```
+        ``` csharp
+        public object Method()
+        {
+            return null;
+        }
+        ```
 
         <sup>❌</sup>
-            ``` csharp
-            public object Method() { return null; }
-            ```
-            ``` csharp
-            public object Method()
-                { return null; }
-            ```
+        ``` csharp
+        public object Method() { return null; }
+        ```
+        ``` csharp
+        public object Method()
+            { return null; }
+        ```
 
   // Template        
   * ✔ GOOD
