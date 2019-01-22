@@ -207,7 +207,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        <sup>✖</sup>
         ``` csharp
         try
         {
@@ -246,7 +246,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        <sup>✖</sup>
         ``` csharp
         public bool Enabled
         {
@@ -267,7 +267,7 @@ The document contains data collected from various sources, language styles, and 
         namespace Product.Layer.Module.Group;
         ```
 
-        <sup>❌</sup>
+        <sup>✖</sup>
         ``` csharp
         namespace Company.Module.SubModule;
         namespace Product.Component;
