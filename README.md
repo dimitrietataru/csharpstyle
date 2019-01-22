@@ -1841,6 +1841,8 @@ The document contains data collected from various sources, language styles, and 
         string firstName, lastName;
         ```
 
+## Spacing
+
   * ✔ Documentation lines must begin with a single space
   
     * Documentation header should begin with a single space.
