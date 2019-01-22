@@ -45,7 +45,7 @@ The document contains data collected from various sources, language styles, and 
   
     * **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
     
-        <p style="text-align: center;"> ✔ </p>
+        ✔
         ``` csharp
         namespace Company.Product
         {
@@ -88,9 +88,9 @@ The document contains data collected from various sources, language styles, and 
 
   * ✔ Use TODO comments to mark work in progress, missing features or functionality
   
-    * In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*)
+    * In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*).
     
-        <p style="text-align: center;"> ✔ 
+        ✔ 
         ``` csharp
         public void Run(int counter)
         {
@@ -104,15 +104,13 @@ The document contains data collected from various sources, language styles, and 
             // TODO: Log
         }
         ```
-        </p>
-
-        <p style="text-align: center;"> ✖ 
+        
+        ✖ 
         ``` csharp
         //TODO ...
         //TO DO ...
         // TO DO : ...
         ```
-        </p>
         
   * ✖ NEVER align code
   
@@ -188,7 +186,7 @@ The document contains data collected from various sources, language styles, and 
     * Some types of C# statements can only be used when chained to the bottom of another statement.
     * Remove any blank lines between chained statements.
 
-        <sup>✔</sup>
+        ✔
         ``` csharp
         try
         {   
@@ -209,7 +207,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>✖</sup>
+        ✖
         ``` csharp
         try
         {
@@ -237,7 +235,7 @@ The document contains data collected from various sources, language styles, and 
   
     * Ensure a blank line follows closing curly brackets.  
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public bool Enabled
         {
@@ -248,7 +246,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>✖</sup>
+        ✖
         ``` csharp
         public bool Enabled
         {
@@ -262,25 +260,18 @@ The document contains data collected from various sources, language styles, and 
   
     * Use PascalCasing.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         namespace Company.Product.Module.SubModule;
         namespace Product.Module.Component;
         namespace Product.Layer.Module.Group;
-        ```
-
-        <sup>✖</sup>
-        ``` csharp
-        namespace Company.Module.SubModule;
-        namespace Product.Component;
-        namespace Module.Group;
         ```
         
   * ✔ Precede documentation elements with a blank line
   
     * Documentation elements should always be preceded by a blank line.  
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public bool IsValid { get; set; }
 
@@ -293,7 +284,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         public bool IsValid { get; set; }
         /// <summary>
@@ -309,7 +300,7 @@ The document contains data collected from various sources, language styles, and 
   
     * Add a blank line between adjacent elements.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public Constructor()
         {
@@ -327,7 +318,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         public Constructor()
         {
@@ -349,7 +340,7 @@ The document contains data collected from various sources, language styles, and 
     * Order usings alphabetically. First non-static, then static.
     * Do not separate usings, or static/non-static blocks by blank line(s).
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         using System;
         using System.Linq;
@@ -357,7 +348,7 @@ The document contains data collected from various sources, language styles, and 
         using static System.Math;
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         using System;
         using static System.Linq.Enumerable;
@@ -405,7 +396,7 @@ The document contains data collected from various sources, language styles, and 
       * non-static
     * Then, order by readonly, then non-readonly:
       * readonly
-      * non-readonly
+      * non-readonly  
       
         <sup>✔</sup>
         ``` csharp
@@ -453,7 +444,7 @@ The document contains data collected from various sources, language styles, and 
     * Write each accessor on a single line if the accessors are short.
     * Expand both accessors across multiple lines if the accessors are longer.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public bool Enabled { get; set; }
         ```
@@ -486,7 +477,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         public bool Enabled
         {
@@ -520,7 +511,7 @@ The document contains data collected from various sources, language styles, and 
     * Single line comments should always be preceded by a blank line.
     * Single line comments should never be followed by (a) blank line(s).
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public bool Enabled
         {
@@ -532,7 +523,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         public bool Enabled
         {
@@ -586,7 +577,7 @@ The document contains data collected from various sources, language styles, and 
     * Do not write multiple statements on the same line.
     * Do not write statements and curly brackets on the same line.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public object Method()
         {
@@ -599,7 +590,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         public object Method()
         {
@@ -630,7 +621,7 @@ The document contains data collected from various sources, language styles, and 
   
     * Documentation elements should always be followed by blocks of code.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         /// <summary>
         /// Gets a value indicating whether the control is enabled.
@@ -641,7 +632,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         /// <summary>
         /// Gets a value indicating whether the control is enabled.
@@ -658,7 +649,7 @@ The document contains data collected from various sources, language styles, and 
     * Closing curly brackets should always be preceded by statements, not blank line(s).
     * Closing curly brackets should never be followed by blank line(s).
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public bool Enabled
         {
@@ -669,7 +660,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         public bool Enabled
         {
@@ -707,7 +698,7 @@ The document contains data collected from various sources, language styles, and 
     * Opening curly brackets should always be followed by statements, not blank line(s).
     * Opening curly brackets should never be preceded by blank line(s).
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public bool Enabled
         {
@@ -718,7 +709,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         public bool Enabled
         {
@@ -756,7 +747,7 @@ The document contains data collected from various sources, language styles, and 
     * Files should not start with one, or more blank lines.
     * Files should not end with multiple blank lines.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         using System
 
@@ -769,7 +760,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
 
         using System
@@ -789,13 +780,13 @@ The document contains data collected from various sources, language styles, and 
   
     * Always write using statements on a single line.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         using System.IO;
         using System.Security.Cryptography;
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         using System.IO;
         using System
@@ -807,7 +798,7 @@ The document contains data collected from various sources, language styles, and 
     * Always wrap the body of the statement in curly brackets.
     * Although this is legal in C#, the curly brackets are required to be present. They increase the readability and maintainability of the code.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         if (true)
         {
@@ -822,7 +813,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         if (true) return this.value;
         ```
@@ -841,7 +832,7 @@ The document contains data collected from various sources, language styles, and 
     * Ensure that both opening and closing curly brackets are placed on their own (vertical) line.
     * Curly brackets should not share the line with any other code, other than comments.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public object Method()
         {
@@ -852,7 +843,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         public object Method()
         {
@@ -880,7 +871,7 @@ The document contains data collected from various sources, language styles, and 
     * Ensure that each file contains only one namespace.
     * To increase long-term mentainability of the code-base, each file should contain at most one namespace.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         // ClassOne.cs
         namespace Project.One
@@ -900,7 +891,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         // ClassOneAndTwo.cs
         namespace Project.One
@@ -924,7 +915,7 @@ The document contains data collected from various sources, language styles, and 
     * This results in a consistend visual pattern and can improve recognition of unfamiliar code.
     * Use a single blank line to separate logic blocks in methods, or file sections.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         using System;
         using System.Threading.Tasks;
@@ -960,7 +951,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
 
         using System;
@@ -1005,7 +996,7 @@ The document contains data collected from various sources, language styles, and 
     * Write elements so they expand across multiple lines.
     * Exception: Accessors within properties, events, or indexers.
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public int Count { get; set; }
         ```
@@ -1016,7 +1007,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        <sup>❌</sup>
+        ✖
         ``` csharp
         public object Method() { return null; }
         ```
@@ -1032,12 +1023,12 @@ The document contains data collected from various sources, language styles, and 
     * text
     * text
     
-        <sup>✔</sup>
+        ✔
         ``` csharp
 
         ```
 
-        <sup>✖</sup>
+        ✖
         ``` csharp
 
         ```
