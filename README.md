@@ -289,35 +289,29 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public Constructor()
+        Constructor()
         {
-            // ...
         }
 
-        public void Method1()
+        void Method1()
         {
-            // ...
         }
 
-        public void Method2()
+        void Method2()
         {
-            // ...
         }
         ```
 
         ✖
         ``` csharp
-        public Constructor()
+        Constructor()
         {
-            // ...
         }
-        public void Method1()
+        void Method1()
         {
-            // ...
         }
-        public void Method2()
+        void Method2()
         {
-            // ...
         }
         ```
         
