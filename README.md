@@ -260,7 +260,6 @@ The document contains data collected from various sources, language styles, and 
   
     * Use PascalCasing.
     
-        ✔
         ``` csharp
         namespace Company.Product.Module.SubModule;
         namespace Product.Module.Component;
