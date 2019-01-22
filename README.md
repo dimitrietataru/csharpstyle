@@ -28,7 +28,7 @@ The document contains data collected from various sources, language styles, and 
 
 * [General](#general)
 * [Structure and layout](#structure-and-layout)
-* Readability
+* [Readability](#readability)
 * Spacing
 * Types and variables
 * Expressions
@@ -1015,7 +1015,832 @@ The document contains data collected from various sources, language styles, and 
             { return null; }
         ```
 
-  // Template        
+## Readability
+
+  * ✔ Close parenthesis on line with last parameter
+  
+    * The closing parenthesis in a call to a method must be placed on same line as the last parameter.
+    * The closing parenthesis in a call to an indexer must be placed on same line as the last parameter.
+    * The closing parenthesis in a method declaration must be placed on same line as the last parameter.
+    * The closing parenthesis in an indexer declaration must be placed on same line as the last parameter.
+    
+        ✔
+        ``` csharp
+        public bool IsValid(int number)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        bool isValid = IsValid(100);
+        ```
+        ``` csharp
+        int x = entries[0];
+        ```
+        ``` csharp
+        public int this[int x]
+        {
+            get { return entries[x]; }
+        }
+        ```
+
+        ✖
+        ``` csharp
+        public bool IsValid(
+            int number
+            )
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        bool isValid = IsValid(
+            100
+            );
+        ```
+        ``` csharp
+        bool isValid = IsValid
+            (
+            100
+            );
+        ```
+        ``` csharp
+        int x = entries[
+            0
+            ];
+        ```
+        ``` csharp
+        public int this
+        [
+            int x
+        ]
+        {
+            get { return entries[x]; }
+        }
+        ```
+
+  * ✔ Ensure comma is on same line as previous parameter
+  
+    * Always write commas on same line as previous parameter.
+    
+        ✔
+        ``` csharp
+        string name = GetName(
+            first,
+            last);
+        ```
+        ``` csharp
+        public int this[
+            int x,
+            int y]
+        {
+            // ...
+        }
+        ```
+
+        ✖
+        ``` csharp
+        string name = GetName(
+            first
+            ,last);
+        ```
+        ``` csharp
+        public int this[
+            int x
+            ,int y]
+        {
+            // ...
+        }
+        ```
+
+  * ✔ Open parenthesis on declaration line
+  
+    * The opening parenthesis in a call to a method must be placed on same line as the method.
+    * The opening parenthesis in a call to an indexer must be placed on same line as the indexer name.
+    * The opening parenthesis in a method declaration must be placed on same line as the method.
+    * The opening parenthesis in an indexer declaration must be placed on same line as the indexer name.
+    
+        ✔
+        ``` csharp
+        public bool IsValid(int number)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        bool isValid = IsValid(100);
+        ```
+        ``` csharp
+        int x = entries[0];
+        ```
+        ``` csharp
+        public int this[int x]
+        {
+            get { return entries[x]; }
+        }
+        ```
+
+        ✖
+        ``` csharp
+        public bool IsValid
+            (int number)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        bool isValid = IsValid
+            (100);
+        ```
+        ``` csharp
+        int x = entries
+        [0];
+        ```
+        ``` csharp
+        public int this
+            [int x]
+        {
+            get { return entries[x]; }
+        }
+        ```
+
+  * ✔ Parameter list must follow declaration
+  
+    * The start of the parameter list of a method or indexer must begin on same line or next line of the opening parenthesis.
+    
+        ✔
+        ``` csharp
+        public int Sum(int a, int b, int c, int d)
+        {
+        }
+        ```
+        ``` csharp
+        public int Sum(
+            int a, int b, int c, int d)
+        {
+        }
+        ```
+        ``` csharp
+        public int Sum(
+            int a,
+            int b,
+            int c,
+            int d)
+        {
+        }
+        ```
+
+        ✖
+        ``` csharp
+        public int Sum(int a, int b, int c,
+
+            int d)
+        {
+        }
+        ```
+        ``` csharp
+        public int Sum(
+
+            int a, int b, int c, int d)
+        {
+        }
+        ```
+        ``` csharp
+        public int Sum(
+
+            int a,
+            int b,
+            int c,
+            int d)
+        {
+        }
+        ```
+
+  * ✔ Parameters must follow comma
+  
+    * Parameters must be written on same, or next line as previous parameter.
+    
+        ✔
+        ``` csharp
+        public int Sum(int a, int b, int c, int d)
+        {
+        }
+        ```
+        ``` csharp
+        public int Sum(
+            int a, int b, int c, int d)
+        {
+        }
+        ```
+        ``` csharp
+        public int Sum(
+            int a,
+            int b,
+            int c,
+            int d)
+        {
+        }
+        ```
+
+        ✖
+        ``` csharp
+        public int Sum(
+            int a,
+
+            int b,
+
+            int c,
+
+            int d)
+        {
+        }
+        ```
+
+  * ✔ Prefix local calls with this
+  
+    * Insert the this prefix before a call to a class member.
+    
+        ✔
+        ``` csharp
+        public class Student : Person
+        {
+            private string id;
+            private double grade;
+            
+            public Person(string id, double grade, int age)
+            {
+                base.age = age;
+                this.id = id;
+                this.grade = grade;
+            }
+        }
+        ```
+
+        ✖
+        ``` csharp
+        public class Student : Person
+        {
+            private string m_id;
+            private double _grade;
+            
+            public Person(string id, double grade, int age)
+            {
+                base.age = age;
+                m_id = id;
+                _grade = grade;
+            }
+        }
+        ```
+
+  * ✔ Query clause must follow previous clause
+  
+    * Query clause must begin on the same line as previous clause, or on the next line.
+    
+        ✔
+        ``` csharp
+        var x = select a in b from c;
+        ```
+        ``` csharp
+        var x =
+            select a
+            in b
+            from c;
+        ```
+
+        ✖
+        ``` csharp
+        var x = select a in b
+            from c;
+        ```
+        ``` csharp
+        var x = select a in b
+                from c;
+        ```
+        ``` csharp
+        var x = select a
+                in b
+                from c;
+        ```
+        ``` csharp
+        var x = select a in b
+                         from c;
+        ```
+
+  * ✔ Split parameter list appropriately
+  
+    * Parameters must be placed all on one line, or each on a separate line.
+    
+        ✔
+        ``` csharp
+        public string JoinName(string first, string middle, string last)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        public string JoinName(
+            string first, string middle, string last)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        public string JoinName(
+            string first,
+            string middle,
+            string last)
+        {
+            // ...
+        }
+        ```
+
+        ✖
+        ``` csharp
+        public string JoinName(string first,
+            string middle, string last)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        public string JoinName(string first, string middle,
+            string last)
+        {
+            // ...
+        }
+        ```
+        ``` csharp
+        public string JoinName(
+            string first,
+            string middle, string last)
+        {
+            // ...
+        }
+        ```
+
+  * ✔ Use built-in type alias
+
+    | Alias   | Type    | Fully qualified type |
+    |:--------|:--------|:---------------------|
+    | bool    | Boolean | System.Boolean       |
+    | byte    | Byte    | System.Byte          |
+    | char    | Char    | System.Char          |
+    | decimal | Decimal | System.Decimal       |
+    | double  | Double  | System.Double        |
+    | short   | Int16   | System.Int16         |
+    | int     | Int32   | System.Int32         |
+    | long    | Int64   | System.Int64         |
+    | object  | Object  | System.Object        |
+    | sbyte   | SByte   | System.SByte         |
+    | float   | Single  | System.Single        |
+    | string  | String  | System.String        |
+    | ushort  | UInt16  | System.UInt16        |
+    | uint    | UInt32  | System.UInt32        |
+    | ulong   | UInt64  | System.UInt64        |
+  
+    * Use built-in alias for types.
+    * Do not use basic types.
+    * Do not use full namespace for types.
+
+        ✔
+        ``` csharp
+        int index;
+        bool isTrue;
+        object obj;
+        string name;
+        ```
+
+        ✖
+        ``` csharp
+        Int32 index;
+        Boolean isTrue;
+        Object obj;
+        String name;
+        ```
+
+  * ✔ Use shorthand for nullable types
+  
+    * Define nullable types using the C# shorthand/predefined types.
+    
+        ✔
+        ``` csharp
+        int? count;
+        DateTime? date;
+        ```
+
+        ✖
+        ``` csharp
+        Nullable<int> count;
+        Nullable<DateTime> date;
+        ```
+
+  * ✔ Write all query clauses on separate lines, or all on one line
+  
+    * Query expressions should be placed on separate lines.
+    * Exception: Short queries can be written on same line.
+    
+        ✔
+        ``` csharp
+        var babies = persons.Where(person => person.DateOfBirth.Year.Equals(currentYear)).ToList();
+        ```
+        ``` csharp
+        var babies = persons
+            .Where(person => person.DateOfBirth.Year.Equals(currentYear))
+            .ToList();
+        ```
+        ``` csharp
+        var x = select a in b from c;
+        ```
+
+        ✖
+        ``` csharp
+        var babies = persons.Where(person => person.DateOfBirth.Year.Equals(currentYear))
+            .ToList();
+        ```
+        ``` csharp
+        var babies = persons.Where(person => person.DateOfBirth.Year.Equals(currentYear))
+                            .ToList();
+        ```
+        ``` csharp
+        var babies = persons
+            .Where(person => person.DateOfBirth.Year.Equals(currentYear)).ToList();
+        ```
+        ``` csharp
+        var x = select a
+            in b from c;
+        ```
+        ``` csharp
+        var x =
+            select
+            a
+            in
+            b
+            from
+            c;
+        ```
+
+  * ✔ Write query clauses on multiple lines when previous clause spans multiple lines
+  
+    * Write ALL clauses on new lines when one clause spans multiple lines.
+    
+        ✔
+        ``` csharp
+        var x =
+            select a
+            in b.GetCustomers(
+                2,
+                “x”)
+            from c;
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item =>
+                start >= item.StartDate
+                && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => start >= item.StartDate && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+
+        ✖
+        ``` csharp
+        var x =
+            select a
+            in b.GetCustomers(
+                2,
+                “x”) from c;
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item =>
+                start >= item.StartDate
+                && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name }).ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item =>
+                start >= item.StartDate && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name }).ToList();
+        ```
+
+  * ✔ Write query clauses on own line when spanning multiple lines
+  
+    * Query clauses must be written on own line when spanning multiple lines.
+    
+        ✔
+        ``` csharp
+        var x = collection
+            .Where(item => start >= item.StartDate && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item =>
+                start >= item.StartDate
+                && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => start >= item.StartDate && end <= item.EndDate)
+            .Select(item =>
+                new
+                {
+                    Id = item.Id,
+                    Name = item.Name
+                })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item =>
+                start >= item.StartDate
+                && end <= item.EndDate)
+            .Select(item =>
+                new
+                {
+                    Id = item.Id,
+                    Name = item.Name
+                })
+            .ToList();
+        ```
+        ``` csharp
+        var x =
+            select a
+            in b
+            from c.GetCustomers(
+                2, “x”);
+        ```
+
+        ✖
+        ``` csharp
+        var x = collection.Where(item =>
+                start >= item.StartDate
+                && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection.Select(item =>
+                new
+                {
+                    Id = item.Id,
+                    Name = item.Name
+                })
+            .ToList();
+        ```
+        ``` csharp
+        var x =
+            select a
+            in b from c.GetCustomers(
+                2, “x”);
+        ```
+
+  * ✖ Do not add empty comments
+  
+    * Comments should always contain text.
+    
+        ✔
+        ``` csharp
+        // This is a valid comment
+        int index = 100;
+        ```
+
+        ✖
+        ``` csharp
+        //
+        int index = 100;
+        ```
+
+  * ✖ Do not place regions within elements
+  
+    * Code should not contain region(s) within the body of a code statement.
+    
+        ✔
+        ``` csharp
+        #region
+        public void Method()
+        {
+            // ...
+        }
+        #endregion
+        ```
+
+        ✖
+        ``` csharp
+        public void Method()
+        {
+            #region
+            // ...
+            #endregion
+        }
+        ```
+
+  * ✖ Do not prefix calls with base unless local implementation exists
+  
+    * A call to a member from an inherited class must begin with base only when local class contains an override or implementation.
+    
+        ✔
+        ``` csharp
+        public virtual string JoinName(string first, string last)
+        {
+            return $“BASE: {first} {last}”;
+        }
+
+        public override string JoinName(string first, string last)
+        {
+            return $THIS: {first} {last}”;
+        }
+
+        string thisName = this.Join("", "");
+        string baseName = base.Join("", "");
+        ```
+
+        ✖
+        ``` csharp
+        public virtual string JoinName(string first, string last)
+        {
+            return $“BASE: {first} {last}”;
+        }
+
+        string name = base.Join("", "");
+        ```
+
+  * ✖ Do not span one parameter on multiple lines
+  
+    * Ensure parameters do not span multiple lines.
+    * This ensures method calls don't become excessively complicated, or unreadable.
+    
+      * Exceptions:
+        * THE FIRST parameter is allowed to span across multiple lines.
+        * ANONYMOUS METHOD passed as parameter is always allowed to span multiple lines.
+    
+            ✔
+            ``` csharp
+            return JoinStrings(
+                "a very long string.."
+                + "concatenated with another very long string...",
+                "second parameter goes here");
+            ```
+            ``` csharp
+            return JoinStrings(
+                "a",
+                "b" + "c");
+            ```
+
+            ✖
+            ``` csharp
+            return JoinStrings(
+                "a",
+                "b"
+                + "c");
+            ```
+
+  * ✖ Do not use empty strings
+  
+        ✔
+        ``` csharp
+        string s = string.Empty;
+        ```
+
+        ✖
+        ``` csharp
+        string s = "";
+        ```
+
+  * ✖ Do not use regions
+  
+    * "Try" to avoid using regions.
+    * In many editors, including Visual Studio, the region will appear collapsed by default, hiding the code within the region.
+    * It is generally a bad practice to hide code, as this can lead to bad decisions as the code is maintained over time.
+    
+        ✔
+        ```
+        (Ctrl + M, O) - Collapse to definitions
+        (Ctrl + M, L) - Toggle all outlining
+        ```
+
+  * ✖ Do not write embedded comments
+  
+    * Do not write comments between declaration of statement and opening curly brackets.
+    * Place comments above statements, or within statement body.
+    
+        ✔
+        ``` csharp
+        // Check equality
+        if (x == y)
+        {
+        }
+        ```
+
+        ✖
+        ``` csharp
+        if (x == y) // Check equality
+        {
+        }
+        ```
+        ``` csharp
+        if (x == y)
+        // Check equality
+        {
+        }
+        ```
+
+  * ✖ Do not write embedded regions
+  
+    * Do not write regions between declaration of statement and opening curly brackets.
+    * Place regions outside statement body.
+    
+        ✔
+        ``` csharp
+        #region Verify condition..
+        if (true)
+        {
+        }
+        #endregion
+        ```
+
+        ✖
+        ``` csharp
+        if (true)
+        #region
+        {
+        }
+        #endregion
+        ```
+        ``` csharp
+        if (true)
+        #region
+        {
+        #endregion
+        }
+
+        ```
+        ``` csharp
+        if (true)
+        {
+        #region
+        }
+        #endregion
+        ```
+
+  * ✖ Do not write empty statements
+  
+    * Remove unneeded semicolon(s) from code.
+    * Syntactically, this results in an extra, empty, statement in the code.
+    
+        ✔
+        ``` csharp
+        int counter = 10;
+        ```
+
+        ✖
+        ``` csharp
+        int counter = 10;;
+        ```
+        ``` csharp
+        int counter = 10; ;
+        ```
+
+  * ✖ Do not write multiple statements on one line
+  
+    * Each statement must begin on a new line.
+    
+        ✔
+        ``` csharp
+        public int Sum(int first, int second)
+        {
+            int result = first + second;
+            return result;
+        }
+        ```
+        ``` csharp
+        int a;
+        int b;
+        string firstName;
+        string lastName;
+        ```
+
+        ✖
+        ``` csharp
+        public int Sum(int first, int second)
+        {
+            int result = first + second; return result;
+        }
+        ```
+        ``` csharp
+        int a, b;
+        string firstName, lastName;
+        ```
+
   * ✔ GOOD
   * ✖ BAD
   
