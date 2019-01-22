@@ -2434,8 +2434,6 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         string s = "First Name" + "Middle Name" + "LastName";
-        ```
-        ``` csharp
         string s = "First Name"
             + "Middle Name"
             + "LastName";
@@ -2456,8 +2454,6 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         string s = "First Name"+"Middle Name"+"LastName";
-        ```
-        ``` csharp
         string s = "First Name" +
             "Middle Name" +
             "LastName";
@@ -2488,7 +2484,6 @@ The document contains data collected from various sources, language styles, and 
         string s = "semicolons" ;
         ```
         ``` csharp
-        public int Counter { get; set; } = 100 ;
         public int Counter { get ; set ; } = 100;
         ```
 
