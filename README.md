@@ -611,7 +611,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -622,7 +622,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -632,7 +632,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -642,7 +642,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -660,7 +660,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -671,7 +671,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -681,7 +681,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             
@@ -691,7 +691,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             
@@ -715,25 +715,24 @@ The document contains data collected from various sources, language styles, and 
         {
             public class Application
             {
-                // ...
             }
         }
         ```
 
         ✖
         ``` csharp
-
+        
+        
         using System
 
         namespace Program
         {
             public class Application
             {
-                // ...
             }
         }
-
-
+        
+        
         ```
         
   * ✖ Do not line-wrap using statements
@@ -742,13 +741,11 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        using System.IO;
         using System.Security.Cryptography;
         ```
 
         ✖
         ``` csharp
-        using System.IO;
         using System
             .Security.Cryptography;
         ```
@@ -794,7 +791,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public object Method()
+        void Method()
         {
             lock (this)
             {
@@ -805,7 +802,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public object Method()
+        void Method()
         {
             lock (this) {
                 return this.value;
@@ -813,14 +810,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public object Method()
-        {
-            lock (this) {
-                return this.value; }
-        }
-        ```
-        ``` csharp
-        public object Method()
+        void Method()
         {
             lock (this) { return this.value; }
         }
@@ -834,16 +824,15 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         // ClassOne.cs
-        namespace Project.One
+        namespace Project
         {
             public class ClassOne
             {
             }
         }
-        ```
-        ``` csharp
+        
         // ClassTwo.cs
-        namespace Project.Two
+        namespace Project
         {
             public class ClassTwo
             {
@@ -854,14 +843,14 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         // ClassOneAndTwo.cs
-        namespace Project.One
+        namespace Project
         {
             public class ClassOne
             {
             }
         }
 
-        namespace Project.Two
+        namespace Project
         {
             public class ClassTwo
             {
