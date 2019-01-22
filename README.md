@@ -47,7 +47,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        namespace Company.Product
+        namespace Application
         {
             public class Program
             {
