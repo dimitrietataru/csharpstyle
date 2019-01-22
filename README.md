@@ -45,7 +45,6 @@ The document contains data collected from various sources, language styles, and 
   
     * **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
     
-        ✔
         ``` csharp
         namespace Application
         {
@@ -86,17 +85,17 @@ The document contains data collected from various sources, language styles, and 
     | Delegate name    | PascalCase |    128 | [A-z]      |
     | Enum type name   | PascalCase |    128 | [A-z]      |
 
-  * ✔ Use TODO comments to mark work in progress, missing features or functionality
+  * ✔ Use *TODO** comments to mark work in progress, missing features or functionality
   
     * In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*).
     
         ✔ 
         ``` csharp
-        public void Run(int counter)
+        public void Method(int x)
         {
             // TODO: Validate input
             
-            for (int i = 0; i < counter; ++i)
+            for (int i = 0; i < x; ++i)
             {
                 // ...
             }
@@ -123,10 +122,10 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         public int count; // Allowed comment
-        private string name; // this is allowed too
+        private string name; // Allowed comment
         ```
         ``` csharp
-        // Allowed. You can't rename the IF keyword!
+        // Allowed!
         if (expression1
             && expression2
             && expression3)
@@ -158,13 +157,10 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         public void Method(int parameter1,
                            int parameter2,
-                           int parameter3,
-                           int parameter4);
-
-        public void AfterMethodRename(int parameter1,
+                           int parameter3;
+        public void MethodAfterRename(int parameter1,
                            int parameter2,
-                           int parameter3,
-                           int parameter4);
+                           int parameter3);
         ```
         ``` csharp
         var items = collection
@@ -268,32 +264,24 @@ The document contains data collected from various sources, language styles, and 
         
   * ✔ Precede documentation elements with a blank line
   
-    * Documentation elements should always be preceded by a blank line.  
-    
-        ✔
-        ``` csharp
-        public bool IsValid { get; set; }
+    ✔
+    ``` csharp
+    bool FirstProperty { get; set; }
 
-        /// <summary>
-        /// Gets a value indicating whether the control is enabled.
-        /// </summary>
-        public bool Enabled
-        {
-            get { return this.enabled; }
-        }
-        ```
+    /// <summary>
+    /// ...
+    /// </summary>
+    bool SecondProperty { get; set; }
+    ```
 
-        ✖
-        ``` csharp
-        public bool IsValid { get; set; }
-        /// <summary>
-        /// Gets a value indicating whether the control is enabled.
-        /// </summary>
-        public bool Enabled
-        {
-            get { return this.enabled; }
-        }
-        ```
+    ✖
+    ``` csharp
+    bool FirstProperty { get; set; }
+    /// <summary>
+    /// ...
+    /// </summary>
+    bool SecondProperty { get; set; }
+    ```
         
   * ✔ Separate elements by a blank line
   
