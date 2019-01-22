@@ -45,7 +45,7 @@ The document contains data collected from various sources, language styles, and 
   
     * **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
     
-        ✔
+        <p style="text-align: center;"> ✔ </p>
         ``` csharp
         namespace Company.Product
         {
@@ -90,7 +90,7 @@ The document contains data collected from various sources, language styles, and 
   
     * In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*)
     
-        ✔
+        <p style="text-align: center;"> ✔ </p>
         ``` csharp
         public void Run(int counter)
         {
@@ -105,7 +105,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-        ✖
+        <p style="text-align: center;"> ✖ </p>
         ``` csharp
         //TODO ...
         //TO DO ...
