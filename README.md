@@ -2041,16 +2041,12 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         void Method(int a, int b, int c)
-        {
-        }
         ```
         ``` csharp
         void Method(
             int a,
             int b,
             int c)
-        {
-        }
         ```
         ``` csharp
         Method(a, b, c);
@@ -2059,34 +2055,18 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         void Method(int a,int b,int c)
-        {
-        }
-        ```
-        ``` csharp
         void Method(int a ,int b ,int c)
-        {
-        }
-        ```
-        ``` csharp
         void Method(int a , int b , int c)
-        {
-        }
         ```
         ``` csharp
         void Method(
             int a
             ,int b
             ,int c)
-        {
-        }
-        ```
-        ``` csharp
         void Method(
             int a
             , int b
             , int c)
-        {
-        }
         ```
         ``` csharp
         Method(a,b,c);
@@ -2107,8 +2087,6 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         var x = Method({ 1, 2 }, 1);
-        ```
-        ``` csharp
         var x = Method({ 1, 2 } + { 3, 4 }, 1);
         ```
         ``` csharp
@@ -2120,8 +2098,6 @@ The document contains data collected from various sources, language styles, and 
             Id = 1,
             Name = "custom"
         };
-        ```
-        ``` csharp
         var anon = new { Id = 1, Name = "custom" };
         ```
 
@@ -2143,37 +2119,23 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         var x = Method( { 1, 2 }, 1);
-        ```
-        ``` csharp
         var x = Method({ 1, 2 } , 1);
-        ```
-        ``` csharp
         var x = Method( { 1, 2 } + { 3, 4 } , 1);
         ```
         ``` csharp
         int[] ints = new[] {1, 2, 3};
-        ```
-        ``` csharp
         int[] ints = new[]{ 1, 2, 3 };
-        ```
-        ``` csharp
         int[] ints = new[] { 1, 2, 3 } ;
         ```
         ``` csharp
+        var anon = new{ Id = 1, Name = "custom" };
+        var anon = new{Id = 1, Name = "custom"};
+        var anon = new
+        { Id = 1, Name = "custom" };
         var anon = new
         {
             Id = 1, Name = "custom"
         };
-        ```
-        ``` csharp
-        var anon = new
-        { Id = 1, Name = "custom" };
-        ```
-        ``` csharp
-        var anon = new{ Id = 1, Name = "custom" };
-        ```
-        ``` csharp
-        var anon = new{Id = 1, Name = "custom"};
         ```
 
   * ✔ Space increment and decrement symbols correctly
@@ -2456,50 +2418,50 @@ The document contains data collected from various sources, language styles, and 
       * it's the first character after an opening square bracket
       * it's the first character after an opening parenthesis
       * it's the first character on the line
-        
-            ✔
-            ``` csharp
-            x += 10;
-            ```
-            ``` csharp
-            int x = dictionary[+10];
-            ```
-            ``` csharp
-            int x = Method(
-                (900 / 90)
-                + 100,
-                -3);
-            ```
-            ``` csharp
-            string s = "First Name" + "Middle Name" + "LastName";
-            ```
-            ``` csharp
-            string s = "First Name"
-                + "Middle Name"
-                + "LastName";
-            ```
+      
+        ✔
+        ``` csharp
+        x += 10;
+        ```
+        ``` csharp
+        int x = dictionary[+10];
+        ```
+        ``` csharp
+        int x = Method(
+            (900 / 90)
+            + 100,
+            -3);
+        ```
+        ``` csharp
+        string s = "First Name" + "Middle Name" + "LastName";
+        ```
+        ``` csharp
+        string s = "First Name"
+            + "Middle Name"
+            + "LastName";
+        ```
 
-            ✖
-            ``` csharp
-            x+= 10;
-            ```
-            ``` csharp
-            int x = dictionary[ +10 ];
-            ```
-            ``` csharp
-            int x = Method(
-                (900 / 90) +
-                100,
-                -3);
-            ```
-            ``` csharp
-            string s = "First Name"+"Middle Name"+"LastName";
-            ```
-            ``` csharp
-            string s = "First Name" +
-                "Middle Name" +
-                "LastName";
-            ```
+        ✖
+        ``` csharp
+        x+= 10;
+        ```
+        ``` csharp
+        int x = dictionary[ +10 ];
+        ```
+        ``` csharp
+        int x = Method(
+            (900 / 90) +
+            100,
+            -3);
+        ```
+        ``` csharp
+        string s = "First Name"+"Middle Name"+"LastName";
+        ```
+        ``` csharp
+        string s = "First Name" +
+            "Middle Name" +
+            "LastName";
+        ```
 
   * ✔ Space semicolons correctly
   
