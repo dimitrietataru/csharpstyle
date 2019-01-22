@@ -373,7 +373,7 @@ The document contains data collected from various sources, language styles, and 
       * readonly
       * non-readonly  
       
-        <sup>✔</sup>
+        ✔
         ``` csharp
         public class Application
         {
@@ -421,24 +421,24 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool Enabled { get; set; }
+        bool Enabled { get; set; }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get { return this.enabled; }
             set { this.enabled = value; }
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get => this.enabled;
             set => this.enabled = value;
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get
             {
@@ -454,14 +454,14 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get;
             set;
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get { return this.enabled; }
             set
@@ -471,7 +471,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get => this.enabled;
             set
@@ -488,7 +488,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get
             {
@@ -500,7 +500,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get
             {
@@ -511,7 +511,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get
             {
@@ -522,7 +522,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get
             {
@@ -534,7 +534,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get
             {
@@ -554,42 +554,33 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public object Method()
+        void Method()
         {
-            lock (this)
-            {
-                int a = 1;
-                int b = 2;
-                return a + b;
-            }
+            int a = 1;
+            int b = 2;
+            
+            return a + b;
         }
         ```
 
         ✖
         ``` csharp
-        public object Method()
+        void Method()
         {
-            lock (this)
-            {
-                int a = 1; int b = 2;
-                return a + b;
-            }
+            int a = 1; int b = 2;
+            
+            return a + b;
         }
         ```
         ``` csharp
-        public object Method()
+        void Method()
         {
-            lock (this) {
-                int a = 1;
-                int b = 2;
-                return a + b; }
-        }
+            int a = 1;
+            int b = 2;
+            return a + b; }
         ```
         ``` csharp
-        public object Method()
-        {
-            lock (this) { int a = 1; int b = 2; return a + b; }
-        }
+        void Method() { int a = 1; int b = 2; return a + b; }
         ```
         
   * ✖ Do not follow documentation elements with a blank line
@@ -599,24 +590,18 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         /// <summary>
-        /// Gets a value indicating whether the control is enabled.
+        /// ...
         /// </summary>
-        public bool Enabled
-        {
-            get { return this.enabled; }
-        }
+        bool IsEnabled { get; set; }
         ```
 
         ✖
         ``` csharp
         /// <summary>
-        /// Gets a value indicating whether the control is enabled.
+        /// ...
         /// </summary>
-
-        public bool Enabled
-        {
-            get { return this.enabled; }
-        }
+        
+        bool IsEnabled { get; set; }
         ```
         
   * ✖ Do not follow or precede closing curly brackets with a blank line
