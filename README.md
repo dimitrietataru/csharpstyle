@@ -868,10 +868,10 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         using System;
         using System.Threading.Tasks;
-
-        namespace Product.Module
+        
+        namespace Project
         {
-            class Application
+            public class Application
             {
                 private int count;
             
@@ -879,21 +879,9 @@ The document contains data collected from various sources, language styles, and 
                 {
                 }
             
-                public bool IsEnabled
-                {
-                    get
-                    {
-                        Console.WriteLine("Getting the enabled flag.");
-                
-                        return this.enabled;
-                    }
-                }
+                bool IsEnabled { get; set; }
             
-                public void Execute()
-                {
-                }
-                
-                public bool IsRunning()
+                void Method()
                 {
                 }
             }
@@ -902,44 +890,30 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-
         using System;
-
+        
         using System.Threading.Tasks;
 
-        namespace Product.Module
+        namespace Project
         {
-            class Application
+            public class Application
             {
                 private int count;
                 public Application()
                 {
                 }
-            
-                public bool IsEnabled
-                {
-                    get
-                    {
-                        Console.WriteLine("Getting the enabled flag.");
+                
+                bool IsEnabled { get; set; }
                 
                 
-                        return this.enabled;
-                    }
-                }
-            
-                public void Execute()
-                {
-                }
-                
-                
-                public bool IsRunning()
+                void Method()
                 {
                 }
                 
             }
         }
         ```
-
+        
   * ✖ Do not wrap elements in opening and closing curly brackets
   
     * Write elements so they expand across multiple lines.
@@ -947,22 +921,22 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public int Count { get; set; }
+        int Count { get; set; }
         ```
         ``` csharp
-        public object Method()
+        void Method()
         {
-            return null;
+            return;
         }
         ```
 
         ✖
         ``` csharp
-        public object Method() { return null; }
+        void Method() { return; }
         ```
         ``` csharp
-        public object Method()
-            { return null; }
+        void Method()
+            { return; }
         ```
 
 ## Readability
@@ -976,46 +950,33 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool IsValid(int number)
+        bool Method(int number)
+        ```
+        ``` csharp
+        bool isValid = Method(100);
+        ```
+        ``` csharp
+        int x = array[0];
+        ```
+        ``` csharp
+        int this[int x]
         {
-            // ...
-        }
-        ```
-        ``` csharp
-        bool isValid = IsValid(100);
-        ```
-        ``` csharp
-        int x = entries[0];
-        ```
-        ``` csharp
-        public int this[int x]
-        {
-            get { return entries[x]; }
+            get { return array[x]; }
         }
         ```
 
         ✖
         ``` csharp
-        public bool IsValid(
-            int number
-            )
-        {
-            // ...
-        }
+        boolMethod IsValid
+            (int number)
         ```
         ``` csharp
-        bool isValid = IsValid(
+        bool isValid = Method(
             100
             );
         ```
         ``` csharp
-        bool isValid = IsValid
-            (
-            100
-            );
-        ```
-        ``` csharp
-        int x = entries[
+        int x = array[
             0
             ];
         ```
@@ -1025,7 +986,7 @@ The document contains data collected from various sources, language styles, and 
             int x
         ]
         {
-            get { return entries[x]; }
+            get { return array[x]; }
         }
         ```
 
@@ -1035,32 +996,21 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        string name = GetName(
+        string name = Method(
             first,
             last);
         ```
         ``` csharp
-        public int this[
+        int this[
             int x,
             int y]
-        {
-            // ...
-        }
         ```
 
         ✖
         ``` csharp
-        string name = GetName(
+        string name = Method(
             first
             ,last);
-        ```
-        ``` csharp
-        public int this[
-            int x
-            ,int y]
-        {
-            // ...
-        }
         ```
 
   * ✔ Open parenthesis on declaration line
@@ -1072,45 +1022,39 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool IsValid(int number)
-        {
-            // ...
-        }
+        bool Method(int number)
         ```
         ``` csharp
-        bool isValid = IsValid(100);
+        bool isValid = Method(100);
         ```
         ``` csharp
         int x = entries[0];
         ```
         ``` csharp
-        public int this[int x]
+        int this[int x]
         {
-            get { return entries[x]; }
+            get { return array[x]; }
         }
         ```
 
         ✖
         ``` csharp
-        public bool IsValid
+        bool Method
             (int number)
-        {
-            // ...
-        }
         ```
         ``` csharp
-        bool isValid = IsValid
+        bool isValid = Method
             (100);
         ```
         ``` csharp
-        int x = entries
+        int x = array
         [0];
         ```
         ``` csharp
-        public int this
+        int this
             [int x]
         {
-            get { return entries[x]; }
+            get { return array[x]; }
         }
         ```
 
@@ -1120,50 +1064,36 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public int Sum(int a, int b, int c, int d)
-        {
-        }
+        void Method(int x, int y, int z)
         ```
         ``` csharp
-        public int Sum(
-            int a, int b, int c, int d)
-        {
-        }
+        void Method(
+            int x, int y, int z)
         ```
         ``` csharp
-        public int Sum(
-            int a,
-            int b,
-            int c,
-            int d)
-        {
-        }
+        void Method(
+            int x,
+            int y,
+            int z)
         ```
 
         ✖
         ``` csharp
-        public int Sum(int a, int b, int c,
-
-            int d)
-        {
-        }
+        void Method(int x, int y,
+            
+            int z)
         ```
         ``` csharp
-        public int Sum(
+        void Method(
 
-            int a, int b, int c, int d)
-        {
-        }
+            int x, int y, int z)
         ```
         ``` csharp
-        public int Sum(
+        void Method(
 
-            int a,
-            int b,
-            int c,
-            int d)
-        {
-        }
+            int x,
+            int y,
+            int z)
         ```
 
   * ✔ Parameters must follow comma
@@ -1172,38 +1102,27 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public int Sum(int a, int b, int c, int d)
-        {
-        }
+        void Method(int x, int y, int z)
         ```
         ``` csharp
-        public int Sum(
-            int a, int b, int c, int d)
-        {
-        }
+        void Method(
+            int x, int y, int z)
         ```
         ``` csharp
-        public int Sum(
-            int a,
-            int b,
-            int c,
-            int d)
-        {
-        }
+        void Method(
+            int x,
+            int y,
+            int z)
         ```
 
         ✖
         ``` csharp
-        public int Sum(
-            int a,
+        void Method(
+            int x,
 
-            int b,
+            int y,
 
-            int c,
-
-            int d)
-        {
-        }
+            int z)
         ```
 
   * ✔ Prefix local calls with this
