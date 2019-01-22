@@ -90,7 +90,7 @@ The document contains data collected from various sources, language styles, and 
   
     * In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*)
     
-        <p style="text-align: center;"> ✔ </p>
+        <p style="text-align: center;"> ✔ 
         ``` csharp
         public void Run(int counter)
         {
@@ -104,13 +104,15 @@ The document contains data collected from various sources, language styles, and 
             // TODO: Log
         }
         ```
+        </p>
 
-        <p style="text-align: center;"> ✖ </p>
+        <p style="text-align: center;"> ✖ 
         ``` csharp
         //TODO ...
         //TO DO ...
         // TO DO : ...
         ```
+        </p>
         
   * ✖ NEVER align code
   
