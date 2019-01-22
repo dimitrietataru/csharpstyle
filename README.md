@@ -332,22 +332,16 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         using System;
-        using static System.Linq.Enumerable;
-        using System.Linq;
-        using static System.Math;
-        ```
-        ``` csharp
-        using System.Linq;
-        using static System.Math;
-        using static System.Linq.Enumerable;
-        using System;
-        ```
-        ``` csharp
-        using System;
         using System.Linq;
 
         using static System.Linq.Enumerable;
         using static System.Math;
+        ```
+        ``` csharp
+        using System;
+        using static System.Math;
+        using System.Linq;
+        using static System.Linq.Enumerable;
         ```
         
   * ✔ Use proper order of items inside a class
