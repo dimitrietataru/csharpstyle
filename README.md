@@ -1678,31 +1678,30 @@ The document contains data collected from various sources, language styles, and 
   
     * Ensure parameters do not span multiple lines.
     * This ensures method calls don't become excessively complicated, or unreadable.
+    * Exceptions:
+      * THE FIRST parameter is allowed to span across multiple lines.
+      * ANONYMOUS METHOD passed as parameter is always allowed to span multiple lines.
     
-      * Exceptions:
-        * THE FIRST parameter is allowed to span across multiple lines.
-        * ANONYMOUS METHOD passed as parameter is always allowed to span multiple lines.
-    
-            ✔
-            ``` csharp
-            return JoinStrings(
-                "a very long string.."
-                + "concatenated with another very long string...",
-                "second parameter goes here");
-            ```
-            ``` csharp
-            return JoinStrings(
-                "a",
-                "b" + "c");
-            ```
+        ✔
+        ``` csharp
+        return JoinStrings(
+            "a very long string.."
+            + "concatenated with another very long string...",
+            "second parameter goes here");
+        ```
+        ``` csharp
+        return JoinStrings(
+            "a",
+            "b" + "c");
+        ```
 
-            ✖
-            ``` csharp
-            return JoinStrings(
-                "a",
-                "b"
-                + "c");
-            ```
+        ✖
+        ``` csharp
+        return JoinStrings(
+            "a",
+            "b"
+            + "c");
+        ```
 
   * ✖ Do not use empty strings
   
@@ -1843,9 +1842,8 @@ The document contains data collected from various sources, language styles, and 
 
 ## Spacing
 
-  * ✔ Documentation lines must begin with a single space
+  * ✔ Documentation header must begin with a single space
   
-    * Documentation header should begin with a single space.
     * Header lines should begin with a single space after the three leading forward slashes.
     
         ✔
@@ -1872,16 +1870,11 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
-  * ✔ Single line comments must begin with a single space
+  * ✔ Single-line comments must begin with a single space
   
-    * Single line comments should not begin with mutiple spaces, or no space.
-    
         ✔
         ``` csharp
         // Single-line comment
-        ```
-        ``` csharp
-        // Another comment
         ```
 
         ✖
@@ -1889,7 +1882,7 @@ The document contains data collected from various sources, language styles, and 
         //Single-line comment
         ```
         ``` csharp
-        //  Another comment
+        //  Single-line comment
         ```
 
   * ✔ Space attributes correctly
@@ -1900,14 +1893,13 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         [Attribute1]
-        [Attribute2(100)]
-        [Attribute3("string")]
+        [Attribute2]
         public void Method()
         {
         }
         ```
         ``` csharp
-        [Attribute1, Attribute2(100), Attribute3("string")]
+        [Attribute1, Attribute2]
         public void Method()
         {
         }
@@ -1915,39 +1907,32 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        [ Attribute1]
-        [ Attribute2(100)]
-        [ Attribute3("string")]
+        [ Attribute]
         public void Method()
         {
         }
         ```
         ``` csharp
-        [Attribute1 ]
-        [Attribute2(100) ]
-        [Attribute3("string") ]
+        [Attribute ]
         public void Method()
         {
         }
         ```
         ``` csharp
-        [ Attribute1 ]
-        [ Attribute2(100) ]
-        [ Attribute3("string") ]
+        [ Attribute ]
         public void Method()
         {
         }
         ```
         ``` csharp
-        [ Attribute1, Attribute2(100), Attribute3("string") ]
+        [ Attribute1, Attribute2 ]
         public void Method()
         {
         }
         ```
 
-  * ✔ Space colon symbol correctly
+  * ✔ Space colon symbol (**:**) correctly
   
-    * Colon symbol ":" 
     * Colon should never be the only element on a single line.
     * Colon appearing within an element declaration must always have a single space on either side, uless it's the first character on the line.
     * Colon used in a conditional statement must always contain a single space on either side, unless it's the first character on the line.
@@ -2055,18 +2040,16 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public void Method(int a, int b, int c)
+        void Method(int a, int b, int c)
         {
-            // ...
         }
         ```
         ``` csharp
-        public void Method(
+        void Method(
             int a,
             int b,
             int c)
         {
-            // ...
         }
         ```
         ``` csharp
@@ -2075,39 +2058,34 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public void Method(int a,int b,int c)
+        void Method(int a,int b,int c)
         {
-            // ...
         }
         ```
         ``` csharp
-        public void Method(int a ,int b ,int c)
+        void Method(int a ,int b ,int c)
         {
-            // ...
         }
         ```
         ``` csharp
-        public void Method(int a , int b , int c)
+        void Method(int a , int b , int c)
         {
-            // ...
         }
         ```
         ``` csharp
-        public void Method(
+        void Method(
             int a
             ,int b
             ,int c)
         {
-            // ...
         }
         ```
         ``` csharp
-        public void Method(
+        void Method(
             int a
             , int b
             , int c)
         {
-            // ...
         }
         ```
         ``` csharp
@@ -2204,30 +2182,18 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        int a = ++b;
-        ```
-        ``` csharp
-        int a = b++;
-        ```
-        ``` csharp
-        int a = --b;
-        ```
-        ``` csharp
-        int a = b--;
+        int x = ++y;
+        int x = y++;
+        int x = --y;
+        int x = y--;
         ```
 
         ✖
         ``` csharp
-        int a = ++ b;
-        ```
-        ``` csharp
-        int a = b ++;
-        ```
-        ``` csharp
-        int a = -- b;
-        ```
-        ``` csharp
-        int a = b --;
+        int x = ++ y;
+        int x = y ++;
+        int x = -- y;
+        int x = y --;
         ```
 
   * ✔ Space keywords correctly
@@ -2235,23 +2201,15 @@ The document contains data collected from various sources, language styles, and 
     ✔
     ``` csharp
     if (...)
-    {
-    }
     ```
     ``` csharp
     while (...)
-    {
-    }
     ```
     ``` csharp
     for (...)
-    {
-    }
     ```
     ``` csharp
     switch (...)
-    {
-    }
     ```
     ``` csharp
     return 1;
@@ -2260,7 +2218,7 @@ The document contains data collected from various sources, language styles, and 
     throw new Exception("message");
     ```
     ``` csharp
-    var strings = new string[] { "a", "b" };
+    var strings = new string[] { "x", "y" };
     ```
     ``` csharp
     var integers = new[] { 1, 2, 3 };
@@ -2269,23 +2227,15 @@ The document contains data collected from various sources, language styles, and 
     ✖
     ``` csharp
     if(...)
-    {
-    }
     ```
     ``` csharp
     while(...)
-    {
-    }
     ```
     ``` csharp
     for(...)
-    {
-    }
     ```
     ``` csharp
     switch(...)
-    {
-    }
     ```
     ``` csharp
     return1;
@@ -2349,11 +2299,7 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         int x = this. count;
-        ```
-        ``` csharp
         int x = this .count;
-        ```
-        ``` csharp
         int x = this . count;
         ```
         ``` csharp
@@ -2361,8 +2307,6 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         var ids = collection. Select(item => item.Id). ToList();
-        ```
-        ``` csharp
         var ids = collection.
             Select(item => item.Id).
             ToList();
@@ -2444,18 +2388,12 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public Custom operator +(Custom c1, Custom c2)
-        {
-            // ...
-        }
+        MyClass operator +(Custom c1, Custom c2)
         ```
 
         ✖
         ``` csharp
-        public Custom operator+(Custom c1, Custom c2)
-        {
-            // ...
-        }
+        MyClass operator+(Custom c1, Custom c2)
         ```
 
   * ✔ Space parenthesis correctly
@@ -2470,13 +2408,9 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         public void Method()
-        {
-        }
         ```
         ``` csharp
         int x = c * (a + b);
-        ```
-        ``` csharp
         int x = (a + b) * c;
         ```
         ``` csharp
@@ -2484,8 +2418,6 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         if (a > b)
-        {
-        }
         ```
         ``` csharp
         var x = Method(Math.Max(1, 2), Math.Sqrt(144));
@@ -2501,13 +2433,9 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         public void Method ()
-        {
-        }
         ```
         ``` csharp
         int x = c*(a + b);
-        ```
-        ``` csharp
         int x = (a + b)*c;
         ```
         ``` csharp
@@ -2515,8 +2443,6 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         if(a > b)
-        {
-        }
         ```
         ``` csharp
         var x = Method(Math.Max(1, 2) , Math.Sqrt(144) );
@@ -2526,10 +2452,10 @@ The document contains data collected from various sources, language styles, and 
   
     * Positive sign should always be preceded by a single space.
     * Positive sign should never be the last character on a line.
-      * Exceptions when:
-        * it's the first character after an opening square bracket
-        * it's the first character after an opening parenthesis
-        * it's the first character on the line
+    * Exceptions when:
+      * it's the first character after an opening square bracket
+      * it's the first character after an opening parenthesis
+      * it's the first character on the line
         
             ✔
             ``` csharp
@@ -2583,9 +2509,6 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         for (int i = 0; i < 10; ++i)
-        {
-            // ...
-        }
         ```
         ``` csharp
         string s = "semicolons";
@@ -2597,23 +2520,13 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         for (int i = 0;i < 10;++i)
-        {
-            // ...
-        }
-        ```
-        ``` csharp
         for (int i = 0 ; i < 10 ; ++i)
-        {
-            // ...
-        }
         ```
         ``` csharp
         string s = "semicolons" ;
         ```
         ``` csharp
         public int Counter { get; set; } = 100 ;
-        ```
-        ``` csharp
         public int Counter { get ; set ; } = 100;
         ```
 
@@ -2705,15 +2618,7 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         if (!value)
-        {
-            // ...
-        }
-        ```
-        ``` csharp
         if (!(condition1 && condition2))
-        {
-            // ...
-        }
         ```
         ``` csharp
         bool x = !condition;
@@ -2744,21 +2649,8 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         if ( !value)
-        {
-            // ...
-        }
-        ```
-        ``` csharp
         if ( ! value)
-        {
-            // ...
-        }
-        ```
-        ``` csharp
         if (! (condition1 && condition2))
-        {
-            // ...
-        }
         ```
         ``` csharp
         bool x=!condition;
