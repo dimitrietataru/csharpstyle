@@ -43,7 +43,7 @@ The document contains data collected from various sources, language styles, and 
 
   * ✔ Vertically align curly brackets
   
-    * **Allman** style [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
+    * **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
     
         <sup>✔</sup>
         ``` csharp
