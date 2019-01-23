@@ -347,6 +347,7 @@ The document contains data collected from various sources, language styles, and 
       * internal
       * protected internal
       * protected
+      * private protected
       * private
     * Within each access groups, order by static, then non-static:
       * static
@@ -356,40 +357,46 @@ The document contains data collected from various sources, language styles, and 
       * non-readonly  
       
         ``` csharp
-        public class Application
+        class Application
         {
             public const int const1 = 1;
             internal const int const2 = 2;
             protected internal const int const3 = 3;
             protected const int const4 = 4;
-            private const int const5 = 5;
+            private protected const int const5 = 5;
+            private const int const6 = 6;
 
             public static readonly int field1;
             internal static readonly int field2;
             protected internal static readonly int field3;
             protected static readonly int field4;
-            private static readonly int field5;
-            public static int field6;
-            internal static int field7;
-            protected internal static int field8;
-            protected static int field9;
-            private static int field10;
-            public readonly int field11;
-            internal readonly int field12;
-            protected static readonly int field13;
-            protected readonly int field14;
-            private readonly int field15;
-            public int field16;
-            internal int field17;
-            protected internal int field18;
-            protected int field19;
-            private int field20;
+            private protected static readonly int field5;
+            private static readonly int field6;
+            public static int field7;
+            internal static int field8;
+            protected internal static int field9;
+            protected static int field10;
+            private protected static int field11;
+            private static int field12;
+            public readonly int field13;
+            internal readonly int field14;
+            protected static readonly int field15;
+            protected readonly int field16;
+            private protected readonly int field17;
+            private readonly int field18;
+            public int field19;
+            internal int field20;
+            protected internal int field21;
+            protected int field22;
+            private protected int field23;
+            private int field24;
 
-            public Application() { }
-            internal Application(int internalCtor) { }
-            protected internal Application(string protectedInternalCtor) { }
-            protected Application(long protectedCtor) { }
-            private Application(decimal privateCtor) { }
+            public Application(...)
+            internal Application(...)
+            protected internal Application(...)
+            protected Application(...)
+            private protected Application(...)
+            private Application(...)
             
             // ...
         }
