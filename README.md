@@ -624,7 +624,6 @@ The document contains data collected from various sources, language styles, and 
       * readonly
       * non-readonly
       
-      
         ``` csharp
         class Application
         {
@@ -705,6 +704,66 @@ The document contains data collected from various sources, language styles, and 
         ```
 
 ### Documentation
+
+  * ✔ Precede documentation elements with a (single) blank line
+  
+    ✔
+    ``` csharp
+    int First { get; set; }
+
+    /// <summary>
+    /// ...
+    /// </summary>
+    int Second { get; set; }
+    ```
+    
+    ✖
+    ``` csharp
+    int First { get; set; }
+    /// <summary>
+    /// ...
+    /// </summary>
+    int Second { get; set; }
+    ```
+
+  * ✖ Do not follow documentation elements with blank line(s)
+
+    ✔
+    ``` csharp
+    /// <summary>
+    /// ...
+    /// </summary>
+    int First { get; set; }
+    ```
+    
+    ✖
+    ``` csharp
+    /// <summary>
+    /// ...
+    /// </summary>
+    
+    int First { get; set; }
+    ```
+
+  * ✔ Documentation header must begin with a single space
+  
+    * Header lines should begin with a single space after the three leading forward slashes.
+    
+        ✔
+        ``` csharp
+        /// <summary>
+        /// ...
+        /// </summary>
+        void Method();
+        ```
+        
+        ✖
+        ``` csharp
+        ///<summary>
+        ///...
+        ///</summary>
+        void Method()
+        ```
 
 ### Regions
 
