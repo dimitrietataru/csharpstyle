@@ -2954,59 +2954,39 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         
-  * ✖ Do not (habitually) add new methods at the end of the class
+  * ✖ Do not (habitually) add new methods at the end of the class, or interface
   
     ✔
     ``` csharp
-    public class DatabaseService<T>
+    interface DatabaseService<T>
     {
-        public List<T> GetAll()
-        {
-        }
+        List<T> GetAll();
         
         // Newly added method
-        public T GetById()
-        {
-        }
+        T GetById();
         
-        public void Create(T entity)
-        {
-        }
+        void Create(T entity);
         
-        public void Update(T entity)
-        {
-        }
+        void Update(T entity);
         
-        public void Delete(T entity)
-        {
-        }
+        void Delete(T entity);
     }
     ```
     
     ✖
     ``` csharp
-    public class DatabaseService<T>
+    interface DatabaseService<T>
     {
-        public List<T> GetAll()
-        {
-        }
+        List<T> GetAll();
+
+        void Create(T entity);
         
-        public void Create(T entity)
-        {
-        }
+        void Update(T entity);
         
-        public void Update(T entity)
-        {
-        }
-        
-        public void Delete(T entity)
-        {
-        }
+        void Delete(T entity);
         
         // Newly added method
-        public T GetById()
-        {
-        }
+        T GetById();
     }
     ```
     
