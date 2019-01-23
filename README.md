@@ -65,7 +65,7 @@ The document contains data collected from various sources, language styles, and 
   * ✔ Use camelCasing to name method arguments, local variables, and fields
 
     ``` csharp
-    string field;
+    string fieldName;
     ```
     ``` csharp
     void Method(int parameterOne, int parameterTwo);
@@ -74,7 +74,7 @@ The document contains data collected from various sources, language styles, and 
     Method(argumentOne, argumentTwo);
     ```
     ``` csharp
-    int localVariable = 10;
+    int localName = 10;
     ```
 
 ### Brackets
