@@ -1991,7 +1991,6 @@ The document contains data collected from various sources, language styles, and 
   * ✔ Split parameter list correctly
   
     * Parameters must be placed all on one line, or each on a separate line.
-    * Parameters must follow declaration.
     
         ✔
         ``` csharp
@@ -2127,3 +2126,145 @@ The document contains data collected from various sources, language styles, and 
         ```
 
 ### Misc
+
+* ✔ Space keywords correctly
+
+    ✔
+    ``` csharp
+    if (...)
+    while (...)
+    for (...)
+    switch (...)
+    ```
+    ``` csharp
+    return -1;
+    ```
+    ``` csharp
+    throw new Exception("...");
+    ```
+    ``` csharp
+    var integers = new[] { 1, 2, 3 };
+    ```
+
+    ✖
+    ``` csharp
+    if(...)
+    while(...)
+    for(...)
+    switch(...)
+    ```
+    ``` csharp
+    return-1;
+    ```
+    ``` csharp
+    var integers = new [] { 1, 2, 3 };
+    ```
+    
+    | Keyword     | Followed by space |
+    |:------------|:------------------|
+    | catch       | Yes               |
+    | fixed       | Yes               |
+    | for         | Yes               |
+    | foreach     | Yes               |
+    | from        | Yes               |
+    | group       | Yes               |
+    | if          | Yes               |
+    | in          | Yes               |
+    | into        | Yes               |
+    | join        | Yes               |
+    | let         | Yes               |
+    | lock        | Yes               |
+    | orderby     | Yes               |
+    | return      | Yes               |
+    | select      | Yes               |
+    | stackalloc  | Yes               |
+    | switch      | Yes               |
+    | throw       | Yes               |
+    | using       | Yes               |
+    | where       | Yes               |
+    | while       | Yes               |
+    | yield       | Yes               |
+    | checked     | No                |
+    | default     | No                |
+    | sizeof      | No                |
+    | typeof      | No                |
+    | unchecked   | No                |
+    | new (ctor)  | Yes               |
+    | new (array) | No                |
+
+  * ✔ Space attributes correctly
+  
+    * Opening attribute brackets should never be followed by whitespace.
+    * Closing attribute brackets should never be preceded by whitespace.
+    
+        ✔
+        ``` csharp
+        [Attribute]
+        void Method()
+        ```
+        ``` csharp
+        [Attribute1]
+        [Attribute2]
+        void Method()
+        ```
+        ``` csharp
+        [Attribute1, Attribute2]
+        void Method()
+        ```
+
+        ✖
+        ``` csharp
+        [ Attribute1]
+        [Attribute2 ]
+        [ Attribute3 ]
+        void Method()
+        ```
+        ``` csharp
+        [ Attribute1, Attribute2 ]
+        void Method()
+        ```
+
+  * ✔ Space operator keyword correctly
+  
+    * The *operator* keyword should always be preceded and followed by a single space.
+    
+        ✔
+        ``` csharp
+        Space operator +(Space space1, Space space2)
+        ```
+
+        ✖
+        ``` csharp
+        Space operator+(Space space1, Space space2)
+        ```
+
+  * ✖ Do not precede preprocessor keywords by space
+  
+    * Preprocessor directives should not be preceded by space(s).
+    
+        ✔
+        ``` csharp
+        #if debug
+        #endif
+        ```
+        
+        ✖
+        ``` csharp
+        #  if debug
+        # endif
+        ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
