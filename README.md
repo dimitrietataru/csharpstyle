@@ -1144,7 +1144,6 @@ The document contains data collected from various sources, language styles, and 
         int[] ints = new[]{ 1, 2, 3 };
         ```
         ``` csharp
-        var x = new{ X = 1, Y = "2" };
         var x = new{X = 1, Y = "2"};
         ```
 
@@ -1199,25 +1198,19 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        bool IsEnabled
+        void Method
         {
-            get
-            {
-                return this.enabled;
-            }
+            // ...
         }
         ```
         
         ✖
         ``` csharp
-        bool IsEnabled
+        void Method
+        
         {
-            get
-            
-            {
-            
-                return this.enabled;
-            }
+        
+            // ...
         }
         ```
 
@@ -1228,26 +1221,20 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        bool IsEnabled
+        void Method
         {
-            get
-            {
-                return this.enabled;
-            }
+            // ...
         }
         ```
 
         ✖
         ``` csharp
-        bool IsEnabled
+        void Method
         {
-            get
-            {
-                return this.enabled;
-                
-            }
-            
+            // ...
+        
         }
+        
         ```
 
 ### Square brackets
