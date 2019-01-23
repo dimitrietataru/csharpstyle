@@ -1062,19 +1062,12 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        void Method(int x, int y, int z)
-        ```
-        ``` csharp
-        void Method(
-            int x, int y, int z)
-        ```
-        ``` csharp
         void Method(
             int x,
             int y,
             int z)
         ```
-
+        
         ✖
         ``` csharp
         void Method(
