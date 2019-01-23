@@ -45,9 +45,8 @@ The document contains data collected from various sources, language styles, and 
   
     * **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
     
-        ✔
         ``` csharp
-        namespace Company.Product
+        namespace Application
         {
             public class Program
             {
@@ -86,17 +85,17 @@ The document contains data collected from various sources, language styles, and 
     | Delegate name    | PascalCase |    128 | [A-z]      |
     | Enum type name   | PascalCase |    128 | [A-z]      |
 
-  * ✔ Use TODO comments to mark work in progress, missing features or functionality
+  * ✔ Use *TODO** comments to mark work in progress, missing features or functionality
   
     * In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*).
     
         ✔ 
         ``` csharp
-        public void Run(int counter)
+        public void Method(int x)
         {
             // TODO: Validate input
             
-            for (int i = 0; i < counter; ++i)
+            for (int i = 0; i < x; ++i)
             {
                 // ...
             }
@@ -123,10 +122,10 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         public int count; // Allowed comment
-        private string name; // this is allowed too
+        private string name; // Allowed comment
         ```
         ``` csharp
-        // Allowed. You can't rename the IF keyword!
+        // Allowed!
         if (expression1
             && expression2
             && expression3)
@@ -158,13 +157,10 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         public void Method(int parameter1,
                            int parameter2,
-                           int parameter3,
-                           int parameter4);
-
-        public void AfterMethodRename(int parameter1,
+                           int parameter3;
+        public void MethodAfterRename(int parameter1,
                            int parameter2,
-                           int parameter3,
-                           int parameter4);
+                           int parameter3);
         ```
         ``` csharp
         var items = collection
@@ -268,32 +264,24 @@ The document contains data collected from various sources, language styles, and 
         
   * ✔ Precede documentation elements with a blank line
   
-    * Documentation elements should always be preceded by a blank line.  
-    
-        ✔
-        ``` csharp
-        public bool IsValid { get; set; }
+    ✔
+    ``` csharp
+    bool FirstProperty { get; set; }
 
-        /// <summary>
-        /// Gets a value indicating whether the control is enabled.
-        /// </summary>
-        public bool Enabled
-        {
-            get { return this.enabled; }
-        }
-        ```
+    /// <summary>
+    /// ...
+    /// </summary>
+    bool SecondProperty { get; set; }
+    ```
 
-        ✖
-        ``` csharp
-        public bool IsValid { get; set; }
-        /// <summary>
-        /// Gets a value indicating whether the control is enabled.
-        /// </summary>
-        public bool Enabled
-        {
-            get { return this.enabled; }
-        }
-        ```
+    ✖
+    ``` csharp
+    bool FirstProperty { get; set; }
+    /// <summary>
+    /// ...
+    /// </summary>
+    bool SecondProperty { get; set; }
+    ```
         
   * ✔ Separate elements by a blank line
   
@@ -301,35 +289,29 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public Constructor()
+        Constructor()
         {
-            // ...
         }
 
-        public void Method1()
+        void Method1()
         {
-            // ...
         }
 
-        public void Method2()
+        void Method2()
         {
-            // ...
         }
         ```
 
         ✖
         ``` csharp
-        public Constructor()
+        Constructor()
         {
-            // ...
         }
-        public void Method1()
+        void Method1()
         {
-            // ...
         }
-        public void Method2()
+        void Method2()
         {
-            // ...
         }
         ```
         
@@ -350,22 +332,16 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         using System;
-        using static System.Linq.Enumerable;
-        using System.Linq;
-        using static System.Math;
-        ```
-        ``` csharp
-        using System.Linq;
-        using static System.Math;
-        using static System.Linq.Enumerable;
-        using System;
-        ```
-        ``` csharp
-        using System;
         using System.Linq;
 
         using static System.Linq.Enumerable;
         using static System.Math;
+        ```
+        ``` csharp
+        using System;
+        using static System.Math;
+        using System.Linq;
+        using static System.Linq.Enumerable;
         ```
         
   * ✔ Use proper order of items inside a class
@@ -397,7 +373,6 @@ The document contains data collected from various sources, language styles, and 
       * readonly
       * non-readonly  
       
-        <sup>✔</sup>
         ``` csharp
         public class Application
         {
@@ -445,24 +420,24 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool Enabled { get; set; }
+        bool Enabled { get; set; }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get { return this.enabled; }
             set { this.enabled = value; }
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get => this.enabled;
             set => this.enabled = value;
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get
             {
@@ -478,14 +453,14 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get;
             set;
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get { return this.enabled; }
             set
@@ -495,7 +470,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get => this.enabled;
             set
@@ -512,7 +487,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get
             {
@@ -524,7 +499,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get
             {
@@ -535,7 +510,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get
             {
@@ -546,7 +521,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get
             {
@@ -558,7 +533,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool Enabled
         {
             get
             {
@@ -578,42 +553,33 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public object Method()
+        int Method()
         {
-            lock (this)
-            {
-                int a = 1;
-                int b = 2;
-                return a + b;
-            }
+            int a = 1;
+            int b = 2;
+            
+            return a + b;
         }
         ```
 
         ✖
         ``` csharp
-        public object Method()
+        int Method()
         {
-            lock (this)
-            {
-                int a = 1; int b = 2;
-                return a + b;
-            }
+            int a = 1; int b = 2;
+            
+            return a + b;
         }
         ```
         ``` csharp
-        public object Method()
+        int Method()
         {
-            lock (this) {
-                int a = 1;
-                int b = 2;
-                return a + b; }
-        }
+            int a = 1;
+            int b = 2;
+            return a + b; }
         ```
         ``` csharp
-        public object Method()
-        {
-            lock (this) { int a = 1; int b = 2; return a + b; }
-        }
+        int Method() { int a = 1; int b = 2; return a + b; }
         ```
         
   * ✖ Do not follow documentation elements with a blank line
@@ -623,24 +589,18 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         /// <summary>
-        /// Gets a value indicating whether the control is enabled.
+        /// ...
         /// </summary>
-        public bool Enabled
-        {
-            get { return this.enabled; }
-        }
+        bool IsEnabled { get; set; }
         ```
 
         ✖
         ``` csharp
         /// <summary>
-        /// Gets a value indicating whether the control is enabled.
+        /// ...
         /// </summary>
-
-        public bool Enabled
-        {
-            get { return this.enabled; }
-        }
+        
+        bool IsEnabled { get; set; }
         ```
         
   * ✖ Do not follow or precede closing curly brackets with a blank line
@@ -650,7 +610,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -661,7 +621,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -671,7 +631,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -681,7 +641,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -699,7 +659,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -710,7 +670,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -720,7 +680,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             
@@ -730,7 +690,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public bool Enabled
+        bool IsEnabled
         {
             get
             
@@ -752,27 +712,25 @@ The document contains data collected from various sources, language styles, and 
 
         namespace Program
         {
-            public class Application
+            class Application
             {
-                // ...
             }
         }
         ```
 
         ✖
         ``` csharp
-
+        
         using System
 
         namespace Program
         {
-            public class Application
+            class Application
             {
-                // ...
             }
         }
-
-
+        
+        
         ```
         
   * ✖ Do not line-wrap using statements
@@ -781,13 +739,11 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        using System.IO;
         using System.Security.Cryptography;
         ```
 
         ✖
         ``` csharp
-        using System.IO;
         using System
             .Security.Cryptography;
         ```
@@ -801,29 +757,29 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         if (true)
         {
-            return this.value;
+            return this.x;
         }
         ```
         ``` csharp
         if (true)
         {
-            this.value = 2;
-            return this.value;
+            this.x = 42;
+            return this.x;
         }
         ```
 
         ✖
         ``` csharp
-        if (true) return this.value;
+        if (true) return this.x;
         ```
         ``` csharp
         if (true)
-            return this.value;
+            return this.x;
         ```
         ``` csharp
         if (true)
-            this.value = 2;      
-            return this.value;
+            this.x = 42;      
+            return this.x;
         ```
         
   * ✖ Do not place curly brackets on same line with statements
@@ -833,7 +789,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public object Method()
+        void Method()
         {
             lock (this)
             {
@@ -844,7 +800,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public object Method()
+        void Method()
         {
             lock (this) {
                 return this.value;
@@ -852,14 +808,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        public object Method()
-        {
-            lock (this) {
-                return this.value; }
-        }
-        ```
-        ``` csharp
-        public object Method()
+        void Method()
         {
             lock (this) { return this.value; }
         }
@@ -873,18 +822,17 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         // ClassOne.cs
-        namespace Project.One
+        namespace Project
         {
-            public class ClassOne
+            class ClassOne
             {
             }
         }
-        ```
-        ``` csharp
+        
         // ClassTwo.cs
-        namespace Project.Two
+        namespace Project
         {
-            public class ClassTwo
+            class ClassTwo
             {
             }
         }
@@ -893,16 +841,16 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         // ClassOneAndTwo.cs
-        namespace Project.One
+        namespace Project
         {
-            public class ClassOne
+            class ClassOne
             {
             }
         }
-
-        namespace Project.Two
+        
+        namespace Project
         {
-            public class ClassTwo
+            class ClassTwo
             {
             }
         }
@@ -918,10 +866,10 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         using System;
         using System.Threading.Tasks;
-
-        namespace Product.Module
+        
+        namespace Project
         {
-            class Application
+            public class Application
             {
                 private int count;
             
@@ -929,21 +877,9 @@ The document contains data collected from various sources, language styles, and 
                 {
                 }
             
-                public bool IsEnabled
-                {
-                    get
-                    {
-                        Console.WriteLine("Getting the enabled flag.");
-                
-                        return this.enabled;
-                    }
-                }
+                bool IsEnabled { get; set; }
             
-                public void Execute()
-                {
-                }
-                
-                public bool IsRunning()
+                void Method()
                 {
                 }
             }
@@ -952,44 +888,30 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-
         using System;
-
+        
         using System.Threading.Tasks;
 
-        namespace Product.Module
+        namespace Project
         {
-            class Application
+            public class Application
             {
                 private int count;
                 public Application()
                 {
                 }
-            
-                public bool IsEnabled
-                {
-                    get
-                    {
-                        Console.WriteLine("Getting the enabled flag.");
+                
+                bool IsEnabled { get; set; }
                 
                 
-                        return this.enabled;
-                    }
-                }
-            
-                public void Execute()
-                {
-                }
-                
-                
-                public bool IsRunning()
+                void Method()
                 {
                 }
                 
             }
         }
         ```
-
+        
   * ✖ Do not wrap elements in opening and closing curly brackets
   
     * Write elements so they expand across multiple lines.
@@ -997,22 +919,22 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public int Count { get; set; }
+        int Count { get; set; }
         ```
         ``` csharp
-        public object Method()
+        void Method()
         {
-            return null;
+            return;
         }
         ```
 
         ✖
         ``` csharp
-        public object Method() { return null; }
+        void Method() { return; }
         ```
         ``` csharp
-        public object Method()
-            { return null; }
+        void Method()
+            { return; }
         ```
 
 ## Readability
@@ -1026,57 +948,31 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool IsValid(int number)
+        bool Method(int x)
+        ```
+        ``` csharp
+        bool isValid = Method(100);
+        ```
+        ``` csharp
+        int x = array[0];
+        ```
+        ``` csharp
+        int this[int x]
         {
-            // ...
-        }
-        ```
-        ``` csharp
-        bool isValid = IsValid(100);
-        ```
-        ``` csharp
-        int x = entries[0];
-        ```
-        ``` csharp
-        public int this[int x]
-        {
-            get { return entries[x]; }
+            get { return array[x]; }
         }
         ```
 
         ✖
         ``` csharp
-        public bool IsValid(
-            int number
-            )
-        {
-            // ...
-        }
-        ```
-        ``` csharp
-        bool isValid = IsValid(
+        bool isValid = Method(
             100
             );
         ```
         ``` csharp
-        bool isValid = IsValid
-            (
-            100
-            );
-        ```
-        ``` csharp
-        int x = entries[
+        int x = array[
             0
             ];
-        ```
-        ``` csharp
-        public int this
-        [
-            int x
-        ]
-        {
-            get { return entries[x]; }
-        }
         ```
 
   * ✔ Ensure comma is on same line as previous parameter
@@ -1085,32 +981,23 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        string name = GetName(
+        string name = Method(
             first,
+            second,
             last);
         ```
         ``` csharp
-        public int this[
+        int this[
             int x,
             int y]
-        {
-            // ...
-        }
         ```
 
         ✖
         ``` csharp
-        string name = GetName(
+        string name = Method(
             first
+            , second
             ,last);
-        ```
-        ``` csharp
-        public int this[
-            int x
-            ,int y]
-        {
-            // ...
-        }
         ```
 
   * ✔ Open parenthesis on declaration line
@@ -1122,45 +1009,39 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool IsValid(int number)
+        bool Method(int x)
+        ```
+        ``` csharp
+        bool isValid = Method(100);
+        ```
+        ``` csharp
+        int x = array[0];
+        ```
+        ``` csharp
+        int this[int x]
         {
-            // ...
-        }
-        ```
-        ``` csharp
-        bool isValid = IsValid(100);
-        ```
-        ``` csharp
-        int x = entries[0];
-        ```
-        ``` csharp
-        public int this[int x]
-        {
-            get { return entries[x]; }
+            get { return array[x]; }
         }
         ```
 
         ✖
         ``` csharp
-        public bool IsValid
-            (int number)
-        {
-            // ...
-        }
+        bool Method
+            (int x)
         ```
         ``` csharp
-        bool isValid = IsValid
+        bool isValid = Method
             (100);
         ```
         ``` csharp
-        int x = entries
+        int x = array
         [0];
         ```
         ``` csharp
-        public int this
+        int this
             [int x]
         {
-            get { return entries[x]; }
+            get { return array[x]; }
         }
         ```
 
@@ -1170,50 +1051,36 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public int Sum(int a, int b, int c, int d)
-        {
-        }
+        void Method(int x, int y, int z)
         ```
         ``` csharp
-        public int Sum(
-            int a, int b, int c, int d)
-        {
-        }
+        void Method(
+            int x, int y, int z)
         ```
         ``` csharp
-        public int Sum(
-            int a,
-            int b,
-            int c,
-            int d)
-        {
-        }
+        void Method(
+            int x,
+            int y,
+            int z)
         ```
 
         ✖
         ``` csharp
-        public int Sum(int a, int b, int c,
-
-            int d)
-        {
-        }
+        void Method(int x, int y,
+            
+            int z)
         ```
         ``` csharp
-        public int Sum(
+        void Method(
 
-            int a, int b, int c, int d)
-        {
-        }
+            int x, int y, int z)
         ```
         ``` csharp
-        public int Sum(
+        void Method(
 
-            int a,
-            int b,
-            int c,
-            int d)
-        {
-        }
+            int x,
+            int y,
+            int z)
         ```
 
   * ✔ Parameters must follow comma
@@ -1222,38 +1089,27 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public int Sum(int a, int b, int c, int d)
-        {
-        }
+        void Method(int x, int y, int z)
         ```
         ``` csharp
-        public int Sum(
-            int a, int b, int c, int d)
-        {
-        }
+        void Method(
+            int x, int y, int z)
         ```
         ``` csharp
-        public int Sum(
-            int a,
-            int b,
-            int c,
-            int d)
-        {
-        }
+        void Method(
+            int x,
+            int y,
+            int z)
         ```
 
         ✖
         ``` csharp
-        public int Sum(
-            int a,
+        void Method(
+            int x,
 
-            int b,
+            int y,
 
-            int c,
-
-            int d)
-        {
-        }
+            int z)
         ```
 
   * ✔ Prefix local calls with this
@@ -1262,12 +1118,12 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public class Student : Person
+        class A : B
         {
             private string id;
             private double grade;
             
-            public Person(string id, double grade, int age)
+            A(string id, double grade, int age)
             {
                 base.age = age;
                 this.id = id;
@@ -1278,12 +1134,12 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public class Student : Person
+        class A : B
         {
             private string m_id;
             private double _grade;
             
-            public Person(string id, double grade, int age)
+            A(string id, double grade, int age)
             {
                 base.age = age;
                 m_id = id;
@@ -1299,8 +1155,6 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         var x = select a in b from c;
-        ```
-        ``` csharp
         var x =
             select a
             in b
@@ -1311,8 +1165,6 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         var x = select a in b
             from c;
-        ```
-        ``` csharp
         var x = select a in b
                 from c;
         ```
@@ -1320,8 +1172,6 @@ The document contains data collected from various sources, language styles, and 
         var x = select a
                 in b
                 from c;
-        ```
-        ``` csharp
         var x = select a in b
                          from c;
         ```
@@ -1332,50 +1182,30 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public string JoinName(string first, string middle, string last)
-        {
-            // ...
-        }
+        void Method(int x, int y, int z)
         ```
         ``` csharp
-        public string JoinName(
-            string first, string middle, string last)
-        {
-            // ...
-        }
+        void Method(
+            int x, int y, int z)
         ```
         ``` csharp
-        public string JoinName(
-            string first,
-            string middle,
-            string last)
-        {
-            // ...
-        }
+        void Method(
+            int x,
+            int y,
+            int z)
         ```
 
         ✖
         ``` csharp
-        public string JoinName(string first,
-            string middle, string last)
-        {
-            // ...
-        }
+        void Method(int x,
+            int y, int z)
+        void Method(int x, int y,
+            int z)
         ```
         ``` csharp
-        public string JoinName(string first, string middle,
-            string last)
-        {
-            // ...
-        }
-        ```
-        ``` csharp
-        public string JoinName(
-            string first,
-            string middle, string last)
-        {
-            // ...
-        }
+        void Method(
+            int x,
+            int y, int z)
         ```
 
   * ✔ Use built-in type alias
@@ -1441,42 +1271,29 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        var babies = persons.Where(person => person.DateOfBirth.Year.Equals(currentYear)).ToList();
-        ```
-        ``` csharp
-        var babies = persons
-            .Where(person => person.DateOfBirth.Year.Equals(currentYear))
-            .ToList();
-        ```
-        ``` csharp
         var x = select a in b from c;
+        ``` csharp
+        ```
+        var x = collection.Where(item => item.Date.Year.Equals(currentYear)).ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => item.Date.Year.Equals(currentYear))
+            .ToList();
         ```
 
         ✖
         ``` csharp
-        var babies = persons.Where(person => person.DateOfBirth.Year.Equals(currentYear))
+        var x = collection
+            .Where(item => item.Date.Year.Equals(currentYear)).ToList();
+        var x = collection.Where(item => item.Date.Year.Equals(currentYear))
             .ToList();
-        ```
-        ``` csharp
-        var babies = persons.Where(person => person.DateOfBirth.Year.Equals(currentYear))
-                            .ToList();
-        ```
-        ``` csharp
-        var babies = persons
-            .Where(person => person.DateOfBirth.Year.Equals(currentYear)).ToList();
+        var x = collection.Where(item => item.Date.Year.Equals(currentYear))
+                          .ToList();
         ```
         ``` csharp
         var x = select a
             in b from c;
-        ```
-        ``` csharp
-        var x =
-            select
-            a
-            in
-            b
-            from
-            c;
         ```
 
   * ✔ Write query clauses on multiple lines when previous clause spans multiple lines
@@ -1485,48 +1302,45 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        var x =
-            select a
-            in b.GetCustomers(
-                2,
-                “x”)
-            from c;
-        ```
-        ``` csharp
-        var x = collection
-            .Where(item =>
-                start >= item.StartDate
-                && end <= item.EndDate)
-            .Select(item => new { Id = item.Id, Name = item.Name })
-            .ToList();
-        ```
-        ``` csharp
         var x = collection
             .Where(item => start >= item.StartDate && end <= item.EndDate)
             .Select(item => new { Id = item.Id, Name = item.Name })
             .ToList();
         ```
-
-        ✖
-        ``` csharp
-        var x =
-            select a
-            in b.GetCustomers(
-                2,
-                “x”) from c;
-        ```
         ``` csharp
         var x = collection
             .Where(item =>
                 start >= item.StartDate
                 && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x =
+            select a
+            in b.Method(
+                2, “x”)
+            from c;
+        ```
+
+        ✖
+        ``` csharp
+        var x = collection
+            .Where(item => start >= item.StartDate && end <= item.EndDate)
             .Select(item => new { Id = item.Id, Name = item.Name }).ToList();
         ```
         ``` csharp
-        var x = collection
-            .Where(item =>
-                start >= item.StartDate && end <= item.EndDate)
-            .Select(item => new { Id = item.Id, Name = item.Name }).ToList();
+        var x = collection.Where(item =>
+                start >= item.StartDate
+                && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x =
+            select a
+            in b.Method(
+                2, “x”) from c;
         ```
 
   * ✔ Write query clauses on own line when spanning multiple lines
@@ -1576,7 +1390,7 @@ The document contains data collected from various sources, language styles, and 
         var x =
             select a
             in b
-            from c.GetCustomers(
+            from c.Method(
                 2, “x”);
         ```
 
@@ -1600,7 +1414,7 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         var x =
             select a
-            in b from c.GetCustomers(
+            in b from c.Method(
                 2, “x”);
         ```
 
@@ -1705,15 +1519,15 @@ The document contains data collected from various sources, language styles, and 
 
   * ✖ Do not use empty strings
   
-        ✔
-        ``` csharp
-        string s = string.Empty;
-        ```
+    ✔
+    ``` csharp
+    string s = string.Empty;
+    ```
 
-        ✖
-        ``` csharp
-        string s = "";
-        ```
+    ✖
+    ``` csharp
+    string s = "";
+    ```
 
   * ✖ Do not use regions
   
@@ -1783,13 +1597,6 @@ The document contains data collected from various sources, language styles, and 
         }
 
         ```
-        ``` csharp
-        if (true)
-        {
-        #region
-        }
-        #endregion
-        ```
 
   * ✖ Do not write empty statements
   
@@ -1804,8 +1611,6 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         int counter = 10;;
-        ```
-        ``` csharp
         int counter = 10; ;
         ```
 
@@ -1815,10 +1620,10 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public int Sum(int first, int second)
+        int Method(int x, int x)
         {
-            int result = first + second;
-            return result;
+            int sum = x + y;
+            return sum;
         }
         ```
         ``` csharp
@@ -1830,9 +1635,9 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public int Sum(int first, int second)
+        int Method(int x, int x)
         {
-            int result = first + second; return result;
+            int sum = x + y; return sum;
         }
         ```
         ``` csharp
@@ -1849,41 +1654,35 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         /// <summary>
-        /// Insert summary text here.
+        /// ...
         /// </summary>
-        /// <param name="x">Parameter 'x'.</param>
-        /// <param name="y">Parameter 'y'.</param>
-        private void Method(int x, int y)
-        {
-        }
+        /// <param name="x">...</param>
+        /// <param name="y">...</param>
+        void Method(int x, int y)
         ```
 
         ✖
         ``` csharp
         ///<summary>
-        ///Insert summary text here.
+        ///...
         ///</summary>
-        /// <param name="x">Parameter 'x'.</param>
-        /// <param name="y">Parameter 'y'.</param>
-        private void Method(int x, int y)
-        {
-        }
+        /// <param name="x">...</param>
+        /// <param name="y">...</param>
+        void Method(int x, int y)
         ```
 
   * ✔ Single-line comments must begin with a single space
   
-        ✔
-        ``` csharp
-        // Single-line comment
-        ```
+    ✔
+    ``` csharp
+    // Single-line comment
+    ```
 
-        ✖
-        ``` csharp
-        //Single-line comment
-        ```
-        ``` csharp
-        //  Single-line comment
-        ```
+    ✖
+    ``` csharp
+    //Single-line comment
+    //  Single-line comment
+    ```
 
   * ✔ Space attributes correctly
   
@@ -1892,46 +1691,31 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        [Attribute1]
-        [Attribute2]
-        public void Method()
-        {
-        }
+        [Attribute]
+        void Method()
         ```
         ``` csharp
+        [Attribute1]
+        [Attribute2]
+        void Method()
+        
         [Attribute1, Attribute2]
-        public void Method()
-        {
-        }
+        void Method()
         ```
 
         ✖
         ``` csharp
-        [ Attribute]
-        public void Method()
-        {
-        }
-        ```
-        ``` csharp
-        [Attribute ]
-        public void Method()
-        {
-        }
-        ```
-        ``` csharp
-        [ Attribute ]
-        public void Method()
-        {
-        }
+        [ Attribute1]
+        [Attribute2 ]
+        [ Attribute3 ]
+        void Method()
         ```
         ``` csharp
         [ Attribute1, Attribute2 ]
-        public void Method()
-        {
-        }
+        void Method()
         ```
 
-  * ✔ Space colon symbol (**:**) correctly
+  * ✔ Space colon symbol *:* correctly
   
     * Colon should never be the only element on a single line.
     * Colon appearing within an element declaration must always have a single space on either side, uless it's the first character on the line.
@@ -1941,19 +1725,19 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public class B<T> : A
+        class B<T> : A
             where T : class
         {
-            public B(int x) : base(x)
+            B(int x) : base(x)
             {
             }
         }
         ```
         ``` csharp
-        public class B<T> : A
+        class B<T> : A
             where T : class
         {
-            public B(int x)
+            B(int x)
                 : base(x)
             {
             }
@@ -1961,8 +1745,6 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         int x = isTrue ? 10 : 100;
-        ```
-        ``` csharp
         int x = isTrue
             ? 10
             : 100;
@@ -1983,19 +1765,19 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public class B<T>:A
+        class B<T>:A
             where T:class
         {
-            public B(int x):base(x)
+            B(int x):base(x)
             {
             }
         }
         ```
         ``` csharp
-        public class B<T>:A
+        class B<T>:A
             where T:class
         {
-            public B(int x)
+            B(int x)
                 :base(x)
             {
             }
@@ -2003,22 +1785,16 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         int x = isTrue?10:100;
-        ```
-        ``` csharp
         int x = isTrue
             ?10
             :100;
-        ```
-        ``` csharp
+        int x = isTrue
+            ? 10 : 100;
         int x = isTrue
             ?
             10
             :
             100;
-        ```
-        ``` csharp
-        int x = isTrue
-            ? 10 : 100;
         ```
         ``` csharp
         switch (x)
@@ -2041,8 +1817,6 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         void Method(int a, int b, int c)
-        ```
-        ``` csharp
         void Method(
             int a,
             int b,
@@ -2081,7 +1855,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public void Method()
+        void Method()
         {
         }
         ```
@@ -2091,6 +1865,7 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         int[] ints = new[] { 1, 2, 3 };
+        int[] ints = new[] {1, 2, 3}; // Generally accepted, but be consistent!
         ```
         ``` csharp
         var anon = new
@@ -2103,18 +1878,12 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public void Method() { }
-        ```
-        ``` csharp
-        public void Method() {
+        void Method() { }
+        void Method() {
         }
-        ```
-        ``` csharp
-        public void Method()
+        void Method()
         {}
-        ```
-        ``` csharp
-        public void Method()
+        void Method()
         { }
         ```
         ``` csharp
@@ -2123,7 +1892,6 @@ The document contains data collected from various sources, language styles, and 
         var x = Method( { 1, 2 } + { 3, 4 } , 1);
         ```
         ``` csharp
-        int[] ints = new[] {1, 2, 3};
         int[] ints = new[]{ 1, 2, 3 };
         int[] ints = new[] { 1, 2, 3 } ;
         ```
@@ -2163,14 +1931,8 @@ The document contains data collected from various sources, language styles, and 
     ✔
     ``` csharp
     if (...)
-    ```
-    ``` csharp
     while (...)
-    ```
-    ``` csharp
     for (...)
-    ```
-    ``` csharp
     switch (...)
     ```
     ``` csharp
@@ -2181,22 +1943,14 @@ The document contains data collected from various sources, language styles, and 
     ```
     ``` csharp
     var strings = new string[] { "x", "y" };
-    ```
-    ``` csharp
     var integers = new[] { 1, 2, 3 };
     ```
 
     ✖
     ``` csharp
     if(...)
-    ```
-    ``` csharp
     while(...)
-    ```
-    ``` csharp
     for(...)
-    ```
-    ``` csharp
     switch(...)
     ```
     ``` csharp
@@ -2247,7 +2001,7 @@ The document contains data collected from various sources, language styles, and 
         int x = this.count;
         ```
         ``` csharp
-        var item1 = this.tuplePair.Item1;
+        var x = this.tuplePair.Item1;
         ```
         ``` csharp
         var ids = collection.Select(item => item.Id).ToList();
@@ -2265,7 +2019,7 @@ The document contains data collected from various sources, language styles, and 
         int x = this . count;
         ```
         ``` csharp
-        var item1 = this .tuplePair .Item1;
+        var x = this .tuplePair .Item1;
         ```
         ``` csharp
         var ids = collection. Select(item => item.Id). ToList();
@@ -2286,12 +2040,10 @@ The document contains data collected from various sources, language styles, and 
             ✔
             ``` csharp
             int x = -10;
+            int x = -(10 + 3);
             ```
             ``` csharp
             x -= 10;
-            ```
-            ``` csharp
-            int x = -(10 + 3);
             ```
             ``` csharp
             int x = dictionary[-10];
@@ -2318,12 +2070,10 @@ The document contains data collected from various sources, language styles, and 
             ✖
             ``` csharp
             int x =-10;
+            int x =-(10 + 3);
             ```
             ``` csharp
             x-= 10;
-            ```
-            ``` csharp
-            int x =-(10 + 3);
             ```
             ``` csharp
             int x = dictionary[ -10 ];
@@ -2382,10 +2132,10 @@ The document contains data collected from various sources, language styles, and 
         if (a > b)
         ```
         ``` csharp
-        var x = Method(Math.Max(1, 2), Math.Sqrt(144));
+        Method(Math.Max(1, 2), Math.Sqrt(144));
         ```
         ``` csharp
-        var result = longMethodCall(
+        LongMethodCall(
             (200 - 144) * 3
             + (999 / 18),
             1,
@@ -2407,7 +2157,7 @@ The document contains data collected from various sources, language styles, and 
         if(a > b)
         ```
         ``` csharp
-        var x = Method(Math.Max(1, 2) , Math.Sqrt(144) );
+        Method(Math.Max(1, 2) , Math.Sqrt(144) );
         ```
 
   * ✔ Space positive sign correctly
@@ -2620,7 +2370,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public int Sum(int x, int y)
+        int Sum(int x, int y)
         {
             ////int result = x + y;
             ////return result;
@@ -2632,19 +2382,9 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public int Sum(int x, int y)
+        int Sum(int x, int y)
         {
             //int result = x + y;
-            //return result;
-            
-            // Return sum
-            return x + y;
-        }
-        ```
-        ``` csharp
-        public int Sum(int x, int y)
-        {
-            // int result = x + y;
             // return result;
             
             // Return sum
@@ -2659,14 +2399,13 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         #if debug
+        #endif
         ```
 
         ✖
         ``` csharp
-        # if debug
-        ```
-        ``` csharp
         #  if debug
+        # endif
         ```
 
   * ✖ Do not space nullable type symbols
@@ -2678,20 +2417,14 @@ The document contains data collected from various sources, language styles, and 
         DateTime? date;
         ```
         ``` csharp
-        DateTime? date1 = new DateTime(2000, 1, 1);
-        DateTime? date2 = new DateTime(3000, 1, 1);
-        var range = new { date1, date2 };
+        DateTime? start = new DateTime(2000, 1, 1);
+        DateTime? end = new DateTime(3000, 1, 1);
+        var range = new { start, end };
 
-        var startYear = range.date1?.Year ?? 2000;
-        ```
-        ``` csharp
-        DateTime? date1 = new DateTime(2000, 1, 1);
-        DateTime? date2 = new DateTime(3000, 1, 1);
-        var range = new { date1, date2 };
-
-        var startYear = range
-            .date1
-            ?.Year ?? 2000;
+        int startYear = range.start?.Year ?? 2000;
+        int endYear = range
+            .end
+            ?.Year ?? 3000;
         ```
 
         ✖
@@ -2699,23 +2432,16 @@ The document contains data collected from various sources, language styles, and 
         DateTime ? date;
         ```
         ``` csharp
-        DateTime? date1 = new DateTime(2000, 1, 1);
-        DateTime? date2 = new DateTime(3000, 1, 1);
-        var range = new { date1, date2 };
+        DateTime? start = new DateTime(2000, 1, 1);
+        DateTime? end = new DateTime(3000, 1, 1);
+        var range = new { start, end };
 
-        var startYear = range.date1 ? .Year ?? 2000;
-        var endYear = range.date2 ?. Year ?? 2000;
-        ```
-        ``` csharp
-        DateTime? date1 = new DateTime(2000, 1, 1);
-        DateTime? date2 = new DateTime(3000, 1, 1);
-        var range = new { date1, date2 };
-
-        var startYear = range
-            .date1?
+        var startYear = range.start ? .Year ?? 2000;
+        var endYear = range
+            .end?
             .Year ?? 2000;
         ```
-
+        
   * ✖ Do not use tabs
   
     * The length of the tab character can vary depending upn the editor used to view the code.
@@ -2736,9 +2462,7 @@ The document contains data collected from various sources, language styles, and 
                        100,
                        200,
                        300);
-        ```
-        ``` csharp
-        var x = Method(
+        var y = Method(
                 100,
                 200,
                 300);
