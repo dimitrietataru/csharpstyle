@@ -1930,14 +1930,14 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         class Application
         {
-            int count;
+            int x;
             
             bool Method()
             {
-                var statementOne = CallMethodOne();
-                var statementTwo = CallMethodTwo();
+                var one = MethodOne();
+                var two = MethodTwo();
                 
-                return statementOne != statementTwo;
+                return one != two;
             }
         }
         ```
@@ -1946,16 +1946,16 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         class Application
         {
-            int count;
+            int x;
             
             
             bool Method()
             {
-                var statementOne = CallMethodOne();
-                var statementTwo = CallMethodTwo();
+                var one = MethodOne();
+                var two = MethodTwo();
                 
                 
-                return statementOne != statementTwo;
+                return one != two;
             }
         }
         ```
@@ -1987,5 +1987,143 @@ The document contains data collected from various sources, language styles, and 
         ```
 
 ### Parameters
+
+  * ✔ Split parameter list correctly
+  
+    * Parameters must be placed all on one line, or each on a separate line.
+    * Parameters must follow declaration.
+    
+        ✔
+        ``` csharp
+        void Method(int x, int y, int z)
+        ```
+        ``` csharp
+        void Method(
+            int x, int y, int z)
+        ```
+        ``` csharp
+        void Method(
+            int x,
+            int y,
+            int z)
+        ```
+
+        ✖
+        ``` csharp
+        void Method(int x, int y,
+            int z)
+        ```
+        ``` csharp
+        void Method(
+            int x,
+            int y, int z)
+        ```
+
+  * ✔ Parameter list must follow declaration
+  
+    * The start of the parameter list of a method or indexer must begin on same line or next line of the opening parenthesis.
+    
+        ✔
+        ``` csharp
+        void Method(int x, int y, int z)
+        ```
+        ``` csharp
+        void Method(
+            int x, int y, int z)
+        ```
+        ``` csharp
+        void Method(
+            int x,
+            int y,
+            int z)
+        ```
+
+        ✖
+        ``` csharp
+        void Method(int x, int y,
+            
+            int z)
+        ```
+        ``` csharp
+        void Method(
+
+            int x, int y, int z)
+        ```
+        ``` csharp
+        void Method(
+
+            int x,
+            int y,
+            int z)
+        ```
+
+  * ✔ Parameters must follow comma
+  
+    * Parameters must be written on same, or next line as previous parameter.
+    
+        ✔
+        ``` csharp
+        void Method(
+            int x,
+            int y,
+            int z)
+        ```
+        
+        ✖
+        ``` csharp
+        void Method(
+            int x,
+
+            int y,
+
+            int z)
+        ```
+
+  * ✔ Ensure comma is on same line as previous parameter
+  
+    ✔
+    ``` csharp
+    Method(
+        x,
+        y,
+        z);
+    ```
+
+    ✖
+    ``` csharp
+    Method(
+        x
+        , y
+        ,z);
+    ```
+
+  * ✖ Do not span one parameter on multiple lines
+  
+    * Ensure parameters do not span multiple lines.
+    * This ensures method calls don't become excessively complicated, or unreadable.
+    * Exceptions:
+      * **The first** parameter is allowed to span across multiple lines.
+      * **Anonymous methods** passed as parameter is always allowed to span multiple lines.
+      
+        ✔
+        ``` csharp
+        return JoinStrings(
+            "a very long string.."
+            + "concatenated with another very long string...",
+            "second parameter goes here");
+        ```
+        ``` csharp
+        return JoinStrings(
+            "x",
+            "y" + "z");
+        ```
+
+        ✖
+        ``` csharp
+        return JoinStrings(
+            "x",
+            "y"
+            + "z");
+        ```
 
 ### Misc
