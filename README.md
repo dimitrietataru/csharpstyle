@@ -340,18 +340,254 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
 
+  * ✔ Use PascalCasing when abbreviating three or more characters
+  
+    * When there are two characters, both are uppercase.
+    
+        ✔
+        ``` csharp
+        HtmlHelper htmlHelper;
+        XmlDocument xmlDocument;
+        IOException ioException;
+        UIElement uiElement;
+        ```
+        
+        ✖
+        ``` csharp
+        HTMLHelper htmlHelper;
+        XMLDocument xmlDocument;
+        IoException ioException;
+        UiElement uiElement;
+        ```
 
+  * ✔ Write both accessors single-line or multi-line. Do not mix styles.
+  
+    * Write both accessors single-line when the accessors are short.
+    * Expand both accessors multi-lines when the accessors are longer.
+    
+        ✔
+        ``` csharp
+        bool IsEnabled { get; set; }
+        ```
+        ``` csharp
+        bool IsEnabled
+        {
+            get { return this.enabled; }
+            set { this.enabled = value; }
+        }
+        ```
+        ``` csharp
+        bool IsEnabled
+        {
+            get => this.enabled;
+            set => this.enabled = value;
+        }
+        ```
+        ``` csharp
+        bool IsEnabled
+        {
+            get
+            {
+                return this.enabled;
+            }
+            
+            set
+            {
+                this.enabled = value;
+            }
+        }
+        ```
 
+        ✖
+        ``` csharp
+        bool IsEnabled
+        {
+            get;
+            set;
+        }
+        ```
+        ``` csharp
+        bool IsEnabled
+        {
+            get { return this.enabled; }
+            set => this.enabled = value;
+        }
+        ```
 
+  * ✔ Prefix local calls with *this*
+  
+    * Insert the **this** prefix before a call to a class member.
+    
+        ✔
+        ``` csharp
+        class B : A
+        {
+            private int x;
+            private int y;
+            
+            public B(int x, int y, int z)
+            {
+                base.z = z;
+                this.x = x;
+                this.y = y;
+            }
+        }
+        ```
+        
+        ✖
+        ``` csharp
+        class B : A
+        {
+            private int m_x;
+            private int _y;
+            
+            public B(int x, int y, int z)
+            {
+                base.z = z;
+                m_x = x;
+                _y = y;
+            }
+        }
+        ```
 
+  * ✖ Do not prefix calls with *base* unless local implementation exists
+  
+    * A call to a member from an inherited class must begin with base only when local class contains an override or implementation.
+    
+        ✔
+        ``` csharp
+        public virtual string JoinName(string first, string last)
+        {
+            return $"Base: {first} {last}";
+        }
 
+        public override string JoinName(string first, string last)
+        {
+            return $"This: {first} {last}";
+        }
 
+        string thisName = this.Join("th", "is");
+        string baseName = base.Join("ba", "se");
+        ```
+        
+        ✖
+        ``` csharp
+        public virtual string JoinName(string first, string last)
+        {
+            return $“BASE: {first} {last}”;
+        }
 
+        string name = base.Join("", "");
+        ```
 
+  * ✖ Do not split overloads
+  
+    * When a class has multiple constructors, or multiple methods with the same name, these appear sequentially, with no code in between (NOT even private members).
+    
+        ✔
+        ``` csharp
+        class Application
+        {
+            public Application()
+            {
+            }
+            
+            private Application(int x)
+            {
+            }
+            
+            public void Execute(int x)
+            {
+            }
+            
+            private void Execute(bool status)
+            {
+            }
+            
+            public void Display()
+            {
+            }
+        }
+        ```
 
+        ✖
+        ``` csharp
+        class Application
+        {
+            public Application()
+            {
+            }
+            
+            public void Execute(int x)
+            {
+            }
+            
+            private Application(int x)
+            {
+            }
+        }
+        ```
+        ``` csharp
+        class Application
+        {
+            public void Execute(int x)
+            {
+            }
+            
+            public void Display()
+            {
+            }
+            
+            private void Execute(bool status)
+            {
+            }
+        }
+        ```
 
-
-
+  * ✖ Do not (habitually) add new methods at the end of the class
+  
+    ✔
+    ``` csharp
+    class Transfer
+    {
+        void Connect()
+        {
+        }
+        
+        void Download()
+        {
+        }
+        
+        // Recently added method
+        void Upload()
+        {
+        }
+        
+        void Notify()
+        {
+        }
+        
+        void Stop()
+        {
+        }
+    }
+    ```
+    
+    ✖
+    ``` csharp
+    class Transfer
+    {
+        // ...
+        void Stop()
+        {
+        }
+        
+        // Recently added signature
+        void Upload()
+        {
+        }
+    }
+    ```
 
 ### Modifiers
 
