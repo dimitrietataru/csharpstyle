@@ -2018,9 +2018,11 @@ The document contains data collected from various sources, language styles, and 
             ``` csharp
             int x = Method(
                 -10, -3);
+            
             int x = Method(
                 -10,
                 -3);
+            
             int x = Method(
                 (100 + 90)
                 - 999,
@@ -2046,6 +2048,7 @@ The document contains data collected from various sources, language styles, and 
                 100,
                  -10,
                  -3);
+            
             int x = Method(
                 (100 + 90) -
                 999,
@@ -2205,52 +2208,41 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         int x = array[10];
-        ```
-        ``` csharp
+        
         int x = array[10] + 1;
-        ```
-        ``` csharp
+        
         int x = matrix[10, 10];
         ```
         ``` csharp
-        int[] ints = new int[2];
-        ```
-        ``` csharp
+        int[] array = new int[2];
+        
+        int[] array = new int[] { 1, 2, 3 };
+        
+        int[] array = new[] { 1, 2, 3 };
+        
+        int[] array = { 1, 2, 3 };
+        
         int[,] matrix = new int[2, 2];
         ```
-        ``` csharp
-        int[] ints = new int[] { 1, 2, 3 };
-        ```
-        ``` csharp
-        int[] ints = { 1, 2, 3 };
-        ```
-        ``` csharp
-        int[] ints = new[] { 1, 2, 3 };
-        ```
-
+        
         ✖
         ``` csharp
         int x = array [10];
-        ```
-        ``` csharp
+        
         int x = array[10]+1;
-        ```
-        ``` csharp
+        
         int x = matrix [10,10];
         ```
         ``` csharp
-        int [] ints = new int[2];
-        ```
-        ``` csharp
+        int [] array = new int[2];
+        
+        int[] array = new int [] { 1, 2, 3 };
+        
+        int[] array = new [] { 1, 2, 3 };
+        
         int[,] matrix = new int [2, 2];
         ```
-        ``` csharp
-        int[] ints = new int [] { 1, 2, 3 };
-        ```
-        ``` csharp
-        int[] ints = new [] { 1, 2, 3 };
-        ```
-
+        
   * ✔ Space symbols correctly
   
     * Symbols: colons, operators (arithmetic, assignment, conditional, logical, relational, shift, lambda)
