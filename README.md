@@ -2208,38 +2208,27 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         int x = array[10];
-        
         int x = array[10] + 1;
-        
         int x = matrix[10, 10];
         ```
         ``` csharp
         int[] array = new int[2];
-        
         int[] array = new int[] { 1, 2, 3 };
-        
         int[] array = new[] { 1, 2, 3 };
-        
         int[] array = { 1, 2, 3 };
-        
         int[,] matrix = new int[2, 2];
         ```
         
         ✖
         ``` csharp
         int x = array [10];
-        
         int x = array[10]+1;
-        
         int x = matrix [10,10];
         ```
         ``` csharp
         int [] array = new int[2];
-        
         int[] array = new int [] { 1, 2, 3 };
-        
         int[] array = new [] { 1, 2, 3 };
-        
         int[,] matrix = new int [2, 2];
         ```
         
