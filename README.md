@@ -1719,6 +1719,118 @@ The document contains data collected from various sources, language styles, and 
 
 ### Signs
 
+  * ✔ Space positive sign correctly
+  
+    * Positive sign should always be preceded by a single space.
+    * Positive sign should never be the last character on a line.
+    * Exception when it is:
+      * the first character after an opening square bracket
+      * the first character after an opening parenthesis
+      * the first character on the line
+      
+        ✔
+        ``` csharp
+        x += y;
+        ```
+        ``` csharp
+        int x = dictionary[+y];
+        ```
+        ``` csharp
+        int x = Method(
+            (999 / 9)
+            + 10_000,
+            -11);
+        ```
+        ``` csharp
+        string s = "First" + "Middle" + "Last";
+        string s = "First"
+            + "Middle"
+            + "Last";
+        ```
+
+        ✖
+        ``` csharp
+        x+= y;
+        ```
+        ``` csharp
+        int x = dictionary[ +y ];
+        ```
+        ``` csharp
+        int x = Method(
+            (999 / 9) +
+            10_000,
+            -11);
+        ```
+        ``` csharp
+        string s = "First"+"Middle"+"Last";
+        string s = "First" +
+            "Middle" +
+            "Last";
+        ```
+
+  * ✔ Space negative sign correctly
+  
+    * Negative sign should always be preceded by a single space.
+    * Negative sign should never be the last character on a line.
+    * Exception when it is:
+      * the first character after an opening square bracket
+      * the first character after an opening parenthesis
+      * the first character on the line
+       
+        ✔
+        ``` csharp
+        int x = -y;
+        int x = -(y + z);
+        ```
+        ``` csharp
+        x -= y;
+        ```
+        ``` csharp
+        int x = dictionary[-y];
+        ```
+        ``` csharp
+        int x = Method(-y, -z);
+        ```
+        ``` csharp
+        int x = Method(
+            -y, -z);
+        
+        int x = Method(
+            -y,
+            -z);
+        
+        int x = Method(
+            (900 + 99)
+            - 888,
+            -77);
+        ```
+        
+        ✖
+        ``` csharp
+        int x =-y;
+        int x =-(y + z);
+        ```
+        ``` csharp
+        x-= y;
+        ```
+        ``` csharp
+        int x = dictionary[ -y ];
+        ```
+        ``` csharp
+        int x = Method( -y, -z);
+        ```
+        ``` csharp
+        int x = Method(
+            999,
+             -88,
+             -7);
+        
+        int x = Method(
+            (900 + 99) -
+            888,
+            -77);
+        ```
+
 ### Layout
 
 ### Parameters
