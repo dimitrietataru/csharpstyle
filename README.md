@@ -14,7 +14,7 @@
   - [Attributes](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/attributes)
 
 ## Credits
-This C# style recommends best practices so that other C# developers can write code maintainable by other C# developers.
+This C# style recommends best practices so that developers can write code maintainable by other C# developers.  
 The document contains data collected from various sources, language styles, and communities.  
 
   - [docs.microsoft.com](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/)
@@ -108,7 +108,7 @@ The document contains data collected from various sources, language styles, and 
     * Alignment improves readability.. for a minute, or so. In reality, alignment creates problems for future maintenance!
     * A future change that needs to touch just one line of code will leave the *formerly-pleasing* formatting **mangled**.
     * The smallest change, as a variable rename, will break your *neatly formatted code*.
-    * There should be no need to modify that extra piece of code. If the case raises will be, most likely, left behind.
+    * There should be no need to modify that extra piece of code. If the case raises it will be, most likely, left behind.
     * These blocks of code can slow down reviewers and exacerbates merge conflicts.
     
         ✔
