@@ -2475,8 +2475,7 @@ The document contains data collected from various sources, language styles, and 
     * Fields should always be private.
     * For mentainability reasons, properties should always be used as the mechanism for exposing fields outside of a class.
     * This allows the internal implementation of the property to change over time without changing the interface of the class.
-    * Exceptions:
-      * Fields within structs are allowed to have any access level.
+    * Exception: fields within structs are allowed to have any access level.
     
         ✔
         ``` csharp
@@ -2598,7 +2597,6 @@ The document contains data collected from various sources, language styles, and 
     
   * ✖ Do not use abbreviations
   
-    * Avoid use of abbreviations.
     * Exceptions:
       * common names and notations: Id, Url, Ftp, Xml, Http, etc..
       * *for* statement initializer(s)
