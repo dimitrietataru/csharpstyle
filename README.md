@@ -47,6 +47,10 @@ The document contains data collected from various sources, language styles, and 
   * [Layout](#layout)
   * [Parameters](#parameters)
   * [Misc](#misc)
+* [Types and variables](#types-and-variables)
+* [Expressions](#expressions)
+* [Statements](#statements)
+* [Queries and Linq](#queries-and-linq)
 
 ## General
 
@@ -2255,17 +2259,162 @@ The document contains data collected from various sources, language styles, and 
         # endif
         ```
 
+## Types and variables
 
+  * ✖ Do not use underscores in identifiers
+  
+    * [c-sharpcorner.com article](https://www.c-sharpcorner.com/article/stop-use-var-everywhere-and-think-before-use-underscore-with-private-variable-in/)
+    * **Discards**, introduced in C# 7.0, are the only exception.
+    
+        ✔
+        ``` csharp
+        private int x;
+        ```
+        ``` csharp
+        private readonly IDependencyInjection dependencyInjection;
+        ```
+        ``` csharp
+        var x = list1
+            .Join(list2, l1 => l1.Id, l2 => l2.Id, (l1, _) => l1)
+            .ToList();
+        ```
+        ``` csharp
+        services.AddScope<ISignature>(_ => new Implementation(99));
+        ```
 
+        ✖
+        ``` csharp
+        private int m_x;
+        private int _x;
+        ```
+        ``` csharp
+        private readonly IDependencyInjection _dependencyInjection;
+        ```
 
+  * ✔ Fields must be private
+  
+    * For mentainability reasons, properties should always be used as the mechanism for exposing fields outside of a class.
+    * This allows the internal implementation of the property to change over time without changing the interface of the class.
+    * Exception: fields within structs are allowed to have any access level.
+    
+        ✔
+        ``` csharp
+        private int count;
 
+        public int Count
+        {
+            get => this.count;
+            set => this.count = value;
+        }
+        ```
 
+        ✖
+        ``` csharp
+        public int count;
+        ```
 
+  * ✔ Use built-in type alias
 
+    | Alias   | Type    | Fully qualified type |
+    |:--------|:--------|:---------------------|
+    | bool    | Boolean | System.Boolean       |
+    | byte    | Byte    | System.Byte          |
+    | char    | Char    | System.Char          |
+    | decimal | Decimal | System.Decimal       |
+    | double  | Double  | System.Double        |
+    | short   | Int16   | System.Int16         |
+    | int     | Int32   | System.Int32         |
+    | long    | Int64   | System.Int64         |
+    | object  | Object  | System.Object        |
+    | sbyte   | SByte   | System.SByte         |
+    | float   | Single  | System.Single        |
+    | string  | String  | System.String        |
+    | ushort  | UInt16  | System.UInt16        |
+    | uint    | UInt32  | System.UInt32        |
+    | ulong   | UInt64  | System.UInt64        |
+  
+    * Use predefined type names, instead of system type names.
+    * Do not use basic types.
+    * Do not use full namespace for types.
 
+        ✔
+        ``` csharp
+        int index;
+        bool isTrue;
+        object obj;
+        string name;
+        ```
 
+        ✖
+        ``` csharp
+        Int32 index;
+        Boolean isTrue;
+        Object obj;
+        String name;
+        ```
 
+  * ✔ Use shorthand for nullable types
+  
+    * Define nullable types using the C# shorthand/predefined types.
+    
+        ✔
+        ``` csharp
+        int? count;
+        DateTime? date;
+        ```
 
+        ✖
+        ``` csharp
+        Nullable<int> count;
+        Nullable<DateTime> date;
+        ```
 
+  * ✖ Do not use Hungarian notation, or type identification in identifiers
+  
+    ✔
+    ``` csharp
+    int age;
+    string address;
+    DateTime dateOfBirth;
+    List<Person> persons;
+    ```
 
+    ✖
+    ``` csharp
+    int iAge;
+    string strAddress;
+    List<Person> personList;
+    ```
 
+  * ✖ Do not use abbreviations
+  
+    * Exceptions:
+      * common names and notations: Id, Url, Ftp, Xml, Http, etc..
+      * *for* statement initializer(s)
+    
+        ✔
+        ``` csharp
+        IConfiguration configuration;
+        DateTimeOffset dateTimeOffset;
+        CancellationToken cancellationToken;
+        string name;
+        ```
+        ``` csharp
+        UserId userId;
+        XmlDocument xmlDocument;
+        HtmlHelper htmlHelper;
+        ```
+
+        ✖
+        ``` csharp
+        IConfiguration cfg;
+        DateTimeOffset offset;
+        CancellationToken ct;
+        string s;
+        ```
+
+## Expressions
+
+## Statements
+
+## Queries and Linq
