@@ -2190,7 +2190,8 @@ The document contains data collected from various sources, language styles, and 
     | typeof      | No                |
     | unchecked   | No                |
     | new (ctor)  | Yes               |
-    | new (array) | No                |
+    | new (array) | No                |  
+
 
   * ✔ Space attributes correctly
   
