@@ -1537,7 +1537,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        #region Verify condition..
+        #region ...
         if (true)
         {
         }
@@ -1547,14 +1547,14 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         if (true)
-        #region
+        #region ...
         {
         }
         #endregion
         ```
         ``` csharp
         if (true)
-        #region
+        #region ...
         {
         #endregion
         }
