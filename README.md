@@ -850,13 +850,13 @@ The document contains data collected from various sources, language styles, and 
 > Improve the code and then document it to make it even clearer. <br>
 > &mdash; Steve McConnell
 
-  * Write self-documenting code and ignore the rest of this section. Seriously!
+  * ✔ Write self-documenting code and ignore the rest of this section. Seriously!
 
-  * Avoid writing comments to explain bad code. Refactor the code to make it self-explanatory.
+  * ✖ Avoid writing comments to explain bad code. Refactor the code to make it self-explanatory.
 
-  * Write comments in *English*
+  * ✔ Write comments in *English*
   
-  * Comments longer than a word are capitalized and use punctuation.
+  * ✔ Comments longer than a word are capitalized and use punctuation.
   
   * ✖ Do not add empty comments
   
