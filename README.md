@@ -852,26 +852,14 @@ The document contains data collected from various sources, language styles, and 
 
   * ✔ Write self-documenting code and ignore the rest of this section. Seriously!
 
-  * ✖ Avoid writing comments to explain bad code. Refactor the code to make it self-explanatory.
-
-  * ✔ Write comments in *English*
+  * ✔ Write comments in *English*.
   
   * ✔ Comments longer than a word are capitalized and use punctuation.
   
   * ✖ Do not add empty comments
   
-    ✔
-    ``` csharp
-    // This is a valid comment
-    int x;
-    ```
-    
-    ✖
-    ``` csharp
-    //
-    int x;
-    ```
-
+  * ✖ Avoid writing comments to explain bad code. Refactor the code to make it self-explanatory.
+  
   * ✔ Begin single-line comments with a single space
   
     ✔
