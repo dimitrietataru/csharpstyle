@@ -1131,12 +1131,12 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public class Student : Person
+        class A : B
         {
             private string id;
             private double grade;
             
-            public Person(string id, double grade, int age)
+            A(string id, double grade, int age)
             {
                 base.age = age;
                 this.id = id;
@@ -1147,12 +1147,12 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public class Student : Person
+        class A : B
         {
             private string m_id;
             private double _grade;
             
-            public Person(string id, double grade, int age)
+            A(string id, double grade, int age)
             {
                 base.age = age;
                 m_id = id;
@@ -1168,8 +1168,6 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         var x = select a in b from c;
-        ```
-        ``` csharp
         var x =
             select a
             in b
@@ -1180,8 +1178,6 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         var x = select a in b
             from c;
-        ```
-        ``` csharp
         var x = select a in b
                 from c;
         ```
@@ -1189,8 +1185,6 @@ The document contains data collected from various sources, language styles, and 
         var x = select a
                 in b
                 from c;
-        ```
-        ``` csharp
         var x = select a in b
                          from c;
         ```
@@ -1201,50 +1195,30 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public string JoinName(string first, string middle, string last)
-        {
-            // ...
-        }
+        void Method(int x, int y, int z)
         ```
         ``` csharp
-        public string JoinName(
-            string first, string middle, string last)
-        {
-            // ...
-        }
+        void Method(
+            int x, int y, int z)
         ```
         ``` csharp
-        public string JoinName(
-            string first,
-            string middle,
-            string last)
-        {
-            // ...
-        }
+        void Method(
+            int x,
+            int y,
+            int z)
         ```
 
         ✖
         ``` csharp
-        public string JoinName(string first,
-            string middle, string last)
-        {
-            // ...
-        }
+        void Method(int x,
+            int y, int z)
+        void Method(int x, int y,
+            int z)
         ```
         ``` csharp
-        public string JoinName(string first, string middle,
-            string last)
-        {
-            // ...
-        }
-        ```
-        ``` csharp
-        public string JoinName(
-            string first,
-            string middle, string last)
-        {
-            // ...
-        }
+        void Method(
+            int x,
+            int y, int z)
         ```
 
   * ✔ Use built-in type alias
@@ -1310,42 +1284,29 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        var babies = persons.Where(person => person.DateOfBirth.Year.Equals(currentYear)).ToList();
-        ```
-        ``` csharp
-        var babies = persons
-            .Where(person => person.DateOfBirth.Year.Equals(currentYear))
-            .ToList();
-        ```
-        ``` csharp
         var x = select a in b from c;
+        ``` csharp
+        ```
+        var x = collection.Where(item => item.Date.Year.Equals(currentYear)).ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => item.Date.Year.Equals(currentYear))
+            .ToList();
         ```
 
         ✖
         ``` csharp
-        var babies = persons.Where(person => person.DateOfBirth.Year.Equals(currentYear))
+        var x = collection
+            .Where(item => item.Date.Year.Equals(currentYear)).ToList();
+        var x = collection.Where(item => item.Date.Year.Equals(currentYear))
             .ToList();
-        ```
-        ``` csharp
-        var babies = persons.Where(person => person.DateOfBirth.Year.Equals(currentYear))
-                            .ToList();
-        ```
-        ``` csharp
-        var babies = persons
-            .Where(person => person.DateOfBirth.Year.Equals(currentYear)).ToList();
+        var x = collection.Where(item => item.Date.Year.Equals(currentYear))
+                          .ToList();
         ```
         ``` csharp
         var x = select a
             in b from c;
-        ```
-        ``` csharp
-        var x =
-            select
-            a
-            in
-            b
-            from
-            c;
         ```
 
   * ✔ Write query clauses on multiple lines when previous clause spans multiple lines
@@ -1354,48 +1315,45 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        var x =
-            select a
-            in b.GetCustomers(
-                2,
-                “x”)
-            from c;
-        ```
-        ``` csharp
-        var x = collection
-            .Where(item =>
-                start >= item.StartDate
-                && end <= item.EndDate)
-            .Select(item => new { Id = item.Id, Name = item.Name })
-            .ToList();
-        ```
-        ``` csharp
         var x = collection
             .Where(item => start >= item.StartDate && end <= item.EndDate)
             .Select(item => new { Id = item.Id, Name = item.Name })
             .ToList();
         ```
-
-        ✖
-        ``` csharp
-        var x =
-            select a
-            in b.GetCustomers(
-                2,
-                “x”) from c;
-        ```
         ``` csharp
         var x = collection
             .Where(item =>
                 start >= item.StartDate
                 && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x =
+            select a
+            in b.Method(
+                2, “x”)
+            from c;
+        ```
+
+        ✖
+        ``` csharp
+        var x = collection
+            .Where(item => start >= item.StartDate && end <= item.EndDate)
             .Select(item => new { Id = item.Id, Name = item.Name }).ToList();
         ```
         ``` csharp
-        var x = collection
-            .Where(item =>
-                start >= item.StartDate && end <= item.EndDate)
-            .Select(item => new { Id = item.Id, Name = item.Name }).ToList();
+        var x = collection.Where(item =>
+                start >= item.StartDate
+                && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x =
+            select a
+            in b.Method(
+                2, “x”) from c;
         ```
 
   * ✔ Write query clauses on own line when spanning multiple lines
@@ -1445,7 +1403,7 @@ The document contains data collected from various sources, language styles, and 
         var x =
             select a
             in b
-            from c.GetCustomers(
+            from c.Method(
                 2, “x”);
         ```
 
@@ -1469,7 +1427,7 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         var x =
             select a
-            in b from c.GetCustomers(
+            in b from c.Method(
                 2, “x”);
         ```
 
@@ -1574,15 +1532,15 @@ The document contains data collected from various sources, language styles, and 
 
   * ✖ Do not use empty strings
   
-        ✔
-        ``` csharp
-        string s = string.Empty;
-        ```
+    ✔
+    ``` csharp
+    string s = string.Empty;
+    ```
 
-        ✖
-        ``` csharp
-        string s = "";
-        ```
+    ✖
+    ``` csharp
+    string s = "";
+    ```
 
   * ✖ Do not use regions
   
@@ -1652,13 +1610,6 @@ The document contains data collected from various sources, language styles, and 
         }
 
         ```
-        ``` csharp
-        if (true)
-        {
-        #region
-        }
-        #endregion
-        ```
 
   * ✖ Do not write empty statements
   
@@ -1673,8 +1624,6 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         int counter = 10;;
-        ```
-        ``` csharp
         int counter = 10; ;
         ```
 
@@ -1684,10 +1633,10 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public int Sum(int first, int second)
+        int Method(int x, int x)
         {
-            int result = first + second;
-            return result;
+            int sum = x + y;
+            return sum;
         }
         ```
         ``` csharp
@@ -1699,9 +1648,9 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public int Sum(int first, int second)
+        int Method(int x, int x)
         {
-            int result = first + second; return result;
+            int sum = x + y; return sum;
         }
         ```
         ``` csharp
@@ -1718,41 +1667,35 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         /// <summary>
-        /// Insert summary text here.
+        /// ...
         /// </summary>
-        /// <param name="x">Parameter 'x'.</param>
-        /// <param name="y">Parameter 'y'.</param>
-        private void Method(int x, int y)
-        {
-        }
+        /// <param name="x">...</param>
+        /// <param name="y">...</param>
+        void Method(int x, int y)
         ```
 
         ✖
         ``` csharp
         ///<summary>
-        ///Insert summary text here.
+        ///...
         ///</summary>
-        /// <param name="x">Parameter 'x'.</param>
-        /// <param name="y">Parameter 'y'.</param>
-        private void Method(int x, int y)
-        {
-        }
+        /// <param name="x">...</param>
+        /// <param name="y">...</param>
+        void Method(int x, int y)
         ```
 
   * ✔ Single-line comments must begin with a single space
   
-        ✔
-        ``` csharp
-        // Single-line comment
-        ```
+    ✔
+    ``` csharp
+    // Single-line comment
+    ```
 
-        ✖
-        ``` csharp
-        //Single-line comment
-        ```
-        ``` csharp
-        //  Single-line comment
-        ```
+    ✖
+    ``` csharp
+    //Single-line comment
+    //  Single-line comment
+    ```
 
   * ✔ Space attributes correctly
   
@@ -1761,46 +1704,31 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        [Attribute1]
-        [Attribute2]
-        public void Method()
-        {
-        }
+        [Attribute]
+        void Method()
         ```
         ``` csharp
+        [Attribute1]
+        [Attribute2]
+        void Method()
+        
         [Attribute1, Attribute2]
-        public void Method()
-        {
-        }
+        void Method()
         ```
 
         ✖
         ``` csharp
-        [ Attribute]
-        public void Method()
-        {
-        }
-        ```
-        ``` csharp
-        [Attribute ]
-        public void Method()
-        {
-        }
-        ```
-        ``` csharp
-        [ Attribute ]
-        public void Method()
-        {
-        }
+        [ Attribute1]
+        [Attribute2 ]
+        [ Attribute3 ]
+        void Method()
         ```
         ``` csharp
         [ Attribute1, Attribute2 ]
-        public void Method()
-        {
-        }
+        void Method()
         ```
 
-  * ✔ Space colon symbol (**:**) correctly
+  * ✔ Space colon symbol *:* correctly
   
     * Colon should never be the only element on a single line.
     * Colon appearing within an element declaration must always have a single space on either side, uless it's the first character on the line.
@@ -1810,19 +1738,19 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public class B<T> : A
+        class B<T> : A
             where T : class
         {
-            public B(int x) : base(x)
+            B(int x) : base(x)
             {
             }
         }
         ```
         ``` csharp
-        public class B<T> : A
+        class B<T> : A
             where T : class
         {
-            public B(int x)
+            B(int x)
                 : base(x)
             {
             }
@@ -1830,8 +1758,6 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         int x = isTrue ? 10 : 100;
-        ```
-        ``` csharp
         int x = isTrue
             ? 10
             : 100;
@@ -1852,19 +1778,19 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public class B<T>:A
+        class B<T>:A
             where T:class
         {
-            public B(int x):base(x)
+            B(int x):base(x)
             {
             }
         }
         ```
         ``` csharp
-        public class B<T>:A
+        class B<T>:A
             where T:class
         {
-            public B(int x)
+            B(int x)
                 :base(x)
             {
             }
@@ -1872,22 +1798,16 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         int x = isTrue?10:100;
-        ```
-        ``` csharp
         int x = isTrue
             ?10
             :100;
-        ```
-        ``` csharp
+        int x = isTrue
+            ? 10 : 100;
         int x = isTrue
             ?
             10
             :
             100;
-        ```
-        ``` csharp
-        int x = isTrue
-            ? 10 : 100;
         ```
         ``` csharp
         switch (x)
@@ -1910,8 +1830,6 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         void Method(int a, int b, int c)
-        ```
-        ``` csharp
         void Method(
             int a,
             int b,
@@ -1950,7 +1868,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public void Method()
+        void Method()
         {
         }
         ```
@@ -1960,6 +1878,7 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         int[] ints = new[] { 1, 2, 3 };
+        int[] ints = new[] {1, 2, 3}; // Generally accepted, but be consistent!
         ```
         ``` csharp
         var anon = new
@@ -1972,18 +1891,12 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public void Method() { }
-        ```
-        ``` csharp
-        public void Method() {
+        void Method() { }
+        void Method() {
         }
-        ```
-        ``` csharp
-        public void Method()
+        void Method()
         {}
-        ```
-        ``` csharp
-        public void Method()
+        void Method()
         { }
         ```
         ``` csharp
@@ -1992,7 +1905,6 @@ The document contains data collected from various sources, language styles, and 
         var x = Method( { 1, 2 } + { 3, 4 } , 1);
         ```
         ``` csharp
-        int[] ints = new[] {1, 2, 3};
         int[] ints = new[]{ 1, 2, 3 };
         int[] ints = new[] { 1, 2, 3 } ;
         ```
@@ -2032,14 +1944,8 @@ The document contains data collected from various sources, language styles, and 
     ✔
     ``` csharp
     if (...)
-    ```
-    ``` csharp
     while (...)
-    ```
-    ``` csharp
     for (...)
-    ```
-    ``` csharp
     switch (...)
     ```
     ``` csharp
@@ -2050,22 +1956,14 @@ The document contains data collected from various sources, language styles, and 
     ```
     ``` csharp
     var strings = new string[] { "x", "y" };
-    ```
-    ``` csharp
     var integers = new[] { 1, 2, 3 };
     ```
 
     ✖
     ``` csharp
     if(...)
-    ```
-    ``` csharp
     while(...)
-    ```
-    ``` csharp
     for(...)
-    ```
-    ``` csharp
     switch(...)
     ```
     ``` csharp
@@ -2116,7 +2014,7 @@ The document contains data collected from various sources, language styles, and 
         int x = this.count;
         ```
         ``` csharp
-        var item1 = this.tuplePair.Item1;
+        var x = this.tuplePair.Item1;
         ```
         ``` csharp
         var ids = collection.Select(item => item.Id).ToList();
@@ -2134,7 +2032,7 @@ The document contains data collected from various sources, language styles, and 
         int x = this . count;
         ```
         ``` csharp
-        var item1 = this .tuplePair .Item1;
+        var x = this .tuplePair .Item1;
         ```
         ``` csharp
         var ids = collection. Select(item => item.Id). ToList();
@@ -2155,12 +2053,10 @@ The document contains data collected from various sources, language styles, and 
             ✔
             ``` csharp
             int x = -10;
+            int x = -(10 + 3);
             ```
             ``` csharp
             x -= 10;
-            ```
-            ``` csharp
-            int x = -(10 + 3);
             ```
             ``` csharp
             int x = dictionary[-10];
@@ -2187,12 +2083,10 @@ The document contains data collected from various sources, language styles, and 
             ✖
             ``` csharp
             int x =-10;
+            int x =-(10 + 3);
             ```
             ``` csharp
             x-= 10;
-            ```
-            ``` csharp
-            int x =-(10 + 3);
             ```
             ``` csharp
             int x = dictionary[ -10 ];
@@ -2251,10 +2145,10 @@ The document contains data collected from various sources, language styles, and 
         if (a > b)
         ```
         ``` csharp
-        var x = Method(Math.Max(1, 2), Math.Sqrt(144));
+        Method(Math.Max(1, 2), Math.Sqrt(144));
         ```
         ``` csharp
-        var result = longMethodCall(
+        LongMethodCall(
             (200 - 144) * 3
             + (999 / 18),
             1,
@@ -2276,7 +2170,7 @@ The document contains data collected from various sources, language styles, and 
         if(a > b)
         ```
         ``` csharp
-        var x = Method(Math.Max(1, 2) , Math.Sqrt(144) );
+        Method(Math.Max(1, 2) , Math.Sqrt(144) );
         ```
 
   * ✔ Space positive sign correctly
@@ -2489,7 +2383,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public int Sum(int x, int y)
+        int Sum(int x, int y)
         {
             ////int result = x + y;
             ////return result;
@@ -2501,19 +2395,9 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public int Sum(int x, int y)
+        int Sum(int x, int y)
         {
             //int result = x + y;
-            //return result;
-            
-            // Return sum
-            return x + y;
-        }
-        ```
-        ``` csharp
-        public int Sum(int x, int y)
-        {
-            // int result = x + y;
             // return result;
             
             // Return sum
@@ -2528,14 +2412,13 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         #if debug
+        #endif
         ```
 
         ✖
         ``` csharp
-        # if debug
-        ```
-        ``` csharp
         #  if debug
+        # endif
         ```
 
   * ✖ Do not space nullable type symbols
@@ -2547,20 +2430,14 @@ The document contains data collected from various sources, language styles, and 
         DateTime? date;
         ```
         ``` csharp
-        DateTime? date1 = new DateTime(2000, 1, 1);
-        DateTime? date2 = new DateTime(3000, 1, 1);
-        var range = new { date1, date2 };
+        DateTime? start = new DateTime(2000, 1, 1);
+        DateTime? end = new DateTime(3000, 1, 1);
+        var range = new { start, end };
 
-        var startYear = range.date1?.Year ?? 2000;
-        ```
-        ``` csharp
-        DateTime? date1 = new DateTime(2000, 1, 1);
-        DateTime? date2 = new DateTime(3000, 1, 1);
-        var range = new { date1, date2 };
-
-        var startYear = range
-            .date1
-            ?.Year ?? 2000;
+        int startYear = range.start?.Year ?? 2000;
+        int endYear = range
+            .end
+            ?.Year ?? 3000;
         ```
 
         ✖
@@ -2568,23 +2445,16 @@ The document contains data collected from various sources, language styles, and 
         DateTime ? date;
         ```
         ``` csharp
-        DateTime? date1 = new DateTime(2000, 1, 1);
-        DateTime? date2 = new DateTime(3000, 1, 1);
-        var range = new { date1, date2 };
+        DateTime? start = new DateTime(2000, 1, 1);
+        DateTime? end = new DateTime(3000, 1, 1);
+        var range = new { start, end };
 
-        var startYear = range.date1 ? .Year ?? 2000;
-        var endYear = range.date2 ?. Year ?? 2000;
-        ```
-        ``` csharp
-        DateTime? date1 = new DateTime(2000, 1, 1);
-        DateTime? date2 = new DateTime(3000, 1, 1);
-        var range = new { date1, date2 };
-
-        var startYear = range
-            .date1?
+        var startYear = range.start ? .Year ?? 2000;
+        var endYear = range
+            .end?
             .Year ?? 2000;
         ```
-
+        
   * ✖ Do not use tabs
   
     * The length of the tab character can vary depending upn the editor used to view the code.
@@ -2605,9 +2475,7 @@ The document contains data collected from various sources, language styles, and 
                        100,
                        200,
                        300);
-        ```
-        ``` csharp
-        var x = Method(
+        var y = Method(
                 100,
                 200,
                 300);
