@@ -45,22 +45,19 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         namespace Application
         {
-            public class Program
+            class Program
             {
                 static void Main(string[] args)
                 {
                     if (expression)
                     {
-                        // ...
                     }
                     else
                     {
-                        // ...    
                     }
-              
+                    
                     while (expression)
                     {
-                        // ...
                     }
                 }
             }
@@ -82,13 +79,13 @@ The document contains data collected from various sources, language styles, and 
     | Delegate name    | PascalCase |    128 | [A-z]      |
     | Enum type name   | PascalCase |    128 | [A-z]      |
 
-  * ✔ Use *TODO** comments to mark work in progress, missing features or functionality
+  * ✔ Use *TODO* comments to mark work in progress, missing features or functionality
   
     * In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*).
     
         ✔ 
         ``` csharp
-        public void Method(int x)
+        void Method(int x)
         {
             // TODO: Validate input
             
@@ -110,63 +107,54 @@ The document contains data collected from various sources, language styles, and 
         
   * ✖ NEVER align code
   
-    * Alignment can aid readability.. for a minute, or so. In reality.. alignment creates problems for future maintenance!
-    * A future change that needs to touch just one line of code will leave the formerly-pleasing formatting mangled.
-    * The smallest change, like a variable rename will break your 'neatly formatted code'.
-    * There should be no need to modify that extra piece of code and if it is, most likely will be left behind.
-    * These block of code can slow down reviewers and exacerbates merge conflicts.
+    * Alignment can improve readability.. for a minute, or so. In reality, code alignment creates problems for future maintenance!
+    * A future change that needs to touch just one line of code will leave the *formerly-pleasing* formatting mangled.
+    * The smallest change, as a variable rename, will break your *neatly formatted code*.
+    * There should be no need to modify that extra piece of code. If the case raises will be, most likely, left behind.
+    * These blocks of code can slow down reviewers and exacerbates merge conflicts.
     
         ✔
         ``` csharp
-        public int count; // Allowed comment
-        private string name; // Allowed comment
+        int count; // Allowed comment
+        string name; // Allowed comment
         ```
         ``` csharp
         // Allowed!
         if (expression1
-            && expression2
-            && expression3)
-        {
-        }
+            && expression2)
         ```
         
         ✖
         ``` csharp
-        public int count;    // Alligned
-        private string name; // comments
+        int count;   // Alligned
+        string name; // comments
 
-        public int activeItems;    // Will no longer
-        private string name; // be aligned after future edits
+        int activeItems;   // Will no longer
+        string name; // be aligned after future edits
         ```
         ``` csharp
         public  int     count;
         private string  name;
 
-        // Change access modifier
         private readonly  int     count;
         private string  name;
 
-        // Add new field
         public  int     count;
         protected DateTime releaseDate;
         private string  name;
         ```
         ``` csharp
-        public void Method(int parameter1,
-                           int parameter2,
-                           int parameter3;
-        public void MethodAfterRename(int parameter1,
-                           int parameter2,
-                           int parameter3);
+        void Method(int parameter1,
+                    int parameter2);
+        void MethodRename(int parameter1,
+                    int parameter2);
         ```
         ``` csharp
-        var items = collection
+        var x = collection
             .Where(i => i.Date.Year > 2000
                         && i.Owner == User)
             .ToList();
-
-        // Parameter rename leaves code unorganized and needs extra time to be fixed.
-        var items = collection
+        var x = collection
             .Where(currentItem => currentItem.Date.Year > 2000
                         && currentItem.Owner == User)
             .ToList();
