@@ -954,7 +954,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        string name = Method(
+        Method(
             first,
             second,
             last);
@@ -967,7 +967,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        string name = Method(
+        Method(
             first
             , second
             ,last);
