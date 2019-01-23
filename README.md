@@ -2963,7 +2963,7 @@ The document contains data collected from various sources, language styles, and 
         List<T> GetAll();
         
         // Newly added method
-        T GetById();
+        T GetById(int id);
         
         void Create(T entity);
         
@@ -2986,7 +2986,7 @@ The document contains data collected from various sources, language styles, and 
         void Delete(T entity);
         
         // Newly added method
-        T GetById();
+        T GetById(int id);
     }
     ```
     
@@ -3073,12 +3073,11 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        LoggerSignature
+        interface LoggerSignature
         ```
         ``` csharp
-        LoggerInterface
+        interface LoggerInterface
         ```
         ``` csharp
-        LoggerIFace
-        LoggerIface
+        interface LoggerIFace
         ```
