@@ -49,14 +49,14 @@ The document contains data collected from various sources, language styles, and 
             {
                 static void Main(string[] args)
                 {
-                    if (expression)
+                    if (...)
                     {
                     }
                     else
                     {
                     }
                     
-                    while (expression)
+                    while (...)
                     {
                     }
                 }
