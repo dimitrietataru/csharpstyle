@@ -2675,10 +2675,12 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         if (x || (y && z && a) || b)
+        
         if ((x || y) && z && (a || b))
         ```
         ``` csharp
         return a || (b && c);
+        
         return a || b;
         ```
 
@@ -2688,6 +2690,7 @@ The document contains data collected from various sources, language styles, and 
         ```
         ``` csharp
         return a || b && c;
+        
         return (a || b);
         ```
         
@@ -2737,24 +2740,12 @@ The document contains data collected from various sources, language styles, and 
         {
         }
         ```
-        ``` csharp
-        try
-        {
-        }
-        finally
-        {   
-        }
-        
-        unsafe
-        {
-        }
-        ```
         
   * ✔ Comment fall-through cases
   
     * Within a switch block, each statement can be terminated abruptly by break, continue, return, or throw keywords.
     * To mark statements with same result it is recommended, but not mandatory, to use an expressive comment.
-    * Usually **// fall through** is enough.
+    * Usually "**// fall through**" is enough.
     
         ✔
         ``` csharp
@@ -2858,7 +2849,11 @@ The document contains data collected from various sources, language styles, and 
     ✔
     ``` csharp
     class ClassName
+    ```
+    ``` csharp
     void MethodName
+    ```
+    ``` csharp
     string PropertyName { get; set; }
     ```
 
@@ -2866,8 +2861,12 @@ The document contains data collected from various sources, language styles, and 
     ``` csharp
     class className
     class class_Name
+    ```
+    ``` csharp
     void methodName
     void method_name
+    ```
+    ``` csharp
     string propertyName { get; set; }
     string property_name { get; set; }
     ```
