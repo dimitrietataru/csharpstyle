@@ -37,6 +37,16 @@ The document contains data collected from various sources, language styles, and 
   * [Documentation](#documentation)
   * [Regions](#regions)
   * [Comments](#comments)
+* [Spacing and readability](#spacing-and-readability)
+  * [Tabs and spacing](#tabs-and-spacing)
+  * [Curly brackets](#curly-brackets)
+  * [Square brackets](#square-brackets)
+  * [Parenthesis](#parenthesis)
+  * [Symbols](#symbols)
+  * [Signs](#signs)
+  * [Layout](#layout)
+  * [Parameters](#parameters)
+  * [Misc](#misc)
 
 ## General
 
@@ -75,7 +85,7 @@ The document contains data collected from various sources, language styles, and 
     string fieldName;
     ```
     ``` csharp
-    void Method(int parameterOne, int parameterTwo);
+    void Method(int argumentOne, int argumentTwo);
     ```
     ``` csharp
     Method(argumentOne, argumentTwo);
@@ -839,3 +849,161 @@ The document contains data collected from various sources, language styles, and 
 > "How can I improve the code so that this comment isn't needed?"
 > Improve the code and then document it to make it even clearer. <br>
 > &mdash; Steve McConnell
+
+  * Write self-documenting code and ignore the rest of this section. Seriously!
+
+  * Avoid writing comments to explain bad code. Refactor the code to make it self-explanatory.
+
+  * Write comments in *English*
+  
+  * Comments longer than a word are capitalized and use punctuation.
+  
+  * ✖ Do not add empty comments
+  
+    ✔
+    ``` csharp
+    // This is a valid comment
+    int x;
+    ```
+    
+    ✖
+    ``` csharp
+    //
+    int x;
+    ```
+
+  * ✔ Begin single-line comments with a single space
+  
+    ✔
+    ``` csharp
+    // Single-line comment
+    ```
+    
+    ✖
+    ``` csharp
+    //Single-line comment
+    //  Single-line comment
+    ```
+
+  * ✔ Write single-line comments properly
+  
+    * Single-line comments should always be preceded by a single blank line.
+    * Single-line comments should never be followed by blank line(s).
+    
+        ✔
+        ``` csharp
+        int x;
+        
+        // ...
+        int y;
+        ```
+
+        ✖
+        ``` csharp
+        int x;
+        
+        // This comment is not valid
+        
+        int y;
+        ```
+        ``` csharp
+        int x;
+        // This comment is not valid
+        
+        int y;
+        ```
+
+  * ✖ Do not write embedded comments
+  
+    * Do not write comments between declaration of statement and opening curly brackets.
+    * Place comments above statements, or within statement body.
+    
+        ✔
+        ``` csharp
+        // This method does something..
+        void Method()
+        {
+        }
+        ```
+
+        ✖
+        ``` csharp
+        void Method() // This method does something..
+        {
+        }
+        ```
+        ``` csharp
+        void Method()
+        // This method does something..
+        {
+        }
+        ```
+
+  * ✔ Use four forward slashes to indicate commented-out code
+  
+    * To differentiate comments from commented-out code, use four forward slashes.
+    * Do not add space(s) between slashes and code.
+    
+        ✔
+        ``` csharp
+        int Method()
+        {
+            ////int result = 1 + 2;
+            ////return result;
+            
+            // ...
+            return 2 + 1;
+        }
+        ```
+
+        ✖
+        ``` csharp
+        int Method()
+        {
+            //int result = 1 + 2;
+            //return result;
+            
+            // ...
+            return 2 + 1;
+        }
+        ```
+
+  * ✔ Use **Task List** friendly comments
+
+    * [Using the Task List](https://docs.microsoft.com/en-us/visualstudio/ide/using-the-task-list?view=vs-2017)
+    * To open the **Task List** window in Visual Studio use **Ctrl + \\, T**
+    * Use **TODO** to note missing features or functionality that should be added later.
+    * Use **HACK** to note code where questionable coding practices were used.
+    
+        ✔ 
+        ``` csharp
+        void Method()
+        {
+            // TODO: ...
+            
+            int x = 10;
+            int y = 20;
+            
+            // TODO: ...
+        }
+        ```
+
+## Spacing and readability
+
+### Tabs and spacing
+
+### Curly brackets
+
+### Square brackets
+
+### Parenthesis
+
+### Symbols
+
+### Signs
+
+### Layout
+
+### Parameters
+
+### Misc
