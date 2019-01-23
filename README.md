@@ -767,4 +767,75 @@ The document contains data collected from various sources, language styles, and 
 
 ### Regions
 
+  * ✖ Do not use regions. Seriously!
+  
+    * *Try* to avoid using regions. If you are already doing it, do it right!
+    * In many editors, including Visual Studio, the regions will appear collapsed by default, hiding the code within the region.
+    * It is generally a bad practice to hide code, as this can lead to bad decisions as the code is maintained over time.
+    
+        ✔
+        ```
+        (Ctrl + M, O) - Collapse to definitions
+        (Ctrl + M, L) - Toggle all outlining
+        ```
+
+  * ✖ Do not place regions within elements
+  
+    * Code should not contain region(s) within the body of a code statement.
+    
+        ✔
+        ``` csharp
+        #region
+        public void Method()
+        {
+            // ...
+        }
+        #endregion
+        ```
+        
+        ✖
+        ``` csharp
+        public void Method()
+        {
+            #region
+            // ...
+            #endregion
+        }
+        ```
+
+  * ✖ Do not write embedded regions
+  
+    * Do not write regions between declaration of statement and opening curly brackets.
+    * Place regions outside statement body.
+    
+        ✔
+        ``` csharp
+        #region ...
+        if (true)
+        {
+        }
+        #endregion
+        ```
+
+        ✖
+        ``` csharp
+        if (true)
+        #region ...
+        {
+        }
+        #endregion
+        ```
+        ``` csharp
+        if (true)
+        #region ...
+        {
+        #endregion
+        }
+        ```
+
 ### Comments
+
+> Good code is its own best documentation. As you're about to add a comment, ask yourself,
+> "How can I improve the code so that this comment isn't needed?"
+> Improve the code and then document it to make it even clearer. <br>
+> &mdash; Steve McConnell
