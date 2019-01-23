@@ -1322,7 +1322,7 @@ The document contains data collected from various sources, language styles, and 
         if(a == b)
         ```
         ``` csharp
-        Method(Math.Max(1, 2) , Math.Sqrt(144) );
+        Method( Math.Max(1, 2) , Math.Sqrt(144) );
         ```
 
   * ✔ Open parenthesis on declaration line
@@ -1399,7 +1399,7 @@ The document contains data collected from various sources, language styles, and 
         int x = matrix[
             1,
             2
-            ];
+        ];
         ```
 
   * ✖ Do not use unnecessary parenthesis
@@ -1428,6 +1428,294 @@ The document contains data collected from various sources, language styles, and 
         ```
 
 ### Symbols
+
+  * ✔ Space symbols correctly
+  
+    * Symbols: colons, operators (arithmetic, assignment, conditional, logical, relational, shift, lambda)
+    * Symbols should always be surrounded by a single space on either side.
+    * Unary operators should be preceded by a single space, but must never be followed by any space.
+    * Exception: Unary operators preceded or followed by a parenthesis or bracket, when there should be no spaces.
+    
+        ✔
+        ``` csharp
+        int x = y + z;
+        ```
+        ``` csharp
+        bool isTrue = (x == y);
+        bool isTrue = (x > y);
+        bool isTrue = (x < y);
+        bool isTrue = (x >= y);
+        bool isTrue = (x <= y);
+        bool isTrue = (x != y);
+        ```
+        ``` csharp
+        int shift = 1 << 8;
+        ```
+        ``` csharp
+        Func<int, int, int> sum = (x, y) => x + y;
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => item.Value >= 100)
+            .ToList();
+        ```
+        ``` csharp
+        if (!value)
+        if (!(expression1 && expression2))
+        ```
+        ``` csharp
+        bool x = !expression;
+        ```
+
+        ✖
+        ``` csharp
+        int x = y+z;
+        ```
+        ``` csharp
+        bool isTrue= (x == y);
+        bool isTrue =(x > y);
+        bool isTrue = (x< y);
+        bool isTrue = (x >=y);
+        bool isTrue = (x<=y);
+        bool isTrue=(x!=y);
+        ```
+        ``` csharp
+        int shift = 1<<8;
+        ```
+        ``` csharp
+        Func<int, int, int> sum = (x, y)=>x + y;
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item=>item.Value>=100)
+            .ToList();
+        ```
+        ``` csharp
+        if ( !value)
+        if ( ! value)
+        if (! (expression1 && expression2))
+        ```
+        ``` csharp
+        bool x=!expression;
+        bool x =! expression;
+        ```
+
+  * ✔ Space commas correctly
+  
+    * Commas should always be followed by a single space, unless it is the last character on the line.
+    * Commas should never be preceded by any whitespace.
+    
+        ✔
+        ``` csharp
+        void Method(int x, int y, int z);
+        void Method(
+            int x,
+            int y,
+            int z);
+        ```
+        ``` csharp
+        Method(x, y, z);
+        ```
+
+        ✖
+        ``` csharp
+        void Method(int x,int y,int z);
+        void Method(int x ,int y ,int z);
+        void Method(int x , int y , int z);
+        ```
+        ``` csharp
+        void Method(
+            int x
+            ,int y
+            , int z);
+        ```
+
+  * ✔ Space semicolons correctly
+  
+    * Semicolons should always be followed by a space, unless it is the last character on the line.
+    * Semicolons should never be preceded by any whitespace.
+    
+        ✔
+        ``` csharp
+        int X { get; set; }
+        ```
+        ``` csharp
+        string s = "semicolons";
+        ```
+        ``` csharp
+        for (int i = 0; i < 10; ++i)
+        ```
+
+        ✖
+        ``` csharp
+        int X { get ; set ; }
+        ```
+        ``` csharp
+        string s = "semicolons" ;
+        ```
+        ``` csharp
+        for (int i = 0;i < 10;++i)
+        for (int i = 0 ; i < 10 ; ++i)
+        ```
+
+  * ✔ Space colons correctly
+  
+    * Colons should never be the only element on a single line.
+    * Colons appearing within an element declaration must always have a single space on either side, uless it's the first character on the line.
+    * Colons used in a conditional statement must always contain a single space on either side, unless it's the first character on the line.
+    * Colons appearing at the end of a case statement should never be preceded by a whitespace.
+    * Colons appearing at the end of a case statement should always be the followed by a whitespace, or be last character on the line.
+    
+        ✔
+        ``` csharp
+        class B<T> : A
+            where T : class
+        {
+            B(int x)
+                : base(x)
+            {
+            }
+        }
+        ```
+        ``` csharp
+        int x = isTrue ? y : z;
+        int x = isTrue
+            ? y
+            : z;
+        ```
+        ``` csharp
+        switch (x)
+        {
+            case 1:
+                y = 1;
+                break;
+            case 2:
+                break;
+            default:
+                y = 100;
+                break;
+        }
+        ```
+        
+        ✖
+        ``` csharp
+        class B<T>:A
+            where T:class
+        {
+            B(int x):base(x)
+            {
+            }
+        }
+        ```
+        ``` csharp
+        int x = isTrue?x:y;
+        int x = isTrue
+            ?
+            x
+            :
+            y;
+        ```
+        ``` csharp
+        switch (x)
+        {
+            case 1 :
+                y = 1;
+                break;
+            case 2: break; // Accepted, but should be avoided. Be consistent!
+            default :
+                y = 100;
+                break;
+        }
+        ```
+
+  * ✔ Space increment and decrement correctly
+  
+    * The should be no whitespace between the increment or decrement symbol and the item is being incremented or decremented.
+    
+        ✔
+        ``` csharp
+        int x = ++y;
+        int x = y++;
+        int x = --y;
+        int x = y--;
+        ```
+        
+        ✖
+        ``` csharp
+        int x = ++ y;
+        int x = y ++;
+        int x = -- y;
+        int x = y --;
+        ```
+
+  * ✔ Space member access correctly
+  
+    * Member access symbol should never have whitespace on either side, unless it's the first character on the line.
+    
+        ✔
+        ``` csharp
+        int x = this.count;
+        ```
+        ``` csharp
+        var x = this.tuple.Item1;
+        ```
+        ``` csharp
+        var x = collection.Select(item => item.Id).ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Select(item => item.Id)
+            .ToList();
+        ```
+
+        ✖
+        ``` csharp
+        int x = this. count;
+        int x = this .count;
+        int x = this . count;
+        ```
+        ``` csharp
+        var x = this .tuple .Item1;
+        ```
+        ``` csharp
+        var x = collection.
+            Select(item => item.Id).
+            ToList();
+        ```
+
+  * ✖ Do not space nullable type symbols
+  
+    * Nullable type symbol should never be preceded by whitespace, unless the symbol is the first on the line.
+    
+        ✔
+        ``` csharp
+        DateTime? date;
+        ```
+        ``` csharp
+        DateTime? start = new DateTime(2000, 1, 1);
+        DateTime? end = new DateTime(3000, 1, 1);
+        var range = new { start, end };
+
+        int startYear = range.start?.Year ?? 2000;
+        int endYear = range
+            .end
+            ?.Year ?? 3000;
+        ```
+
+        ✖
+        ``` csharp
+        DateTime ? date;
+        ```
+        ``` csharp
+        DateTime? start = new DateTime(2000, 1, 1);
+        DateTime? end = new DateTime(3000, 1, 1);
+        var range = new { start, end };
+
+        var startYear = range.start ? .Year ?? 2000;
+        var endYear = range
+            .end?
+            .Year ?? 2000;
+        ```
 
 ### Signs
 
