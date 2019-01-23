@@ -1273,6 +1273,160 @@ The document contains data collected from various sources, language styles, and 
 
 ### Parenthesis
 
+  * ✔ Space parenthesis correctly
+  
+    * Opening parenthesis should not be preceded by a whitespace, unless it is the first character on a line.
+    * Opening parenthesis is allowed to be preceded by whitespace when it's preceded by certain C# keywords (if, while, for etc..).
+    * Opening parenthesis is allowed to be preceded by whitespace when it follows an operator symbol within an expression.
+    * Closing parenthesis should not be followed by a whitespace.
+    * Closing parenthesis is not allowed to be followed by whitespace when it comes at the end of a cast.
+    * Closing parenthesis is allowed to be followed by whitespace when it's followed by certain operator symbols.
+
+        ✔
+        ``` csharp
+        void Method();
+        ```
+        ``` csharp
+        int x = (a + b) * c;
+        int x = a / (b - c);
+        ```
+        ``` csharp
+        int x = (int)((a + b) % c);
+        ```
+        ``` csharp
+        if (a == b)
+        ```
+        ``` csharp
+        Method(Math.Max(1, 2), Math.Sqrt(144));
+        ```
+        ``` csharp
+        LongMethodCall(
+            (200 - 144) * 3
+            + (999 / 18),
+            1,
+            2);
+        ```
+        
+        ✖
+        ``` csharp
+        void Method ()
+        ```
+        ``` csharp
+        int x = (a + b)*c;
+        int x = a/(b - c);
+        ```
+        ``` csharp
+        int x = (int) ((a + b) % c);
+        ```
+        ``` csharp
+        if(a == b)
+        ```
+        ``` csharp
+        Method(Math.Max(1, 2) , Math.Sqrt(144) );
+        ```
+
+  * ✔ Open parenthesis on declaration line
+  
+    * The opening parenthesis in a call to a method must be placed on same line as the method.
+    * The opening parenthesis in a call to an indexer must be placed on same line as the indexer name.
+    * The opening parenthesis in a method declaration must be placed on same line as the method.
+    * The opening parenthesis in an indexer declaration must be placed on same line as the indexer name.
+    
+        ✔
+        ``` csharp
+        bool Method(int x, int y);
+        ```
+        ``` csharp
+        bool isTrue = Method();
+        ```
+        ``` csharp
+        int x = array[0];
+        ```
+        ``` csharp
+        int this[int x]
+        {
+            get => array[x];
+        }
+        ```
+
+        ✖
+        ``` csharp
+        bool Method
+        (
+            int x,
+            int y
+        );
+        ```
+
+* ✔ Close parenthesis on line with last parameter
+
+    * The closing parenthesis in a call to a method must be placed on same line as the last parameter.
+    * The closing parenthesis in a call to an indexer must be placed on same line as the last parameter.
+    * The closing parenthesis in a method declaration must be placed on same line as the last parameter.
+    * The closing parenthesis in an indexer declaration must be placed on same line as the last parameter.
+    
+        ✔
+        ``` csharp
+        bool Method(int x, int y);;
+        ```
+        ``` csharp
+        bool isTrue = Method();
+        ```
+        ``` csharp
+        int x = array[0];
+        ```
+        ``` csharp
+        int this[int x]
+        {
+            get => array[x];
+        }
+        ```
+
+        ✖
+        ``` csharp
+        bool Method
+        (
+            int x,
+            int y
+        );
+        ```
+        ``` csharp
+        bool isTrue = Method(
+            100
+        );
+        ```
+        ``` csharp
+        int x = matrix[
+            1,
+            2
+            ];
+        ```
+
+  * ✖ Do not use unnecessary parenthesis
+  
+    * It is possible to insert parenthesis around virtually any type of expression, statement, or clause.
+    * Excessive parenthesis can have a negative effect, making it more difficult to read and maintain code.
+    
+        ✔
+        ``` csharp
+        int x = y + z;
+        string y = this.Method().ToString();
+        ```
+        ``` csharp
+        return a + b;
+        return x.Value;
+        ```
+
+        ✖
+        ``` csharp
+        int x = (y + z);
+        string y = (this.Method()).ToString();
+        ```
+        ``` csharp
+        return (a + b);
+        return (x.Value);
+        ```
+
 ### Symbols
 
 ### Signs
