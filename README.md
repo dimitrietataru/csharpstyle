@@ -216,7 +216,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool Enabled
+        public bool IsEnabled
         {
             get
             {
@@ -227,7 +227,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public bool Enabled
+        public bool IsEnabled
         {
             get
             {
@@ -476,7 +476,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -488,7 +488,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -499,7 +499,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -510,7 +510,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -522,7 +522,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -694,25 +694,20 @@ The document contains data collected from various sources, language styles, and 
 
         namespace Program
         {
-            class Application
-            {
-            }
         }
         ```
 
         ✖
         ``` csharp
-        
+         
+         
         using System;
 
         namespace Program
         {
-            class Application
-            {
-            }
         }
-        
-        
+         
+         
         ```
         
   * ✖ Do not line-wrap using statements
