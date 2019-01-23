@@ -38,7 +38,7 @@ The document contains data collected from various sources, language styles, and 
   * [Regions](#regions)
   * [Comments](#comments)
 * [Spacing and readability](#spacing-and-readability)
-  * [Tabs and spacing](#tabs-and-spacing)
+  * [Tabs and line break](#tabs-and-line-break)
   * [Curly brackets](#curly-brackets)
   * [Square brackets](#square-brackets)
   * [Parenthesis](#parenthesis)
@@ -978,7 +978,126 @@ The document contains data collected from various sources, language styles, and 
 
 ## Spacing and readability
 
-### Tabs and spacing
+### Tabs and line break
+
+  * ✖ Do not use tabs
+  
+    * The length of the tab character can vary depending upn the editor used to view the code.
+    * This can cause spacing and idexing of the code to vary from the developer's intent and can make the code difficult to read and understand.
+    * **Each level of indentation should consist of four spaces.**
+    
+        ✔
+        ``` csharp
+        var x = Method(
+            100,
+            200,
+            300);
+        ```
+
+        ✖
+        ``` csharp
+        var x = Method(
+                       100,
+                       200,
+                       300);
+        var y = Method(
+                100,
+                200,
+                300);
+        ```
+
+  * ✔ Remove unnecessary code
+  
+    * Remove any code which once removed does not change the overall logic of the code.
+    * Remove duplicate code.
+    
+        ✔
+        ``` csharp
+        int x = 1 + 2;
+        ```
+        
+        ✖
+        ``` csharp
+        try
+        {
+            int x = 1 + 2;
+        }
+        catch (Exception ex)
+        {
+        }
+        ```
+
+  * ✔ Break lines correctly
+  
+    * Break:
+      * **.**  - before dot separator
+      * **,**  - after comma
+      * **=>** - after lambda operator
+      * **{**  - before opening curly brackets for in-line initializations
+      * before logical operators
+    * Split method arguments by the following rule: **all on same line, or all on different line**.
+    
+        ✔
+        ``` csharp
+        Method(arg1, arg2, arg3);
+        ```
+        ``` csharp
+        await Method(
+            arg1, arg2, arg3);
+        ```
+        ``` csharp
+        var x = Method(
+            arg1,
+            arg2);
+        ```
+        ``` csharp
+        if ((expression1 || expression2)
+            && (expresion3 && expression4)
+            || expression5
+            || expression6)
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => item.RegisterDate.Year > 2000)
+            .Join(
+                collection2,
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection2 => new { Date = collection2.Date, Owner = collection2.User },
+                (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
+            .Select(pair =>
+                new
+                {
+                    Id = pair.OldEntry.Id,
+                    X = pair.OldEntry.X,
+                    Y = pair.NewEntry.Y
+                })
+            .ToList();
+        ```
+        
+        ✖
+        ``` csharp
+        var x = collection
+            .Join(collection2, // DO NOT
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection2 => new { Date = collection2.Date, Owner = collection2.User },
+                (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
+        // ...
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => item.RegisterDate.Year > 2000)
+            .Select(item => item.Id).ToList(); // DO NOT
+        ```
+        ``` csharp
+        var x = collection.Where(item => item.RegisterDate.Year > 2000) // DO NOT
+            .Join(
+        // ...
+        ```
+
+
+
+
+
 
 ### Curly brackets
 
