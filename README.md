@@ -1061,7 +1061,7 @@ The document contains data collected from various sources, language styles, and 
             .Where(item => item.RegisterDate.Year > 2000)
             .Join(
                 collection2,
-                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy },
                 collection2 => new { Date = collection2.Date, Owner = collection2.User },
                 (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
             .Select(pair =>
