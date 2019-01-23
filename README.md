@@ -770,7 +770,7 @@ The document contains data collected from various sources, language styles, and 
   * ✖ Do not use regions. Seriously!
   
     * *Try* to avoid using regions. If you are already doing it, do it right!
-    * In many editors, including Visual Studio, the regions will appear collapsed by default, hiding the code within the region.
+    * In many editors, including VS, the regions will appear collapsed by default, hiding the code within the region.
     * It is generally a bad practice to hide code, as this can lead to bad decisions as the code is maintained over time.
     
         ✔
@@ -786,7 +786,7 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         #region
-        public void Method()
+        void Method()
         {
             // ...
         }
@@ -795,7 +795,7 @@ The document contains data collected from various sources, language styles, and 
         
         ✖
         ``` csharp
-        public void Method()
+        void Method()
         {
             #region
             // ...
@@ -811,7 +811,7 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         #region ...
-        if (true)
+        void Method()
         {
         }
         #endregion
@@ -819,14 +819,14 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        if (true)
+        void Method()
         #region ...
         {
         }
         #endregion
         ```
         ``` csharp
-        if (true)
+        void Method()
         #region ...
         {
         #endregion
