@@ -259,6 +259,32 @@ The document contains data collected from various sources, language styles, and 
 
 ### Interfaces
 
+  * ✔ Prefix interface names with letter **I**
+  
+    * Interface names are noun or adjectives.
+    
+        ✔
+        ``` csharp
+        interface ILogger
+        ```
+        ``` csharp
+        interface IApplicationBuilder
+        ```
+        ``` csharp
+        interface ICollection
+        ```
+
+        ✖
+        ``` csharp
+        interface LoggerSignature
+        ```
+        ``` csharp
+        interface LoggerInterface
+        ```
+        ``` csharp
+        interface LoggerIFace
+        ```
+
 ### Classes
 
 ### Modifiers
