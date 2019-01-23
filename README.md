@@ -78,3 +78,96 @@ The document contains data collected from various sources, language styles, and 
     ```
 
 ### Brackets
+
+  * ✔ Vertically align curly brackets
+  
+    * **Allman** style. [Wikipedia](https://en.wikipedia.org/wiki/Indentation_style)
+    
+        ``` csharp
+        namespace Application
+        {
+            class Program
+            {
+                static void Main(string[] args)
+                {
+                    if (...)
+                    {
+                    }
+                    else
+                    {
+                    }
+                    
+                    while (...)
+                    {
+                    }
+                }
+            }
+        }
+        ```
+
+  * ✖ Do not omit curly brackets
+  
+    * **Always** wrap the body of the statement in curly brackets.
+    * Although this is legal in C#, the curly brackets are required to be present. They increase the readability and maintainability of the code.
+    
+        ✔
+        ``` csharp
+        if (true)
+        {
+            return this.x;
+        }
+        ```
+        ``` csharp
+        if (true)
+        {
+            this.x = 42;
+            return this.x;
+        }
+        ```
+
+        ✖
+        ``` csharp
+        if (true) return this.x;
+        ```
+        ``` csharp
+        if (true)
+            return this.x;
+        ```
+        ``` csharp
+        if (true)
+            this.x = 42;      
+            return this.x;
+        ```
+
+  * ✖ Do not place curly brackets on same line with statements
+  
+    * Ensure that both opening and closing curly brackets are placed on their own (vertical) line.
+    * Curly brackets should not share their line with any other code, other than comments.
+    
+        ✔
+        ``` csharp
+        void Method()
+        {
+            lock (this)
+            {
+                return this.x;
+            }
+        }
+        ```
+
+        ✖
+        ``` csharp
+        void Method() {
+            lock (this) {
+                return this.x;
+            }
+        }
+        ```
+        ``` csharp
+        void Method()
+        {
+            lock (this) { return this.x; }
+        }
+        ```
+
+## Structure and layout
