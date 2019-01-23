@@ -53,43 +53,28 @@ The document contains data collected from various sources, language styles, and 
   * ✔ Use PascalCasing to name classes, methods, and properties
 
     ``` csharp
-    class Program
-    {
-    }
+    class ClassName
     ```
     ``` csharp
-    void Method();
+    void MethodName();
     ```
     ``` csharp
-    string Property { get; set; }
+    string PropertyName { get; set; }
     ```
 
   * ✔ Use camelCasing to name method arguments, local variables, and fields
-    
-    ✔
-    ``` csharp
-    string serialNumber;
-    ```
-    ``` csharp
-    void Method(string userName, DateTime expiryDate);
-    ```
-    ``` csharp
-    int activeDays = (expiryDate - DateTime.UtcNow).Days;
-    ```
 
-    ✖
     ``` csharp
-    string SerialNumber;
-    string serial_number;
+    string field;
     ```
     ``` csharp
-    void Method(string UserName, DateTime expirydate)
+    void Method(int parameterOne, int parameterTwo);
     ```
     ``` csharp
-    void Method()
-    {
-        int ActiveDays = (expiryDate - DateTime.UtcNow).Days;
-    }
+    Method(argumentOne, argumentTwo);
+    ```
+    ``` csharp
+    int localVariable = 10;
     ```
 
 ### Brackets
