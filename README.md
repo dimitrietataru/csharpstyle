@@ -30,13 +30,20 @@ The document contains data collected from various sources, language styles, and 
   * [Naming](#naming)
   * [Brackets](#brackets)
 * [Structure and layout](#structure-and-layout)
+  * [Namespaces](#namespaces)
+  * [Interfaces](#interfaces)
+  * [Classes](#classes)
+  * [Modifiers](#modifiers)
+  * [Documentation](#documentation)
+  * [Regions](#regions)
+  * [Comments](#comments)
 
 ## General
 
 ### Naming
 
   * ✔ Use PascalCase and camelCase
-
+  
     | Object Name      | Notation   | Length | Char Mask  |
     |:-----------------|:-----------|:-------|:-----------|
     | Class name       | PascalCase |    128 | [A-z][0-9] |
@@ -61,9 +68,9 @@ The document contains data collected from various sources, language styles, and 
     ``` csharp
     string PropertyName { get; set; }
     ```
-
+    
   * ✔ Use camelCasing to name method arguments, local variables, and fields
-
+  
     ``` csharp
     string fieldName;
     ```
@@ -124,7 +131,7 @@ The document contains data collected from various sources, language styles, and 
             return this.x;
         }
         ```
-
+        
         ✖
         ``` csharp
         if (true) return this.x;
@@ -154,7 +161,7 @@ The document contains data collected from various sources, language styles, and 
             }
         }
         ```
-
+        
         ✖
         ``` csharp
         void Method() {
@@ -171,3 +178,93 @@ The document contains data collected from various sources, language styles, and 
         ```
 
 ## Structure and layout
+
+### Namespaces
+
+  * ✔ Organize namespaces with a clearly defined structure
+  
+    * Use PascalCasing to name namespaces.
+    
+        ``` csharp
+        namespace Company.Product.Module.SubModule;
+        namespace Product.Module.Component;
+        namespace Product.Layer.Module.Group;
+        ```
+
+  * ✖ Do not place multiple namespaces within a single file
+  
+    * Ensure that each file contains only one namespace.
+    * To increase long-term mentainability of the code-base, each file should contain at most one namespace.
+    
+        ``` csharp
+        // ClassOne.cs
+        namespace Project
+        {
+            class ClassOne
+            {
+            }
+        }
+        
+        // ClassTwo.cs
+        namespace Project
+        {
+            class ClassTwo
+            {
+            }
+        }
+        ```
+
+  * ✔ Separate non-static from static usings
+  
+    * Order usings alphabetically. Order by non-static, then by static.
+    * Do not separate usings, or static/non-static blocks by blank line(s).
+    
+        ✔
+        ``` csharp
+        using System;
+        using System.Linq;
+        using static System.Linq.Enumerable;
+        using static System.Math;
+        ```
+        
+        ✖
+        ``` csharp
+        using System;
+        using System.Linq;
+        
+        using static System.Linq.Enumerable;
+        using static System.Math;
+        ```
+        ``` csharp
+        using System;
+        using static System.Math;
+        using System.Linq;
+        using static System.Linq.Enumerable;
+        ```
+
+  * ✖ Do not line-wrap using statements
+  
+    * Always write using statements on a single line.
+    
+        ✔
+        ``` csharp
+        using System.Security.Cryptography;
+        ```
+        
+        ✖
+        ``` csharp
+        using System
+            .Security.Cryptography;
+        ```
+
+### Interfaces
+
+### Classes
+
+### Modifiers
+
+### Documentation
+
+### Regions
+
+### Comments
