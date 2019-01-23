@@ -373,7 +373,6 @@ The document contains data collected from various sources, language styles, and 
       * readonly
       * non-readonly  
       
-        ✔
         ``` csharp
         public class Application
         {
@@ -554,7 +553,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        void Method()
+        int Method()
         {
             int a = 1;
             int b = 2;
@@ -565,7 +564,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        void Method()
+        int Method()
         {
             int a = 1; int b = 2;
             
@@ -573,14 +572,14 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        void Method()
+        int Method()
         {
             int a = 1;
             int b = 2;
             return a + b; }
         ```
         ``` csharp
-        void Method() { int a = 1; int b = 2; return a + b; }
+        int Method() { int a = 1; int b = 2; return a + b; }
         ```
         
   * ✖ Do not follow documentation elements with a blank line
@@ -713,7 +712,7 @@ The document contains data collected from various sources, language styles, and 
 
         namespace Program
         {
-            public class Application
+            class Application
             {
             }
         }
@@ -722,12 +721,11 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         
-        
         using System
 
         namespace Program
         {
-            public class Application
+            class Application
             {
             }
         }
@@ -759,29 +757,29 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         if (true)
         {
-            return this.value;
+            return this.x;
         }
         ```
         ``` csharp
         if (true)
         {
-            this.value = 2;
-            return this.value;
+            this.x = 42;
+            return this.x;
         }
         ```
 
         ✖
         ``` csharp
-        if (true) return this.value;
+        if (true) return this.x;
         ```
         ``` csharp
         if (true)
-            return this.value;
+            return this.x;
         ```
         ``` csharp
         if (true)
-            this.value = 2;      
-            return this.value;
+            this.x = 42;      
+            return this.x;
         ```
         
   * ✖ Do not place curly brackets on same line with statements
@@ -826,7 +824,7 @@ The document contains data collected from various sources, language styles, and 
         // ClassOne.cs
         namespace Project
         {
-            public class ClassOne
+            class ClassOne
             {
             }
         }
@@ -834,7 +832,7 @@ The document contains data collected from various sources, language styles, and 
         // ClassTwo.cs
         namespace Project
         {
-            public class ClassTwo
+            class ClassTwo
             {
             }
         }
@@ -845,14 +843,14 @@ The document contains data collected from various sources, language styles, and 
         // ClassOneAndTwo.cs
         namespace Project
         {
-            public class ClassOne
+            class ClassOne
             {
             }
         }
-
+        
         namespace Project
         {
-            public class ClassTwo
+            class ClassTwo
             {
             }
         }
@@ -950,7 +948,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        bool Method(int number)
+        bool Method(int x)
         ```
         ``` csharp
         bool isValid = Method(100);
@@ -967,10 +965,6 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        boolMethod IsValid
-            (int number)
-        ```
-        ``` csharp
         bool isValid = Method(
             100
             );
@@ -979,15 +973,6 @@ The document contains data collected from various sources, language styles, and 
         int x = array[
             0
             ];
-        ```
-        ``` csharp
-        public int this
-        [
-            int x
-        ]
-        {
-            get { return array[x]; }
-        }
         ```
 
   * ✔ Ensure comma is on same line as previous parameter
@@ -998,6 +983,7 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         string name = Method(
             first,
+            second,
             last);
         ```
         ``` csharp
@@ -1010,6 +996,7 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         string name = Method(
             first
+            , second
             ,last);
         ```
 
@@ -1022,13 +1009,13 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        bool Method(int number)
+        bool Method(int x)
         ```
         ``` csharp
         bool isValid = Method(100);
         ```
         ``` csharp
-        int x = entries[0];
+        int x = array[0];
         ```
         ``` csharp
         int this[int x]
@@ -1040,7 +1027,7 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         bool Method
-            (int number)
+            (int x)
         ```
         ``` csharp
         bool isValid = Method
