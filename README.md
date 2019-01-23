@@ -2551,7 +2551,7 @@ The document contains data collected from various sources, language styles, and 
   * ✖ Do not use underscores in identifiers
   
     * [c-sharpcorner.com article](https://www.c-sharpcorner.com/article/stop-use-var-everywhere-and-think-before-use-underscore-with-private-variable-in/)
-    * Exception are *Discards*, introduced in C# 7.0
+    * *Discards*, introduced in C# 7.0, are the only exception.
     
         ✔
         ``` csharp
