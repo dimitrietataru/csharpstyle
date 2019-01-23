@@ -27,8 +27,8 @@ The document contains data collected from various sources, language styles, and 
 ## Table of contents
 
 * [General](#general)
-  *[Naming](#naming)
-  *[Brackets](#brackets)
+  * [Naming](#naming)
+  * [Brackets](#brackets)
 * [Structure and layout](#structure-and-layout)
 
 ## General
