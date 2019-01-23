@@ -1171,47 +1171,7 @@ The document contains data collected from various sources, language styles, and 
             int x,
             int y, int z)
         ```
-
-  * ✔ Use built-in type alias
-
-    | Alias   | Type    | Fully qualified type |
-    |:--------|:--------|:---------------------|
-    | bool    | Boolean | System.Boolean       |
-    | byte    | Byte    | System.Byte          |
-    | char    | Char    | System.Char          |
-    | decimal | Decimal | System.Decimal       |
-    | double  | Double  | System.Double        |
-    | short   | Int16   | System.Int16         |
-    | int     | Int32   | System.Int32         |
-    | long    | Int64   | System.Int64         |
-    | object  | Object  | System.Object        |
-    | sbyte   | SByte   | System.SByte         |
-    | float   | Single  | System.Single        |
-    | string  | String  | System.String        |
-    | ushort  | UInt16  | System.UInt16        |
-    | uint    | UInt32  | System.UInt32        |
-    | ulong   | UInt64  | System.UInt64        |
-  
-    * Use built-in alias for types.
-    * Do not use basic types.
-    * Do not use full namespace for types.
-
-        ✔
-        ``` csharp
-        int index;
-        bool isTrue;
-        object obj;
-        string name;
-        ```
-
-        ✖
-        ``` csharp
-        Int32 index;
-        Boolean isTrue;
-        Object obj;
-        String name;
-        ```
-
+        
   * ✔ Use shorthand for nullable types
   
     * Define nullable types using the C# shorthand/predefined types.
@@ -2409,9 +2369,48 @@ The document contains data collected from various sources, language styles, and 
 
 ## Types and variables
 
+  * ✔ Use built-in type alias
+
+    | Alias   | Type    | Fully qualified type |
+    |:--------|:--------|:---------------------|
+    | bool    | Boolean | System.Boolean       |
+    | byte    | Byte    | System.Byte          |
+    | char    | Char    | System.Char          |
+    | decimal | Decimal | System.Decimal       |
+    | double  | Double  | System.Double        |
+    | short   | Int16   | System.Int16         |
+    | int     | Int32   | System.Int32         |
+    | long    | Int64   | System.Int64         |
+    | object  | Object  | System.Object        |
+    | sbyte   | SByte   | System.SByte         |
+    | float   | Single  | System.Single        |
+    | string  | String  | System.String        |
+    | ushort  | UInt16  | System.UInt16        |
+    | uint    | UInt32  | System.UInt32        |
+    | ulong   | UInt64  | System.UInt64        |
+  
+    * Use predefined type names, instead of system type names.
+    * Do not use basic types.
+    * Do not use full namespace for types.
+
+        ✔
+        ``` csharp
+        int index;
+        bool isTrue;
+        object obj;
+        string name;
+        ```
+
+        ✖
+        ``` csharp
+        Int32 index;
+        Boolean isTrue;
+        Object obj;
+        String name;
+        ```
+
   * ✔ Fields must be private
   
-    * Fields should always be private.
     * For mentainability reasons, properties should always be used as the mechanism for exposing fields outside of a class.
     * This allows the internal implementation of the property to change over time without changing the interface of the class.
     * Exception: fields within structs are allowed to have any access level.
@@ -2422,8 +2421,8 @@ The document contains data collected from various sources, language styles, and 
 
         public int Count
         {
-            get { return this.count };
-            set { this.count = value; }
+            get => this.count;
+            set => this.count = value;
         }
         ```
 
@@ -2468,25 +2467,7 @@ The document contains data collected from various sources, language styles, and 
             int ActiveDays = (expiryDate - DateTime.UtcNow).Days;
         }
         ```
-
-  * ✔ Use predefined type names
-  
-    * Use predefined type names, instead of system type names.
-    
-        ✔
-        ``` csharp
-        string name;
-        int index;
-        bool isValid;
-        ```
-
-        ✖
-        ``` csharp
-        String name;
-        Int32 index;
-        Boolean isValid;
-        ```
-
+        
   * ✖ Do not use underscores in identifiers
   
     * [c-sharpcorner.com article](https://www.c-sharpcorner.com/article/stop-use-var-everywhere-and-think-before-use-underscore-with-private-variable-in/)
