@@ -2546,12 +2546,12 @@ The document contains data collected from various sources, language styles, and 
 
   * ✔ Break lines correctly
   
-    * Break at the dot separator (*.*)
-    * Break at comma (*,*), but it stays attached to the token that precedes it.
-    * Break at lambda operator (*=>*)
-    * Break at opening curly bracket (*{*) for in-line initializations.
+    * Break at the **.** (dot) separator
+    * Break at **,** (comma), but it stays attached to the token that precedes it.
+    * Break at **=>** (lambda) operator
+    * Break at **{** (opening curly bracket) for in-line initializations.
     * Break at logical operators.
-    * Split method arguments by the following rule: all on same line, or all on different line.
+    * Split method arguments by the following rule: **all on same line, or all on different line**.
     
         ✔
         ``` csharp
