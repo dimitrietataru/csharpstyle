@@ -1078,9 +1078,9 @@ The document contains data collected from various sources, language styles, and 
             int z)
         ```
 
-  * ✔ Prefix local calls with this
+  * ✔ Prefix local calls with *this*
   
-    * Insert the this prefix before a call to a class member.
+    * Insert the **this** prefix before a call to a class member.
     
         ✔
         ``` csharp
