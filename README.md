@@ -261,7 +261,7 @@ The document contains data collected from various sources, language styles, and 
 
   * ✔ Prefix interface names with letter **I**
   
-    * Interface names are noun or adjectives.
+    * Interface names are *noun* or *adjectives*.
     
         ✔
         ``` csharp
@@ -285,7 +285,73 @@ The document contains data collected from various sources, language styles, and 
         interface LoggerIFace
         ```
 
+  * ✖ Do not (habitually) add new signatures at the end of the interface
+  
+    ✔
+    ``` csharp
+    interface ITransfer
+    {
+        void Connect();
+        void Download();
+        void Upload(); // Recently added signature
+        void Notify();
+        void Stop();
+    }
+    ```
+    
+    ✖
+    ``` csharp
+    interface ITransfer
+    {
+        // ...
+        void Stop();
+        void Upload(); // Recently added signature
+    }
+    ```
+
 ### Classes
+
+  * ✔ Write each class in its own file
+  
+    * Use the same notation for file and class name.
+    * Do not write nested classes.
+    
+        ✔
+        ``` csharp
+        // Application.cs
+        class Application
+        {
+        }
+        
+        // Program.cs
+        class Program
+        {
+        }
+        ```
+        
+        ✖
+        ``` csharp
+        // Application.cs
+        class ApplicationManager
+        {
+            class Program
+            {
+            }
+        }
+        ```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Modifiers
 
