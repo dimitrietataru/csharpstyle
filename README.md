@@ -1163,8 +1163,6 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        void Method(int x,
-            int y, int z)
         void Method(int x, int y,
             int z)
         ```
@@ -1238,6 +1236,7 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         var x = select a in b from c;
+        ```
         ``` csharp
         ```
         var x = collection.Where(item => item.Date.Year.Equals(currentYear)).ToList();
