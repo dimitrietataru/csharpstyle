@@ -1198,7 +1198,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        void Method
+        void Method()
         {
             // ...
         }
@@ -1206,7 +1206,7 @@ The document contains data collected from various sources, language styles, and 
         
         ✖
         ``` csharp
-        void Method
+        void Method()
         
         {
         
@@ -1221,7 +1221,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        void Method
+        void Method()
         {
             // ...
         }
@@ -1229,7 +1229,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        void Method
+        void Method()
         {
             // ...
         
