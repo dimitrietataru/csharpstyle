@@ -1833,6 +1833,159 @@ The document contains data collected from various sources, language styles, and 
 
 ### Layout
 
+  * ✖ NEVER align code
+  
+    * Alignment improves readability.. for a minute, or so. In reality, alignment creates problems for future maintenance!
+    * A future change that needs to touch just one line of code will leave the *formerly-pleasing* formatting **mangled**.
+    * The smallest change, as a variable rename, will break your *neatly formatted code*.
+    * There should be no need to modify that extra piece of code. If the case raises it will be, most likely, left behind.
+    * These blocks of code can slow down reviewers and exacerbates merge conflicts.
+    
+        ✔
+        ``` csharp
+        int count; // Allowed comment
+        string name; // Allowed comment
+        ```
+        ``` csharp
+        // Allowed!
+        if (expression1
+            && expression2)
+        ```
+        
+        ✖
+        ``` csharp
+        int count;   // Alligned
+        string name; // comments
+
+        int activeItems;   // Will no longer
+        string name; // be aligned after future edits
+        ```
+        ``` csharp
+        public  int     count;
+        private string  name;
+
+        private readonly  int     count;
+        private string  name;
+
+        public  int     count;
+        protected DateTime releaseDate;
+        private string  name;
+        ```
+        ``` csharp
+        void Method(int argument1,
+                    int argument2);
+        void MethodRename(int argument1,
+                    int argument2);
+        ```
+        ``` csharp
+        var x = collection
+            .Where(i => i.Date.Year > 2000
+                        && i.Owner == User)
+            .ToList();
+        var x = collection
+            .Where(currentItem => currentItem.Date.Year > 2000
+                        && currentItem.Owner == User)
+            .ToList();
+        ```
+
+  * ✔ Separate elements by a blank line
+  
+    * Add a blank line between adjacent elements.
+    
+        ✔
+        ``` csharp
+        Constructor()
+        {
+        }
+
+        void Method1()
+        {
+        }
+
+        void Method2()
+        {
+        }
+        ```
+
+        ✖
+        ``` csharp
+        Constructor()
+        {
+        }
+        void Method1()
+        {
+        }
+        void Method2()
+        {
+        }
+        ```
+
+  * ✖ Do not use multiple blank lines in a row
+  
+    * To improve code readability, blank lines are required in certain situations, but are prohibited in others.
+    * This results in a consistend visual pattern and can improve recognition of unfamiliar code.
+    * Use a single blank line to separate logic blocks in methods, or file sections.
+    
+        ✔
+        ``` csharp
+        class Application
+        {
+            int count;
+            
+            bool Method()
+            {
+                var statementOne = CallMethodOne();
+                var statementTwo = CallMethodTwo();
+                
+                return statementOne != statementTwo;
+            }
+        }
+        ```
+
+        ✖
+        ``` csharp
+        class Application
+        {
+            int count;
+            
+            
+            bool Method()
+            {
+                var statementOne = CallMethodOne();
+                var statementTwo = CallMethodTwo();
+                
+                
+                return statementOne != statementTwo;
+            }
+        }
+        ```
+
+  * ✖ Do not leave blank lines at start or end of a file
+  
+    * Files should not start with one, or more blank lines.
+    * Files should not end with multiple blank lines.
+    
+        ✔
+        ``` csharp
+        using System;
+
+        namespace Program
+        {
+        }
+        ```
+
+        ✖
+        ``` csharp
+         
+        using System;
+
+        namespace Program
+        {
+        }
+         
+         
+        ```
+
 ### Parameters
 
 ### Misc
