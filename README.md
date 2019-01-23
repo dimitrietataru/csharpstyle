@@ -85,16 +85,14 @@ The document contains data collected from various sources, language styles, and 
     
         ✔ 
         ``` csharp
-        void Method(int x)
+        void Method()
         {
-            // TODO: Validate input
+            // TODO: ...
             
-            for (int i = 0; i < x; ++i)
-            {
-                // ...
-            }
+            int x = 10;
+            int y = 20;
             
-            // TODO: Log
+            // TODO: ...
         }
         ```
         
@@ -107,8 +105,8 @@ The document contains data collected from various sources, language styles, and 
         
   * ✖ NEVER align code
   
-    * Alignment can improve readability.. for a minute, or so. In reality, code alignment creates problems for future maintenance!
-    * A future change that needs to touch just one line of code will leave the *formerly-pleasing* formatting mangled.
+    * Alignment improves readability.. for a minute, or so. In reality, alignment creates problems for future maintenance!
+    * A future change that needs to touch just one line of code will leave the *formerly-pleasing* formatting **mangled**.
     * The smallest change, as a variable rename, will break your *neatly formatted code*.
     * There should be no need to modify that extra piece of code. If the case raises will be, most likely, left behind.
     * These blocks of code can slow down reviewers and exacerbates merge conflicts.
