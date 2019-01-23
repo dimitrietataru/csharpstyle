@@ -1,15 +1,15 @@
-﻿### ✔ Do ... ✔
-### ❌ Do not ... ❌
-###
+﻿  * ✔ GOOD
+  * ✖ BAD
+  
+    * text
+    * text
+    
+        ✔
+        ``` csharp
 
-> text
+        ```
 
-### ✔
-``` csharp
+        ✖
+        ``` csharp
 
-```
-
-### ❌ 
-``` csharp
-
-```
+        ```

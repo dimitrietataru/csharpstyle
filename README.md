@@ -31,13 +31,10 @@ The document contains data collected from various sources, language styles, and 
 * [Readability](#readability)
 * [Spacing](#spacing)
 * [Types and variables](#types-and-variables)
-* Expressions
-* Statements
-* Classes and objects
-* Structs (work in progress)
-* Interfaces (work in progress)
-* Enums (work in progress)
-* System.Linq (work in progress)
+* [Expressions](#expressions)
+* [Statements](#statements)
+* [Classes and objects](#classes-and-objects)
+* [Interfaces](#interfaces)
 
 ## General
 
@@ -48,22 +45,19 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         namespace Application
         {
-            public class Program
+            class Program
             {
                 static void Main(string[] args)
                 {
-                    if (expression)
+                    if (...)
                     {
-                        // ...
                     }
                     else
                     {
-                        // ...    
                     }
-              
-                    while (expression)
+                    
+                    while (...)
                     {
-                        // ...
                     }
                 }
             }
@@ -85,22 +79,20 @@ The document contains data collected from various sources, language styles, and 
     | Delegate name    | PascalCase |    128 | [A-z]      |
     | Enum type name   | PascalCase |    128 | [A-z]      |
 
-  * ✔ Use *TODO** comments to mark work in progress, missing features or functionality
+  * ✔ Use *TODO* comments to mark work in progress, missing features or functionality
   
     * In Visual Studio todos are found in **Task List** window (*Ctrl + \\, T*).
     
         ✔ 
         ``` csharp
-        public void Method(int x)
+        void Method()
         {
-            // TODO: Validate input
+            // TODO: ...
             
-            for (int i = 0; i < x; ++i)
-            {
-                // ...
-            }
+            int x = 10;
+            int y = 20;
             
-            // TODO: Log
+            // TODO: ...
         }
         ```
         
@@ -113,63 +105,54 @@ The document contains data collected from various sources, language styles, and 
         
   * ✖ NEVER align code
   
-    * Alignment can aid readability.. for a minute, or so. In reality.. alignment creates problems for future maintenance!
-    * A future change that needs to touch just one line of code will leave the formerly-pleasing formatting mangled.
-    * The smallest change, like a variable rename will break your 'neatly formatted code'.
-    * There should be no need to modify that extra piece of code and if it is, most likely will be left behind.
-    * These block of code can slow down reviewers and exacerbates merge conflicts.
+    * Alignment improves readability.. for a minute, or so. In reality, alignment creates problems for future maintenance!
+    * A future change that needs to touch just one line of code will leave the *formerly-pleasing* formatting **mangled**.
+    * The smallest change, as a variable rename, will break your *neatly formatted code*.
+    * There should be no need to modify that extra piece of code. If the case raises will be, most likely, left behind.
+    * These blocks of code can slow down reviewers and exacerbates merge conflicts.
     
         ✔
         ``` csharp
-        public int count; // Allowed comment
-        private string name; // Allowed comment
+        int count; // Allowed comment
+        string name; // Allowed comment
         ```
         ``` csharp
         // Allowed!
         if (expression1
-            && expression2
-            && expression3)
-        {
-        }
+            && expression2)
         ```
         
         ✖
         ``` csharp
-        public int count;    // Alligned
-        private string name; // comments
+        int count;   // Alligned
+        string name; // comments
 
-        public int activeItems;    // Will no longer
-        private string name; // be aligned after future edits
+        int activeItems;   // Will no longer
+        string name; // be aligned after future edits
         ```
         ``` csharp
         public  int     count;
         private string  name;
 
-        // Change access modifier
         private readonly  int     count;
         private string  name;
 
-        // Add new field
         public  int     count;
         protected DateTime releaseDate;
         private string  name;
         ```
         ``` csharp
-        public void Method(int parameter1,
-                           int parameter2,
-                           int parameter3;
-        public void MethodAfterRename(int parameter1,
-                           int parameter2,
-                           int parameter3);
+        void Method(int parameter1,
+                    int parameter2);
+        void MethodRename(int parameter1,
+                    int parameter2);
         ```
         ``` csharp
-        var items = collection
+        var x = collection
             .Where(i => i.Date.Year > 2000
                         && i.Owner == User)
             .ToList();
-
-        // Parameter rename leaves code unorganized and needs extra time to be fixed.
-        var items = collection
+        var x = collection
             .Where(currentItem => currentItem.Date.Year > 2000
                         && currentItem.Owner == User)
             .ToList();
@@ -195,7 +178,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        if (true)
+        if (...)
         {
         }
         else
@@ -218,7 +201,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        if (true)
+        if (...)
         {
         }
 
@@ -233,7 +216,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        public bool Enabled
+        public bool IsEnabled
         {
             get
             {
@@ -244,7 +227,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        public bool Enabled
+        public bool IsEnabled
         {
             get
             {
@@ -266,21 +249,21 @@ The document contains data collected from various sources, language styles, and 
   
     ✔
     ``` csharp
-    bool FirstProperty { get; set; }
+    int First { get; set; }
 
     /// <summary>
     /// ...
     /// </summary>
-    bool SecondProperty { get; set; }
+    int Second { get; set; }
     ```
 
     ✖
     ``` csharp
-    bool FirstProperty { get; set; }
+    int First { get; set; }
     /// <summary>
     /// ...
     /// </summary>
-    bool SecondProperty { get; set; }
+    int Second { get; set; }
     ```
         
   * ✔ Separate elements by a blank line
@@ -317,8 +300,7 @@ The document contains data collected from various sources, language styles, and 
         
   * ✔ Separate non-static from static usings
   
-    * Separate non-static from static usings.
-    * Order usings alphabetically. First non-static, then static.
+    * Order usings alphabetically. Order by non-static, then by static.
     * Do not separate usings, or static/non-static blocks by blank line(s).
     
         ✔
@@ -365,6 +347,7 @@ The document contains data collected from various sources, language styles, and 
       * internal
       * protected internal
       * protected
+      * private protected
       * private
     * Within each access groups, order by static, then non-static:
       * static
@@ -374,40 +357,46 @@ The document contains data collected from various sources, language styles, and 
       * non-readonly  
       
         ``` csharp
-        public class Application
+        class Application
         {
             public const int const1 = 1;
             internal const int const2 = 2;
             protected internal const int const3 = 3;
             protected const int const4 = 4;
-            private const int const5 = 5;
+            private protected const int const5 = 5;
+            private const int const6 = 6;
 
             public static readonly int field1;
             internal static readonly int field2;
             protected internal static readonly int field3;
             protected static readonly int field4;
-            private static readonly int field5;
-            public static int field6;
-            internal static int field7;
-            protected internal static int field8;
-            protected static int field9;
-            private static int field10;
-            public readonly int field11;
-            internal readonly int field12;
-            protected static readonly int field13;
-            protected readonly int field14;
-            private readonly int field15;
-            public int field16;
-            internal int field17;
-            protected static int field18;
-            protected int field19;
-            private int field20;
+            private protected static readonly int field5;
+            private static readonly int field6;
+            public static int field7;
+            internal static int field8;
+            protected internal static int field9;
+            protected static int field10;
+            private protected static int field11;
+            private static int field12;
+            public readonly int field13;
+            internal readonly int field14;
+            protected static readonly int field15;
+            protected readonly int field16;
+            private protected readonly int field17;
+            private readonly int field18;
+            public int field19;
+            internal int field20;
+            protected internal int field21;
+            protected int field22;
+            private protected int field23;
+            private int field24;
 
-            public Application() { }
-            internal Application(int internalCtor) { }
-            protected internal Application(string protectedInternalCtor) { }
-            protected Application(long protectedCtor) { }
-            private Application(decimal privateCtor) { }
+            public Application(...)
+            internal Application(...)
+            protected internal Application(...)
+            protected Application(...)
+            private protected Application(...)
+            private Application(...)
             
             // ...
         }
@@ -415,29 +404,29 @@ The document contains data collected from various sources, language styles, and 
 
   * ✔ Write all accessors single-line or multi-line
   
-    * Write each accessor on a single line if the accessors are short.
+    * Write both accessors on a single line if the accessors are short.
     * Expand both accessors across multiple lines if the accessors are longer.
     
         ✔
         ``` csharp
-        bool Enabled { get; set; }
+        bool IsEnabled { get; set; }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get { return this.enabled; }
             set { this.enabled = value; }
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get => this.enabled;
             set => this.enabled = value;
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -453,14 +442,14 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get;
             set;
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get { return this.enabled; }
             set
@@ -470,7 +459,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get => this.enabled;
             set
@@ -482,12 +471,12 @@ The document contains data collected from various sources, language styles, and 
         
   * ✔ Write single line comments with proper follow and precede elements
   
-    * Single line comments should always be preceded by a blank line.
-    * Single line comments should never be followed by (a) blank line(s).
+    * Single line comments should always be preceded by a single blank line.
+    * Single line comments should never be followed by blank line(s).
     
         ✔
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -499,7 +488,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -510,7 +499,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -521,7 +510,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -533,7 +522,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -570,13 +559,6 @@ The document contains data collected from various sources, language styles, and 
             
             return a + b;
         }
-        ```
-        ``` csharp
-        int Method()
-        {
-            int a = 1;
-            int b = 2;
-            return a + b; }
         ```
         ``` csharp
         int Method() { int a = 1; int b = 2; return a + b; }
@@ -708,29 +690,24 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        using System
+        using System;
 
         namespace Program
         {
-            class Application
-            {
-            }
         }
         ```
 
         ✖
         ``` csharp
-        
-        using System
+         
+         
+        using System;
 
         namespace Program
         {
-            class Application
-            {
-            }
         }
-        
-        
+         
+         
         ```
         
   * ✖ Do not line-wrap using statements
@@ -841,14 +818,14 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         // ClassOneAndTwo.cs
-        namespace Project
+        namespace Project.One
         {
             class ClassOne
             {
             }
         }
         
-        namespace Project
+        namespace Project.Two
         {
             class ClassTwo
             {
@@ -869,11 +846,11 @@ The document contains data collected from various sources, language styles, and 
         
         namespace Project
         {
-            public class Application
+            class Application
             {
                 private int count;
             
-                public Application()
+                Application()
                 {
                 }
             
@@ -894,10 +871,10 @@ The document contains data collected from various sources, language styles, and 
 
         namespace Project
         {
-            public class Application
+            class Application
             {
                 private int count;
-                public Application()
+                Application()
                 {
                 }
                 
@@ -915,7 +892,7 @@ The document contains data collected from various sources, language styles, and 
   * ✖ Do not wrap elements in opening and closing curly brackets
   
     * Write elements so they expand across multiple lines.
-    * Exception: Accessors within properties, events, or indexers.
+    * Exception: accessors within properties, events, or indexers.
     
         ✔
         ``` csharp
@@ -931,10 +908,6 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         void Method() { return; }
-        ```
-        ``` csharp
-        void Method()
-            { return; }
         ```
 
 ## Readability
@@ -981,7 +954,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        string name = Method(
+        Method(
             first,
             second,
             last);
@@ -994,7 +967,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        string name = Method(
+        Method(
             first
             , second
             ,last);
@@ -1089,19 +1062,12 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        void Method(int x, int y, int z)
-        ```
-        ``` csharp
-        void Method(
-            int x, int y, int z)
-        ```
-        ``` csharp
         void Method(
             int x,
             int y,
             int z)
         ```
-
+        
         ✖
         ``` csharp
         void Method(
@@ -1112,9 +1078,9 @@ The document contains data collected from various sources, language styles, and 
             int z)
         ```
 
-  * ✔ Prefix local calls with this
+  * ✔ Prefix local calls with *this*
   
-    * Insert the this prefix before a call to a class member.
+    * Insert the **this** prefix before a call to a class member.
     
         ✔
         ``` csharp
@@ -1197,8 +1163,6 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        void Method(int x,
-            int y, int z)
         void Method(int x, int y,
             int z)
         ```
@@ -1207,47 +1171,7 @@ The document contains data collected from various sources, language styles, and 
             int x,
             int y, int z)
         ```
-
-  * ✔ Use built-in type alias
-
-    | Alias   | Type    | Fully qualified type |
-    |:--------|:--------|:---------------------|
-    | bool    | Boolean | System.Boolean       |
-    | byte    | Byte    | System.Byte          |
-    | char    | Char    | System.Char          |
-    | decimal | Decimal | System.Decimal       |
-    | double  | Double  | System.Double        |
-    | short   | Int16   | System.Int16         |
-    | int     | Int32   | System.Int32         |
-    | long    | Int64   | System.Int64         |
-    | object  | Object  | System.Object        |
-    | sbyte   | SByte   | System.SByte         |
-    | float   | Single  | System.Single        |
-    | string  | String  | System.String        |
-    | ushort  | UInt16  | System.UInt16        |
-    | uint    | UInt32  | System.UInt32        |
-    | ulong   | UInt64  | System.UInt64        |
-  
-    * Use built-in alias for types.
-    * Do not use basic types.
-    * Do not use full namespace for types.
-
-        ✔
-        ``` csharp
-        int index;
-        bool isTrue;
-        object obj;
-        string name;
-        ```
-
-        ✖
-        ``` csharp
-        Int32 index;
-        Boolean isTrue;
-        Object obj;
-        String name;
-        ```
-
+        
   * ✔ Use shorthand for nullable types
   
     * Define nullable types using the C# shorthand/predefined types.
@@ -1271,9 +1195,6 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        var x = select a in b from c;
-        ``` csharp
-        ```
         var x = collection.Where(item => item.Date.Year.Equals(currentYear)).ToList();
         ```
         ``` csharp
@@ -1281,7 +1202,9 @@ The document contains data collected from various sources, language styles, and 
             .Where(item => item.Date.Year.Equals(currentYear))
             .ToList();
         ```
-
+        ``` csharp
+        var x = select a in b from c;
+        ```
         ✖
         ``` csharp
         var x = collection
@@ -1574,7 +1497,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        #region Verify condition..
+        #region ...
         if (true)
         {
         }
@@ -1584,14 +1507,14 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         if (true)
-        #region
+        #region ...
         {
         }
         #endregion
         ```
         ``` csharp
         if (true)
-        #region
+        #region ...
         {
         #endregion
         }
@@ -1605,13 +1528,13 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        int counter = 10;
+        int x = 10;
         ```
 
         ✖
         ``` csharp
-        int counter = 10;;
-        int counter = 10; ;
+        int x = 10;;
+        int y = 10; ;
         ```
 
   * ✖ Do not write multiple statements on one line
@@ -1698,7 +1621,8 @@ The document contains data collected from various sources, language styles, and 
         [Attribute1]
         [Attribute2]
         void Method()
-        
+        ```
+        ``` csharp
         [Attribute1, Attribute2]
         void Method()
         ```
@@ -1715,7 +1639,7 @@ The document contains data collected from various sources, language styles, and 
         void Method()
         ```
 
-  * ✔ Space colon symbol *:* correctly
+  * ✔ Space colon symbol (**:**) correctly
   
     * Colon should never be the only element on a single line.
     * Colon appearing within an element declaration must always have a single space on either side, uless it's the first character on the line.
@@ -1816,11 +1740,11 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        void Method(int a, int b, int c)
+        void Method(int a, int b, int c);
         void Method(
             int a,
             int b,
-            int c)
+            int c);
         ```
         ``` csharp
         Method(a, b, c);
@@ -1828,15 +1752,15 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        void Method(int a,int b,int c)
-        void Method(int a ,int b ,int c)
-        void Method(int a , int b , int c)
+        void Method(int a,int b,int c);
+        void Method(int a ,int b ,int c);
+        void Method(int a , int b , int c);
         ```
         ``` csharp
         void Method(
             int a
             ,int b
-            ,int c)
+            ,int c);
         void Method(
             int a
             , int b
@@ -1936,10 +1860,10 @@ The document contains data collected from various sources, language styles, and 
     switch (...)
     ```
     ``` csharp
-    return 1;
+    return -1;
     ```
     ``` csharp
-    throw new Exception("message");
+    throw new Exception("...");
     ```
     ``` csharp
     var strings = new string[] { "x", "y" };
@@ -1954,7 +1878,7 @@ The document contains data collected from various sources, language styles, and 
     switch(...)
     ```
     ``` csharp
-    return1;
+    return-1;
     ```
     ``` csharp
     var integers = new [] { 1, 2, 3 };
@@ -2001,7 +1925,7 @@ The document contains data collected from various sources, language styles, and 
         int x = this.count;
         ```
         ``` csharp
-        var x = this.tuplePair.Item1;
+        var x = this.tuple.Item1;
         ```
         ``` csharp
         var ids = collection.Select(item => item.Id).ToList();
@@ -2019,7 +1943,7 @@ The document contains data collected from various sources, language styles, and 
         int x = this . count;
         ```
         ``` csharp
-        var x = this .tuplePair .Item1;
+        var x = this .tuple .Item1;
         ```
         ``` csharp
         var ids = collection. Select(item => item.Id). ToList();
@@ -2054,13 +1978,11 @@ The document contains data collected from various sources, language styles, and 
             ``` csharp
             int x = Method(
                 -10, -3);
-            ```
-            ``` csharp
+            
             int x = Method(
                 -10,
                 -3);
-            ```
-            ``` csharp
+            
             int x = Method(
                 (100 + 90)
                 - 999,
@@ -2086,8 +2008,7 @@ The document contains data collected from various sources, language styles, and 
                 100,
                  -10,
                  -3);
-            ```
-            ``` csharp
+            
             int x = Method(
                 (100 + 90) -
                 999,
@@ -2247,52 +2168,30 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         int x = array[10];
-        ```
-        ``` csharp
         int x = array[10] + 1;
-        ```
-        ``` csharp
         int x = matrix[10, 10];
         ```
         ``` csharp
-        int[] ints = new int[2];
-        ```
-        ``` csharp
+        int[] array = new int[2];
+        int[] array = new int[] { 1, 2, 3 };
+        int[] array = new[] { 1, 2, 3 };
+        int[] array = { 1, 2, 3 };
         int[,] matrix = new int[2, 2];
         ```
-        ``` csharp
-        int[] ints = new int[] { 1, 2, 3 };
-        ```
-        ``` csharp
-        int[] ints = { 1, 2, 3 };
-        ```
-        ``` csharp
-        int[] ints = new[] { 1, 2, 3 };
-        ```
-
+        
         ✖
         ``` csharp
         int x = array [10];
-        ```
-        ``` csharp
         int x = array[10]+1;
-        ```
-        ``` csharp
         int x = matrix [10,10];
         ```
         ``` csharp
-        int [] ints = new int[2];
-        ```
-        ``` csharp
+        int [] array = new int[2];
+        int[] array = new int [] { 1, 2, 3 };
+        int[] array = new [] { 1, 2, 3 };
         int[,] matrix = new int [2, 2];
         ```
-        ``` csharp
-        int[] ints = new int [] { 1, 2, 3 };
-        ```
-        ``` csharp
-        int[] ints = new [] { 1, 2, 3 };
-        ```
-
+        
   * ✔ Space symbols correctly
   
     * Symbols: colons, operators (arithmetic, assignment, conditional, logical, relational, shift, lambda)
@@ -2446,7 +2345,7 @@ The document contains data collected from various sources, language styles, and 
   
     * The length of the tab character can vary depending upn the editor used to view the code.
     * This can cause spacing and idexing of the code to vary from the developer's intent and can make the code difficult to read and understand.
-    * EACH LEVEL OF INDENTATION SHOULD CONSIST OF FOUR SPACES.
+    * **Each level of indentation should consist of four spaces.**
     
         ✔
         ``` csharp
@@ -2470,9 +2369,48 @@ The document contains data collected from various sources, language styles, and 
 
 ## Types and variables
 
+  * ✔ Use built-in type alias
+
+    | Alias   | Type    | Fully qualified type |
+    |:--------|:--------|:---------------------|
+    | bool    | Boolean | System.Boolean       |
+    | byte    | Byte    | System.Byte          |
+    | char    | Char    | System.Char          |
+    | decimal | Decimal | System.Decimal       |
+    | double  | Double  | System.Double        |
+    | short   | Int16   | System.Int16         |
+    | int     | Int32   | System.Int32         |
+    | long    | Int64   | System.Int64         |
+    | object  | Object  | System.Object        |
+    | sbyte   | SByte   | System.SByte         |
+    | float   | Single  | System.Single        |
+    | string  | String  | System.String        |
+    | ushort  | UInt16  | System.UInt16        |
+    | uint    | UInt32  | System.UInt32        |
+    | ulong   | UInt64  | System.UInt64        |
+  
+    * Use predefined type names, instead of system type names.
+    * Do not use basic types.
+    * Do not use full namespace for types.
+
+        ✔
+        ``` csharp
+        int index;
+        bool isTrue;
+        object obj;
+        string name;
+        ```
+
+        ✖
+        ``` csharp
+        Int32 index;
+        Boolean isTrue;
+        Object obj;
+        String name;
+        ```
+
   * ✔ Fields must be private
   
-    * Fields should always be private.
     * For mentainability reasons, properties should always be used as the mechanism for exposing fields outside of a class.
     * This allows the internal implementation of the property to change over time without changing the interface of the class.
     * Exception: fields within structs are allowed to have any access level.
@@ -2483,8 +2421,8 @@ The document contains data collected from various sources, language styles, and 
 
         public int Count
         {
-            get { return this.count };
-            set { this.count = value; }
+            get => this.count;
+            set => this.count = value;
         }
         ```
 
@@ -2529,25 +2467,7 @@ The document contains data collected from various sources, language styles, and 
             int ActiveDays = (expiryDate - DateTime.UtcNow).Days;
         }
         ```
-
-  * ✔ Use predefined type names
-  
-    * Use predefined type names, instead of system type names.
-    
-        ✔
-        ``` csharp
-        string name;
-        int index;
-        bool isValid;
-        ```
-
-        ✖
-        ``` csharp
-        String name;
-        Int32 index;
-        Boolean isValid;
-        ```
-
+        
   * ✖ Do not use underscores in identifiers
   
     * [c-sharpcorner.com article](https://www.c-sharpcorner.com/article/stop-use-var-everywhere-and-think-before-use-underscore-with-private-variable-in/)
@@ -2622,18 +2542,542 @@ The document contains data collected from various sources, language styles, and 
         string s;
         ```
 
-  * ✔ GOOD
-  * ✖ BAD
+## Expressions
+
+  * ✔ Break lines correctly
   
-    * text
-    * text
+    * Break at:
+      * **.** - dot separator
+      * **,** - comma, but it stays attached to the token that precedes it
+      * **=>** - lambda operator
+      * **{** - opening curly brackets for in-line initializations
+      * logical operators
+    * Split method arguments by the following rule: **all on same line, or all on different line**.
     
         ✔
         ``` csharp
+        Method(argument1, argument2, argument3);
+        ```
+        ``` csharp
+        await Method(
+            argument1, argument2, argument3);
+        ```
+        ``` csharp
+        var x = Method(
+            argument1,
+            argument2,
+            argument3);
+        ```
+        ``` csharp
+        if ((expression1 || expression2)
+            && (expresion3 && expression4)
+            || expression5
+            || expression6)
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => item.RegisterDate.Year > 2000)
+            .Join(
+                collection2,
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection2 => new { Date = collection2.Date, Owner = collection2.User },
+                (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
+            .Select(pair =>
+                new
+                {
+                    Id = pair.OldEntry.Id,
+                    X = pair.OldEntry.X,
+                    Y = pair.NewEntry.Y
+                })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item =>
+                item.RegisterDate.Year > 2000
+                && item.OwnerId == User
+                && item.IsAvailable)
+            .ToList();
+        ```
+        
+        ✖
+        ``` csharp
+        var x = collection
+            .Where(item => item.RegisterDate.Year > 2000)
+            .Join(collection2, // DO NOT
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection2 => new { Date = collection2.Date, Owner = collection2.User },
+                (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
+            .Select(pair =>
+                new
+                {
+                    Id = pair.OldEntry.Id,
+                    X = pair.OldEntry.X,
+                    Y = pair.NewEntry.Y
+                })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => item.RegisterDate.Year > 2000)
+            .Join(
+                collection2,
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection2 => new { Date = collection2.Date, Owner = collection2.User },
+                (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
+            .Select(pair =>
+                new
+                {
+                    Id = pair.OldEntry.Id,
+                    X = pair.OldEntry.X,
+                    Y = pair.NewEntry.Y
+                }).ToList(); // DO NOT
+        ```
+        ``` csharp
+        var x = collection.Where(item => item.RegisterDate.Year > 2000) // DO NOT
+            .Join(
+                collection2,
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection2 => new { Date = collection2.Date, Owner = collection2.User },
+                (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
+            .Select(pair =>
+                new
+                {
+                    Id = pair.OldEntry.Id,
+                    X = pair.OldEntry.X,
+                    Y = pair.NewEntry.Y
+                })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => item.RegisterDate.Year > 2000)
+            .Join(
+                collection2,
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection2 => new { Date = collection2.Date, Owner = collection2.User },
+                (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
+            .Select(pair => new { // DO NOT
+                    Id = pair.OldEntry.Id,
+                    X = pair.OldEntry.X,
+                    Y = pair.NewEntry.Y }) // DO NOT
+            .ToList();
+        ```
 
+  * ✔ Conditional expressions must declare precedence
+  
+    * C# mentains a hierarchy of precedence for conditional operators.
+    * It is allowed to string multiple operations together on one statement and the compiler will automatically set the order based on pre-established rules.
+    * In order to achieve full understanding of the code, the developer mustt know and understand the basic operator precedente rules in C#.
+    * To increase readability and maintainability and reduce the risk of introducing bugs later, it is recommended to insert parenthesis to explicitly declare the operator precedence.
+    * Inserting parenthesis makes the code more obvious and easy to understand, and removes the need for the reader to make assumptions about the code.
+    
+        ✔
+        ``` csharp
+        if (x || (y && z && a) || b)
+        
+        if ((x || y) && z && (a || b))
+        ```
+        ``` csharp
+        return a || (b && c);
+        
+        return a || b;
         ```
 
         ✖
         ``` csharp
+        if (x || y && z && a || b)
+        ```
+        ``` csharp
+        return a || b && c;
+        
+        return (a || b);
+        ```
+        
+  * ✔ Arithmetic expressions must declare precedence
+  
+    * C# mentains a hierarchy of precedence for arithmetic operators.
+    * It is allowed to string multiple operations together on one statement and the compiler will automatically set the order based on pre-established rules.
+    * In order to achieve full understanding of the code, the developer mustt know and understand the basic operator precedente rules in C#.
+    * To increase readability and maintainability and reduce the risk of introducing bugs later, it is recommended to insert parenthesis to explicitly declare the operator precedence.
+    * Inserting parenthesis makes the code more obvious and easy to understand, and removes the need for the reader to make assumptions about the code.
+    
+        ✔
+        ``` csharp
+        int x = 1 + ((10 % y) * a) / b) - 2;
+        ```
 
+        ✖
+        ``` csharp
+        int x = 1 + 10 % y * a / b - 2;
+        ```
+        
+## Statements
+
+  * ✔ Remove unnecessary code
+  
+    * Remove any code which once removed does not change the overall logic of the code.
+    * Remove duplicate code.
+    
+        ✔
+        ``` csharp
+        try
+        {
+            int x = MethodThrowingException();
+        }
+        catch (Exception ex)
+        {
+        }
+        ```
+
+        ✖
+        ``` csharp
+        try
+        {
+            int x = a + b;
+        }
+        catch (Exception ex)
+        {
+        }
+        ```
+        
+  * ✔ Comment fall-through cases
+  
+    * Within a switch block, each statement can be terminated abruptly by break, continue, return, or throw keywords.
+    * To mark statements with same result it is recommended, but not mandatory, to use an expressive comment.
+    * Usually "**// fall through**" is enough.
+    
+        ✔
+        ``` csharp
+        switch (x)
+        {
+            case 1:
+                // fall through
+            case 2:
+                HandleOneAndTwo();
+                break;
+            case 3:
+                HandleThree();
+                break
+            default:
+                HandleDefault();
+                break;
+        }
+        ```
+        ``` csharp
+        switch (ch)
+        {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+            case 'A':
+            case 'E':
+            case 'I':
+            case 'O':
+            case 'U':
+                HandleVowel();
+                break;
+            default:
+                HandleConsonant();
+                break;
+        }
+        ```
+
+        ✖
+        ``` csharp
+        switch (ch)
+        {
+            case 'a':
+                // fall through
+            case 'e':
+                // fall through
+            case 'i':
+                // fall through
+            case 'o':
+                // fall through
+            case 'u':
+                // fall through
+            case 'A':
+                // fall through
+            case 'E':
+                // fall through
+            case 'I':
+                // fall through
+            case 'O':
+                // fall through
+            case 'U':
+                HandleVowel();
+                break;
+            default:
+                HandleConsonant()
+                break;
+        }
+        ```
+        
+  * ✖ Do not use unnecessary parenthesis
+  
+    * It is possible to insert parenthesis around virtually any type of expression, statement, or clause.
+    * Excessive parenthesis can have a negative effect, making it more difficult to read and maintain code.
+    
+        ✔
+        ``` csharp
+        int x = 5 + b;
+        string y = this.Method().ToString();
+        ```
+        ``` csharp
+        return a + b;
+        return x.Value;
+        ```
+
+        ✖
+        ``` csharp
+        int x = (5 + b);
+        string y = (this.Method()).ToString();
+        string y = (this.Method().ToString());
+        ```
+        ``` csharp
+        return (a + b);
+        return (x.Value);
+        ```
+        
+## Classes and objects
+
+  * ✔ Use PascalCasing to name classes, methods, and properties
+  
+    ✔
+    ``` csharp
+    class ClassName
+    ```
+    ``` csharp
+    void MethodName();
+    ```
+    ``` csharp
+    string PropertyName { get; set; }
+    ```
+
+    ✖
+    ``` csharp
+    class className
+    class class_Name
+    ```
+    ``` csharp
+    void methodName();
+    void method_name();
+    ```
+    ``` csharp
+    string propertyName { get; set; }
+    string property_name { get; set; }
+    ```
+    
+  * ✔ Write each class in its own file
+  
+    * Do not write nested classes.
+    * Use the same notation for file and class name.
+    
+        ✔
+        ``` csharp
+        // Application.cs
+        class Application
+        ```
+        ``` csharp
+        // Program.cs
+        class Program
+        ```
+
+        ✖
+        ``` csharp
+        // File.cs
+        class FileManager
+        ```
+        ``` csharp
+        class Program
+        {
+            class Nested
+            {
+            }
+        }
+        ```
+
+        
+  * ✔ Use PascalCasing when abbreviating three or more characters
+  
+    * When there are two characters, both are uppercase.
+    
+        ✔
+        ``` csharp
+        HtmlHelper htmlHelper;
+        XmlDocument xmlDocument;
+        IOException ioException;
+        UIElement uiElement;
+        ```
+
+        ✖
+        ``` csharp
+        HTMLHelper htmlHelper;
+        XMLDocument xmlDocument;
+        IoException ioException;
+        UiElement uiElement;
+        ```
+        
+  * ✔ Declare access modifiers
+  
+    * It is allowed to define elements without access modifier and C# will automatically assign an access level.
+    * It is a good practice to explicitly define an access modifier for each element. This removes the need for the reader to make assumptions about code and improves readability.
+    
+        ✔
+        ``` csharp
+        public class A
+        {
+            public A()
+            {
+            }
+
+            private void Method()
+            {
+            }
+        }
+        ```
+
+        ✖
+        ``` csharp
+        class A
+        {
+            A()
+            {
+            }
+
+            void Method()
+            {
+            }
+        }
+        ```
+        
+  * ✖ Do not (habitually) add new methods at the end of the class, or interface
+  
+    ✔
+    ``` csharp
+    interface DatabaseService<T>
+    {
+        List<T> GetAll();
+        
+        // Newly added method
+        T GetById(int id);
+        
+        void Create(T entity);
+        
+        void Update(T entity);
+        
+        void Delete(T entity);
+    }
+    ```
+    
+    ✖
+    ``` csharp
+    interface DatabaseService<T>
+    {
+        List<T> GetAll();
+
+        void Create(T entity);
+        
+        void Update(T entity);
+        
+        void Delete(T entity);
+        
+        // Newly added method
+        T GetById(int id);
+    }
+    ```
+    
+  * ✖ Do not split overloads
+  
+    * When a class has multiple constructors, or multiple methods with the same name, these appear sequentially, with no code in between (NOT even private members).
+    
+        ✔
+        ``` csharp
+        public class Application
+        {
+            public Application(int x)
+            {
+            }
+            
+            private Application()
+            {
+            }
+            
+            public void Execute(int count)
+            {
+            }
+            
+            private void Execute(bool isRetrying)
+            {
+            }
+            
+            public void Display()
+            {
+            }
+        }
+        ```
+
+        ✖
+        ``` csharp
+        public class Application
+        {
+            public Application(int x)
+            {
+            }
+         
+            public void Execute(int count)
+            {
+            }
+
+            private Application()
+            {
+            }
+        }
+        ```
+        ``` csharp
+        public class Application
+        {
+            public void Execute(int count)
+            {
+            }
+            
+            public void Display()
+            {
+            }
+            
+            private void Execute(int count, bool isRetrying)
+            {
+            }
+        }
+        ```
+
+## Interfaces
+        
+  * ✔ Prefix interface names with letter **I**
+  
+    * Interface names are noun or adjectives.
+    
+        ✔
+        ``` csharp
+        interface ILogger
+        ```
+        ``` csharp
+        interface IApplicationBuilder
+        ```
+        ``` csharp
+        interface ICollection
+        ```
+
+        ✖
+        ``` csharp
+        interface LoggerSignature
+        ```
+        ``` csharp
+        interface LoggerInterface
+        ```
+        ``` csharp
+        interface LoggerIFace
         ```
