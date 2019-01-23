@@ -197,18 +197,18 @@ The document contains data collected from various sources, language styles, and 
     * To increase long-term mentainability of the code-base, each file should contain at most one namespace.
     
         ``` csharp
-        // ClassOne.cs
+        // A.cs
         namespace Project
         {
-            class ClassOne
+            class A
             {
             }
         }
         
-        // ClassTwo.cs
+        // B.cs
         namespace Project
         {
-            class ClassTwo
+            class B
             {
             }
         }
@@ -314,7 +314,7 @@ The document contains data collected from various sources, language styles, and 
   * ✔ Write each class in its own file
   
     * Use the same notation for file and class name.
-    * Do not write nested classes.
+    * **Avoid** nested classes.
     
         ✔
         ``` csharp
