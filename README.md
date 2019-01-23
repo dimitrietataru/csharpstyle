@@ -178,7 +178,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        if (true)
+        if (...)
         {
         }
         else
@@ -201,7 +201,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        if (true)
+        if (...)
         {
         }
 
@@ -249,21 +249,21 @@ The document contains data collected from various sources, language styles, and 
   
     ✔
     ``` csharp
-    bool FirstProperty { get; set; }
+    int First { get; set; }
 
     /// <summary>
     /// ...
     /// </summary>
-    bool SecondProperty { get; set; }
+    int Second { get; set; }
     ```
 
     ✖
     ``` csharp
-    bool FirstProperty { get; set; }
+    int First { get; set; }
     /// <summary>
     /// ...
     /// </summary>
-    bool SecondProperty { get; set; }
+    int Second { get; set; }
     ```
         
   * ✔ Separate elements by a blank line
@@ -300,8 +300,7 @@ The document contains data collected from various sources, language styles, and 
         
   * ✔ Separate non-static from static usings
   
-    * Separate non-static from static usings.
-    * Order usings alphabetically. First non-static, then static.
+    * Order usings alphabetically. Order by non-static, then by static.
     * Do not separate usings, or static/non-static blocks by blank line(s).
     
         ✔
@@ -382,7 +381,7 @@ The document contains data collected from various sources, language styles, and 
             private readonly int field15;
             public int field16;
             internal int field17;
-            protected static int field18;
+            protected internal int field18;
             protected int field19;
             private int field20;
 
@@ -398,29 +397,29 @@ The document contains data collected from various sources, language styles, and 
 
   * ✔ Write all accessors single-line or multi-line
   
-    * Write each accessor on a single line if the accessors are short.
+    * Write both accessors on a single line if the accessors are short.
     * Expand both accessors across multiple lines if the accessors are longer.
     
         ✔
         ``` csharp
-        bool Enabled { get; set; }
+        bool IsEnabled { get; set; }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get { return this.enabled; }
             set { this.enabled = value; }
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get => this.enabled;
             set => this.enabled = value;
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get
             {
@@ -436,14 +435,14 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get;
             set;
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get { return this.enabled; }
             set
@@ -453,7 +452,7 @@ The document contains data collected from various sources, language styles, and 
         }
         ```
         ``` csharp
-        bool Enabled
+        bool IsEnabled
         {
             get => this.enabled;
             set
@@ -465,8 +464,8 @@ The document contains data collected from various sources, language styles, and 
         
   * ✔ Write single line comments with proper follow and precede elements
   
-    * Single line comments should always be preceded by a blank line.
-    * Single line comments should never be followed by (a) blank line(s).
+    * Single line comments should always be preceded by a single blank line.
+    * Single line comments should never be followed by blank line(s).
     
         ✔
         ``` csharp
@@ -553,13 +552,6 @@ The document contains data collected from various sources, language styles, and 
             
             return a + b;
         }
-        ```
-        ``` csharp
-        int Method()
-        {
-            int a = 1;
-            int b = 2;
-            return a + b; }
         ```
         ``` csharp
         int Method() { int a = 1; int b = 2; return a + b; }
@@ -691,7 +683,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        using System
+        using System;
 
         namespace Program
         {
@@ -704,7 +696,7 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         
-        using System
+        using System;
 
         namespace Program
         {
@@ -824,14 +816,14 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         // ClassOneAndTwo.cs
-        namespace Project
+        namespace Project.One
         {
             class ClassOne
             {
             }
         }
         
-        namespace Project
+        namespace Project.Two
         {
             class ClassTwo
             {
@@ -852,11 +844,11 @@ The document contains data collected from various sources, language styles, and 
         
         namespace Project
         {
-            public class Application
+            class Application
             {
                 private int count;
             
-                public Application()
+                Application()
                 {
                 }
             
@@ -877,10 +869,10 @@ The document contains data collected from various sources, language styles, and 
 
         namespace Project
         {
-            public class Application
+            class Application
             {
                 private int count;
-                public Application()
+                Application()
                 {
                 }
                 
@@ -898,7 +890,7 @@ The document contains data collected from various sources, language styles, and 
   * ✖ Do not wrap elements in opening and closing curly brackets
   
     * Write elements so they expand across multiple lines.
-    * Exception: Accessors within properties, events, or indexers.
+    * Exception: accessors within properties, events, or indexers.
     
         ✔
         ``` csharp
@@ -914,10 +906,6 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         void Method() { return; }
-        ```
-        ``` csharp
-        void Method()
-            { return; }
         ```
 
 ## Readability
