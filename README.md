@@ -1239,6 +1239,38 @@ The document contains data collected from various sources, language styles, and 
 
 ### Square brackets
 
+  * ✔ Space square brackets correctly
+  
+    * Opening square brackets should never be followed by a whitespace, unless it's the last character on the line.
+    * Opening square brackets should never be preceded by a whitespace, unless it's the first character on the line.
+    * Closing square brackets should never be preceded by a whitespace, unless it's the first character on the line.
+    * Closing square brackets should never pe followed by a whitespace, except when it's followed by certain operators, or it is part of an array initialization.
+    
+        ✔
+        ``` csharp
+        int x = array[10];
+        int x = array[10] + 1;
+        int x = matrix[10, 10];
+        ```
+        ``` csharp
+        int[] array = new int[2];
+        int[] array = new int[] { 1, 2, 3 };
+        int[] array = new[] { 1, 2, 3 };
+        int[,] matrix = new int[2, 2];
+        ```
+        
+        ✖
+        ``` csharp
+        int x = array [10];
+        int x = array[10]+1;
+        int x = matrix [10,10];
+        ```
+        ``` csharp
+        int [] array = new int[2];
+        int[] array = new int [] { 1, 2, 3 };
+        int[] array = new [] { 1, 2, 3 };
+        ```
+
 ### Parenthesis
 
 ### Symbols
