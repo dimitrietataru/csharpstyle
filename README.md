@@ -2546,7 +2546,7 @@ The document contains data collected from various sources, language styles, and 
 
   * ✔ Break lines correctly
   
-    * Break at:    the **.** (dot) separator
+    * Break at:
       * **.** - dot separator
       * **,** - comma, but it stays attached to the token that precedes it
       * **=>** - lambda operator
