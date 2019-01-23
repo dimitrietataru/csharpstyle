@@ -2473,4 +2473,205 @@ The document contains data collected from various sources, language styles, and 
 
 ## Statements
 
+  * ✔ Write statements on a single line
+  
+    * Do not write multiple statements on the same line.
+    * Do not write statements and curly brackets on the same line.
+    
+        ✔
+        ``` csharp
+        int Method()
+        {
+            int x = 1;
+            int y = 2;
+            
+            return x + y;
+        }
+        ```
+
+        ✖
+        ``` csharp
+        int Method()
+        {
+            int x = 1; int y = 2;
+            
+            return x + y;
+        }
+        ```
+        ``` csharp
+        int Method() { int x = 1; int y = 2; return x + y; }
+        ```
+
+  * ✖ Do not write multiple statements on one line
+  
+    * Each statement must begin on a new line.
+    
+        ✔
+        ``` csharp
+        int Method(int x, int x)
+        {
+            int sum = x + y;
+            return sum;
+        }
+        ```
+        ``` csharp
+        int a;
+        int b;
+        string firstName;
+        string lastName;
+        ```
+
+        ✖
+        ``` csharp
+        int Method(int x, int x)
+        {
+            int sum = x + y; return sum;
+        }
+        ```
+        ``` csharp
+        int a, b;
+        string firstName, lastName;
+        ```
+
+  * ✖ Do not write empty statements
+  
+    * Remove unneeded semicolon(s) from code.
+    * Syntactically, this results in an extra, empty, statement in the code.
+    
+        ✔
+        ``` csharp
+        int x = y;
+        ```
+
+        ✖
+        ``` csharp
+        int x = y;;
+        int y = y; ;
+        ```
+
+  * ✔ Chain statement blocks without blank lines
+  
+    * Some types of C# statements can only be used when chained to the bottom of another statement.
+    * Remove any blank lines between chained statements.
+
+        ✔
+        ``` csharp
+        try
+        {   
+        }
+        catch
+        {
+        }
+        finally
+        {
+        }
+        ```
+        ``` csharp
+        if (...)
+        {
+        }
+        else
+        {
+        }
+        ```
+
+        ✖
+        ``` csharp
+        try
+        {
+        }
+
+        catch
+        {
+        }
+
+        finally
+        {
+        }
+        ```
+        ``` csharp
+        if (...)
+        {
+        }
+
+        else
+        {
+        }
+        ```
+
+  * ✔ Comment fall-through cases
+  
+    * Within a switch block, each statement can be terminated abruptly by break, continue, return, or throw keywords.
+    * To mark statements with same result it is recommended, but not mandatory, to use an expressive comment.
+    * Usually "**// fall through**" is enough.
+    
+        ✔
+        ``` csharp
+        switch (x)
+        {
+            case 1:
+                // fall through
+            case 2:
+                HandleOneAndTwo();
+                break;
+            case 3:
+                HandleThree();
+                break
+            default:
+                HandleDefault();
+                break;
+        }
+        ```
+        ``` csharp
+        switch (ch)
+        {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+            case 'A':
+            case 'E':
+            case 'I':
+            case 'O':
+            case 'U':
+                HandleVowel();
+                break;
+            default:
+                HandleConsonant();
+                break;
+        }
+        ```
+        
+        ✖
+        ``` csharp
+        switch (ch)
+        {
+            case 'a':
+                // fall through
+            case 'e':
+                // fall through
+            case 'i':
+                // fall through
+            case 'o':
+                // fall through
+            case 'u':
+                // fall through
+            case 'A':
+                // fall through
+            case 'E':
+                // fall through
+            case 'I':
+                // fall through
+            case 'O':
+                // fall through
+            case 'U':
+                HandleVowel();
+                break;
+            default:
+                HandleConsonant()
+                break;
+        }
+        ```
+
 ## Queries and Linq
