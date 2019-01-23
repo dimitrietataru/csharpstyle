@@ -30,7 +30,7 @@ The document contains data collected from various sources, language styles, and 
 * [Structure and layout](#structure-and-layout)
 * [Readability](#readability)
 * [Spacing](#spacing)
-* Types and variables
+* [Types and variables](#types-and-variables)
 * Expressions
 * Statements
 * Classes and objects
@@ -2468,6 +2468,162 @@ The document contains data collected from various sources, language styles, and 
                 300);
         ```
 
+## Types and variables
+
+  * ✔ Fields must be private
+  
+    * Fields should always be private.
+    * For mentainability reasons, properties should always be used as the mechanism for exposing fields outside of a class.
+    * This allows the internal implementation of the property to change over time without changing the interface of the class.
+    * Exceptions:
+      * Fields within structs are allowed to have any access level.
+    
+        ✔
+        ``` csharp
+        private int count;
+
+        public int Count
+        {
+            get { return this.count };
+            set { this.count = value; }
+        }
+        ```
+
+        ✖
+        ``` csharp
+        public int count;
+        ```
+
+  * ✔ Use camelCasing for method arguments, local variables, and fields
+  
+    * Use camelCasing for:
+      * method arguments
+      * local variables
+      * fields
+      * lambda parameters
+    
+        ✔
+        ``` csharp
+        string serialNumber;
+        ```
+        ``` csharp
+        void Method(string userName, DateTime expiryDate)
+        ```
+        ``` csharp
+        void Method()
+        {
+            int activeDays = (expiryDate - DateTime.UtcNow).Days;
+        }
+        ```
+
+        ✖
+        ``` csharp
+        string SerialNumber;
+        string serial_number;
+        ```
+        ``` csharp
+        void Method(string UserName, DateTime expirydate)
+        ```
+        ``` csharp
+        void Method()
+        {
+            int ActiveDays = (expiryDate - DateTime.UtcNow).Days;
+        }
+        ```
+
+  * ✔ Use predefined type names
+  
+    * Use predefined type names, instead of system type names.
+    
+        ✔
+        ``` csharp
+        string name;
+        int index;
+        bool isValid;
+        ```
+
+        ✖
+        ``` csharp
+        String name;
+        Int32 index;
+        Boolean isValid;
+        ```
+
+  * ✖ Do not use abbreviations
+  
+    * Avoid use of abbreviations.
+    * Exceptions:
+      * common names and notations: Id, Url, Ftp, Xml, Http, etc..
+      * *for* statement initializer(s)
+    
+        ✔
+        ``` csharp
+        IConfiguration configuration;
+        DateTimeOffset dateTimeOffset;
+        CancellationToken cancellationToken;
+        string name;
+        ```
+        ``` csharp
+        UserId userId;
+        XmlDocument xmlDocument;
+        HtmlHelper htmlHelper;
+        ```
+
+        ✖
+        ``` csharp
+        IConfiguration cfg;
+        DateTimeOffset offset;
+        CancellationToken ct;
+        string s;
+        ```
+
+  * ✖ Do not use Hungarian notation, or type identification in identifiers
+  
+    ✔
+    ``` csharp
+    int age;
+    string address;
+    DateTime dateOfBirth;
+    List<Person> persons;
+    ```
+
+    ✖
+    ``` csharp
+    int iAge;
+    string strAddress;
+    List<Person> personList;
+    ```
+
+  * ✖ Do not use underscores in identifiers
+  
+    * [c-sharpcorner.com article](https://www.c-sharpcorner.com/article/stop-use-var-everywhere-and-think-before-use-underscore-with-private-variable-in/)
+    * Exception are *Discards*, introduced in C# 7.0
+    
+        ✔
+        ``` csharp
+        private int x;
+        ```
+        ``` csharp
+        private readonly IDependencyInjection dependencyInjection;
+        ```
+        ``` csharp
+        var x = list1
+            .Join(list2, l1 => l1.Id, l2 => l2.Id, (l1, _) => l1)
+            .ToList();
+        ```
+        ``` csharp
+        services.AddScope<ISignature>(_ => new Implementation(99));
+        ```
+
+        ✖
+        ``` csharp
+        private int m_x;
+        private int _x;
+        ```
+        ``` csharp
+        private readonly IDependencyInjection _dependencyInjection;
+        ```
+        
   * ✔ GOOD
   * ✖ BAD
   
