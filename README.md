@@ -1661,7 +1661,8 @@ The document contains data collected from various sources, language styles, and 
         [Attribute1]
         [Attribute2]
         void Method()
-        
+        ```
+        ``` csharp
         [Attribute1, Attribute2]
         void Method()
         ```
@@ -1678,7 +1679,7 @@ The document contains data collected from various sources, language styles, and 
         void Method()
         ```
 
-  * ✔ Space colon symbol (*:*) correctly
+  * ✔ Space colon symbol (**:**) correctly
   
     * Colon should never be the only element on a single line.
     * Colon appearing within an element declaration must always have a single space on either side, uless it's the first character on the line.
@@ -1779,7 +1780,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        void Method(int a, int b, int c)
+        void Method(int a, int b, int c);
         void Method(
             int a,
             int b,
