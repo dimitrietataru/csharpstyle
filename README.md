@@ -2851,7 +2851,7 @@ The document contains data collected from various sources, language styles, and 
     class ClassName
     ```
     ``` csharp
-    void MethodName
+    void MethodName();
     ```
     ``` csharp
     string PropertyName { get; set; }
@@ -2863,8 +2863,8 @@ The document contains data collected from various sources, language styles, and 
     class class_Name
     ```
     ``` csharp
-    void methodName
-    void method_name
+    void methodName();
+    void method_name();
     ```
     ``` csharp
     string propertyName { get; set; }
@@ -2908,7 +2908,7 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         HtmlHelper htmlHelper;
-        XmlDocument xmlDocument
+        XmlDocument xmlDocument;
         IOException ioException;
         UIElement uiElement;
         ```
@@ -2916,25 +2916,21 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         HTMLHelper htmlHelper;
-        XMLDocument xmlDocument
+        XMLDocument xmlDocument;
         IoException ioException;
         UiElement uiElement;
         ```
         
   * ✔ Declare access modifiers
   
-    * It is allowed to define elements without access modifier, and C# will automatically assign an access level.
+    * It is allowed to define elements without access modifier and C# will automatically assign an access level.
     * It is a good practice to explicitly define an access modifier for each element. This removes the need for the reader to make assumptions about code and improves readability.
     
         ✔
         ``` csharp
         public class A
         {
-            public A(int x)
-            {
-            }
-
-            private A()
+            public A()
             {
             }
 
@@ -2948,10 +2944,6 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         class A
         {
-            A(int x)
-            {
-            }
-
             A()
             {
             }
@@ -2964,63 +2956,60 @@ The document contains data collected from various sources, language styles, and 
         
   * ✖ Do not (habitually) add new methods at the end of the class
   
-    * text
-    * text
-    
-        ✔
-        ``` csharp
-        public class DatabaseService<T>
+    ✔
+    ``` csharp
+    public class DatabaseService<T>
+    {
+        public List<T> GetAll()
         {
-            public List<T> GetAll()
-            {
-            }
-            
-            // Newly added method
-            public T GetById()
-            {
-            }
-            
-            public void Create(T entity)
-            {
-            }
-            
-            public void Update(T entity)
-            {
-            }
-            
-            public void Delete(T entity)
-            {
-            }
         }
-        ```
-
-        ✖
-        ``` csharp
-        public class DatabaseService<T>
-        {
-            public List<T> GetAll()
-            {
-            }
-            
-            public void Create(T entity)
-            {
-            }
-            
-            public void Update(T entity)
-            {
-            }
-            
-            public void Delete(T entity)
-            {
-            }
-            
-            // Newly added method
-            public T GetById()
-            {
-            }
-        }
-        ```
         
+        // Newly added method
+        public T GetById()
+        {
+        }
+        
+        public void Create(T entity)
+        {
+        }
+        
+        public void Update(T entity)
+        {
+        }
+        
+        public void Delete(T entity)
+        {
+        }
+    }
+    ```
+    
+    ✖
+    ``` csharp
+    public class DatabaseService<T>
+    {
+        public List<T> GetAll()
+        {
+        }
+        
+        public void Create(T entity)
+        {
+        }
+        
+        public void Update(T entity)
+        {
+        }
+        
+        public void Delete(T entity)
+        {
+        }
+        
+        // Newly added method
+        public T GetById()
+        {
+        }
+    }
+    ```
+    
   * ✖ Do not split overloads
   
     * When a class has multiple constructors, or multiple methods with the same name, these appear sequentially, with no code in between (NOT even private members).
@@ -3041,11 +3030,7 @@ The document contains data collected from various sources, language styles, and 
             {
             }
             
-            public void Execute(int count, int retryCount)
-            {
-            }
-            
-            private void Execute(int count, bool isRetrying)
+            private void Execute(bool isRetrying)
             {
             }
             
@@ -3079,10 +3064,6 @@ The document contains data collected from various sources, language styles, and 
             {
             }
             
-            public void Execute(int count, int retryCount)
-            {
-            }
-            
             public void Display()
             {
             }
@@ -3102,14 +3083,22 @@ The document contains data collected from various sources, language styles, and 
         ✔
         ``` csharp
         interface ILogger
+        ```
+        ``` csharp
         interface IApplicationBuilder
+        ```
+        ``` csharp
         interface ICollection
         ```
 
         ✖
         ``` csharp
         LoggerSignature
+        ```
+        ``` csharp
         LoggerInterface
+        ```
+        ``` csharp
         LoggerIFace
         LoggerIface
         ```
