@@ -477,7 +477,7 @@ The document contains data collected from various sources, language styles, and 
             return $"Base: {first} {last}";
         }
         
-        string name = base.Join("", "");
+        string name = base.Join("th", "se");
         ```
 
   * ✖ Do not split overloads
@@ -623,6 +623,7 @@ The document contains data collected from various sources, language styles, and 
     * Then, order by readonly, then non-readonly:
       * readonly
       * non-readonly
+      
       
         ``` csharp
         class Application
