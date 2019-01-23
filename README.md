@@ -1784,7 +1784,7 @@ The document contains data collected from various sources, language styles, and 
         void Method(
             int a,
             int b,
-            int c)
+            int c);
         ```
         ``` csharp
         Method(a, b, c);
@@ -1792,15 +1792,15 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        void Method(int a,int b,int c)
-        void Method(int a ,int b ,int c)
-        void Method(int a , int b , int c)
+        void Method(int a,int b,int c);
+        void Method(int a ,int b ,int c);
+        void Method(int a , int b , int c);
         ```
         ``` csharp
         void Method(
             int a
             ,int b
-            ,int c)
+            ,int c);
         void Method(
             int a
             , int b
@@ -1900,10 +1900,10 @@ The document contains data collected from various sources, language styles, and 
     switch (...)
     ```
     ``` csharp
-    return 1;
+    return -1;
     ```
     ``` csharp
-    throw new Exception("message");
+    throw new Exception("...");
     ```
     ``` csharp
     var strings = new string[] { "x", "y" };
@@ -1918,7 +1918,7 @@ The document contains data collected from various sources, language styles, and 
     switch(...)
     ```
     ``` csharp
-    return1;
+    return-1;
     ```
     ``` csharp
     var integers = new [] { 1, 2, 3 };
@@ -1965,7 +1965,7 @@ The document contains data collected from various sources, language styles, and 
         int x = this.count;
         ```
         ``` csharp
-        var x = this.tuplePair.Item1;
+        var x = this.tuple.Item1;
         ```
         ``` csharp
         var ids = collection.Select(item => item.Id).ToList();
@@ -1983,7 +1983,7 @@ The document contains data collected from various sources, language styles, and 
         int x = this . count;
         ```
         ``` csharp
-        var x = this .tuplePair .Item1;
+        var x = this .tuple .Item1;
         ```
         ``` csharp
         var ids = collection. Select(item => item.Id). ToList();
@@ -2018,13 +2018,9 @@ The document contains data collected from various sources, language styles, and 
             ``` csharp
             int x = Method(
                 -10, -3);
-            ```
-            ``` csharp
             int x = Method(
                 -10,
                 -3);
-            ```
-            ``` csharp
             int x = Method(
                 (100 + 90)
                 - 999,
@@ -2050,8 +2046,6 @@ The document contains data collected from various sources, language styles, and 
                 100,
                  -10,
                  -3);
-            ```
-            ``` csharp
             int x = Method(
                 (100 + 90) -
                 999,
