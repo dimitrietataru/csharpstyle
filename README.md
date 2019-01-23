@@ -2549,51 +2549,6 @@ The document contains data collected from various sources, language styles, and 
         Boolean isValid;
         ```
 
-  * ✖ Do not use abbreviations
-  
-    * Avoid use of abbreviations.
-    * Exceptions:
-      * common names and notations: Id, Url, Ftp, Xml, Http, etc..
-      * *for* statement initializer(s)
-    
-        ✔
-        ``` csharp
-        IConfiguration configuration;
-        DateTimeOffset dateTimeOffset;
-        CancellationToken cancellationToken;
-        string name;
-        ```
-        ``` csharp
-        UserId userId;
-        XmlDocument xmlDocument;
-        HtmlHelper htmlHelper;
-        ```
-
-        ✖
-        ``` csharp
-        IConfiguration cfg;
-        DateTimeOffset offset;
-        CancellationToken ct;
-        string s;
-        ```
-
-  * ✖ Do not use Hungarian notation, or type identification in identifiers
-  
-    ✔
-    ``` csharp
-    int age;
-    string address;
-    DateTime dateOfBirth;
-    List<Person> persons;
-    ```
-
-    ✖
-    ``` csharp
-    int iAge;
-    string strAddress;
-    List<Person> personList;
-    ```
-
   * ✖ Do not use underscores in identifiers
   
     * [c-sharpcorner.com article](https://www.c-sharpcorner.com/article/stop-use-var-everywhere-and-think-before-use-underscore-with-private-variable-in/)
@@ -2623,7 +2578,52 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         private readonly IDependencyInjection _dependencyInjection;
         ```
-        
+
+  * ✖ Do not use Hungarian notation, or type identification in identifiers
+  
+    ✔
+    ``` csharp
+    int age;
+    string address;
+    DateTime dateOfBirth;
+    List<Person> persons;
+    ```
+
+    ✖
+    ``` csharp
+    int iAge;
+    string strAddress;
+    List<Person> personList;
+    ```
+    
+  * ✖ Do not use abbreviations
+  
+    * Avoid use of abbreviations.
+    * Exceptions:
+      * common names and notations: Id, Url, Ftp, Xml, Http, etc..
+      * *for* statement initializer(s)
+    
+        ✔
+        ``` csharp
+        IConfiguration configuration;
+        DateTimeOffset dateTimeOffset;
+        CancellationToken cancellationToken;
+        string name;
+        ```
+        ``` csharp
+        UserId userId;
+        XmlDocument xmlDocument;
+        HtmlHelper htmlHelper;
+        ```
+
+        ✖
+        ``` csharp
+        IConfiguration cfg;
+        DateTimeOffset offset;
+        CancellationToken ct;
+        string s;
+        ```
+
   * ✔ GOOD
   * ✖ BAD
   
