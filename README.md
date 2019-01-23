@@ -1035,7 +1035,7 @@ The document contains data collected from various sources, language styles, and 
       * **=>** - after lambda operator
       * **{**  - before opening curly brackets for in-line initializations
       * before logical operators
-    * Split method arguments by the following rule: **all on same line, or all on different line**.
+    * Split method arguments by the following rule: **all on same line, or all on own line**.
     
         ✔
         ``` csharp
@@ -1094,12 +1094,161 @@ The document contains data collected from various sources, language styles, and 
         // ...
         ```
 
-
-
-
-
-
 ### Curly brackets
+
+  * ✔ Space curly brackets correctly
+  
+    * Opening curly brackets should be preceded by a single space, unless it's part of a method call.
+    * Opening curly brackets should be followed by a single space, unless it's the last character on the line.
+    * Closing curly brackets should be followed by a single space, unless it's the last character on the line, or it's followed by closing parenthesis, comma, or semicolon.
+    * Closing curly brackets should be preceded by a single space, unless it's the first character on the line.
+    
+        ✔
+        ``` csharp
+        void Method()
+        {
+        }
+        ```
+        ``` csharp
+        var x = Method({ 1, 2 }, 3);
+        var x = Method({ 1, 2 } + { 3, 4 }, 5);
+        ```
+        ``` csharp
+        int[] ints = new[] { 1, 2, 3 };
+        int[] ints = new[] {1, 2, 3}; // Generally accepted, but be consistent!
+        ```
+        ``` csharp
+        var x = new { X = 1, Y = "2" };
+        var x = new
+        {
+            X = 1,
+            Y = "2"
+        };
+        ```
+
+        ✖
+        ``` csharp
+        void Method() { }
+        void Method() {
+        }
+        void Method()
+        {}
+        void Method()
+        { }
+        ```
+        ``` csharp
+        var x = Method( { 1, 2 } , 3);
+        var x = Method( { 1, 2 } + { 3, 4 } , 5);
+        ```
+        ``` csharp
+        int[] ints = new[]{ 1, 2, 3 };
+        ```
+        ``` csharp
+        var x = new{ X = 1, Y = "2" };
+        var x = new{X = 1, Y = "2"};
+        ```
+
+  * ✔ Follow closing curly brackets by a blank line
+  
+    * Ensure a blank line follows closing curly brackets.  
+    
+        ✔
+        ``` csharp
+        void Method()
+        {
+            if (...)
+            {
+            }
+        }
+        ```
+        
+        ✖
+        ``` csharp
+        void Method()
+        {
+            if (...)
+            {
+            }}
+        ```
+
+  * ✖ Do not wrap elements in opening and closing curly brackets
+  
+    * Write elements so they expand across multiple lines.
+    * Exception: accessors within properties, events, or indexers.
+    
+        ✔
+        ``` csharp
+        int Property { get; set; }
+        ```
+        ``` csharp
+        if (...)
+        {
+            return true;
+        }
+        ```
+
+        ✖
+        ``` csharp
+        if (...) { return true; }
+        ```
+
+  * ✖ Do not follow or precede opening curly brackets with a blank line
+  
+    * Opening curly brackets should always be followed by statements, not blank line(s).
+    * Opening curly brackets should never be preceded by blank line(s).
+    
+        ✔
+        ``` csharp
+        bool IsEnabled
+        {
+            get
+            {
+                return this.enabled;
+            }
+        }
+        ```
+        
+        ✖
+        ``` csharp
+        bool IsEnabled
+        {
+            get
+            
+            {
+            
+                return this.enabled;
+            }
+        }
+        ```
+
+  * ✖ Do not follow or precede closing curly brackets with a blank line
+  
+    * Closing curly brackets should always be preceded by statements, not blank line(s).
+    * Closing curly brackets should never be followed by blank line(s).
+    
+        ✔
+        ``` csharp
+        bool IsEnabled
+        {
+            get
+            {
+                return this.enabled;
+            }
+        }
+        ```
+
+        ✖
+        ``` csharp
+        bool IsEnabled
+        {
+            get
+            {
+                return this.enabled;
+                
+            }
+            
+        }
+        ```
 
 ### Square brackets
 
