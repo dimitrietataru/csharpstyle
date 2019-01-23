@@ -372,15 +372,15 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         bool IsEnabled
         {
-            get { return this.enabled; }
-            set { this.enabled = value; }
+            get => this.enabled;
+            set => this.enabled = value;
         }
         ```
         ``` csharp
         bool IsEnabled
         {
-            get => this.enabled;
-            set => this.enabled = value;
+            get { return this.enabled; }
+            set { this.enabled = value; }
         }
         ```
         ``` csharp
@@ -460,12 +460,12 @@ The document contains data collected from various sources, language styles, and 
         {
             return $"Base: {first} {last}";
         }
-
+        
         public override string JoinName(string first, string last)
         {
             return $"This: {first} {last}";
         }
-
+        
         string thisName = this.Join("th", "is");
         string baseName = base.Join("ba", "se");
         ```
@@ -474,9 +474,9 @@ The document contains data collected from various sources, language styles, and 
         ``` csharp
         public virtual string JoinName(string first, string last)
         {
-            return $“BASE: {first} {last}”;
+            return $"Base: {first} {last}";
         }
-
+        
         string name = base.Join("", "");
         ```
 
@@ -525,11 +525,14 @@ The document contains data collected from various sources, language styles, and 
             private Application(int x)
             {
             }
+            
+            // ...
         }
         ```
         ``` csharp
         class Application
         {
+            // ...
             public void Execute(int x)
             {
             }
@@ -582,7 +585,7 @@ The document contains data collected from various sources, language styles, and 
         {
         }
         
-        // Recently added signature
+        // Recently added method
         void Upload()
         {
         }
