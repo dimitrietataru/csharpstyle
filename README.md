@@ -594,6 +594,115 @@ The document contains data collected from various sources, language styles, and 
 
 ### Modifiers
 
+  * ✔ Use proper order of items
+  
+    * Within a class, struct, or interface order by group:
+      * Constant Fields
+      * Fields
+      * Constructors
+      * Finalizers (Destructors)
+      * Delegates
+      * Events
+      * Enums
+      * Interfaces (Interface implementations)
+      * Properties
+      * Indexers
+      * Methods
+      * Structs
+      * Classes
+    * Withing each group order by access:
+      * public
+      * internal
+      * protected internal
+      * protected
+      * private protected
+      * private
+    * Within each access groups, order by static, then non-static:
+      * static
+      * non-static
+    * Then, order by readonly, then non-readonly:
+      * readonly
+      * non-readonly
+      
+        ``` csharp
+        class Application
+        {
+            public const int const1 = 1;
+            internal const int const2 = 2;
+            protected internal const int const3 = 3;
+            protected const int const4 = 4;
+            private protected const int const5 = 5;
+            private const int const6 = 6;
+
+            public static readonly int field1;
+            internal static readonly int field2;
+            protected internal static readonly int field3;
+            protected static readonly int field4;
+            private protected static readonly int field5;
+            private static readonly int field6;
+            public static int field7;
+            internal static int field8;
+            protected internal static int field9;
+            protected static int field10;
+            private protected static int field11;
+            private static int field12;
+            public readonly int field13;
+            internal readonly int field14;
+            protected static readonly int field15;
+            protected readonly int field16;
+            private protected readonly int field17;
+            private readonly int field18;
+            public int field19;
+            internal int field20;
+            protected internal int field21;
+            protected int field22;
+            private protected int field23;
+            private int field24;
+
+            public Application(...)
+            internal Application(...)
+            protected internal Application(...)
+            protected Application(...)
+            private protected Application(...)
+            private Application(...)
+            
+            // ...
+        }
+        ```
+
+  * ✔ Declare access modifiers
+  
+    * It is allowed to define elements without access modifier and C# will automatically assign an access level.
+    * It is a good practice to explicitly define an access modifier for each element. This removes the need for the reader to make assumptions about code and improves readability.
+    
+        ✔
+        ``` csharp
+        public class A
+        {
+            private A()
+            {
+            }
+
+            private void Method()
+            {
+            }
+        }
+        ```
+
+        ✖
+        ``` csharp
+        class A
+        {
+            A()
+            {
+            }
+
+            void Method()
+            {
+            }
+        }
+        ```
+
 ### Documentation
 
 ### Regions
