@@ -1568,13 +1568,13 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        int counter = 10;
+        int x = 10;
         ```
 
         ✖
         ``` csharp
-        int counter = 10;;
-        int counter = 10; ;
+        int x = 10;;
+        int y = 10; ;
         ```
 
   * ✖ Do not write multiple statements on one line
