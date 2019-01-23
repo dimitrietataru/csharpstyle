@@ -31,13 +31,10 @@ The document contains data collected from various sources, language styles, and 
 * [Readability](#readability)
 * [Spacing](#spacing)
 * [Types and variables](#types-and-variables)
-* Expressions
-* Statements
-* Classes and objects
-* Structs (work in progress)
-* Interfaces (work in progress)
-* Enums (work in progress)
-* System.Linq (work in progress)
+* [Expressions](#expressions)
+* [Statements](#statements)
+* [Classes and objects](#classes-and-objects)
+* [Interfaces](#interfaces)
 
 ## General
 
@@ -1715,7 +1712,7 @@ The document contains data collected from various sources, language styles, and 
         void Method()
         ```
 
-  * ✔ Space colon symbol *:* correctly
+  * ✔ Space colon symbol (*:*) correctly
   
     * Colon should never be the only element on a single line.
     * Colon appearing within an element declaration must always have a single space on either side, uless it's the first character on the line.
@@ -2622,18 +2619,574 @@ The document contains data collected from various sources, language styles, and 
         string s;
         ```
 
-  * ✔ GOOD
-  * ✖ BAD
+## Expressions
+
+  * ✔ Break lines correctly
+  
+    * Break at the dot separator (*.*)
+    * Break at comma (*,*), but it stays attached to the token that precedes it.
+    * Break at lambda operator (*=>*)
+    * Break at opening curly bracket (*{*) for in-line initializations.
+    * Break at logical operators.
+    * Split method arguments by the following rule: all on same line, or all on different line.
+    
+        ✔
+        ``` csharp
+        Method(argument1, argument2, argument3);
+        ```
+        ``` csharp
+        await Method(
+            argument1, argument2, argument3);
+        ```
+        ``` csharp
+        var x = Method(
+            argument1,
+            argument2,
+            argument3);
+        ```
+        ``` csharp
+        if ((expression1 || expression2)
+            && (expresion3 && expression4)
+            || expression5
+            || expression6)
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => item.RegisterDate.Year > 2000)
+            .Join(
+                collection2,
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection2 => new { Date = collection2.Date, Owner = collection2.User },
+                (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
+            .Select(pair =>
+                new
+                {
+                    Id = pair.OldEntry.Id,
+                    X = pair.OldEntry.X,
+                    Y = pair.NewEntry.Y
+                })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item =>
+                item.RegisterDate.Year > 2000
+                && item.OwnerId == User
+                && item.IsAvailable)
+            .ToList();
+        ```
+        
+        ✖
+        ``` csharp
+        var x = collection
+            .Where(item => item.RegisterDate.Year > 2000)
+            .Join(collection2, // DO NOT
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection2 => new { Date = collection2.Date, Owner = collection2.User },
+                (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
+            .Select(pair =>
+                new
+                {
+                    Id = pair.OldEntry.Id,
+                    X = pair.OldEntry.X,
+                    Y = pair.NewEntry.Y
+                })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => item.RegisterDate.Year > 2000)
+            .Join(
+                collection2,
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection2 => new { Date = collection2.Date, Owner = collection2.User },
+                (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
+            .Select(pair =>
+                new
+                {
+                    Id = pair.OldEntry.Id,
+                    X = pair.OldEntry.X,
+                    Y = pair.NewEntry.Y
+                }).ToList(); // DO NOT
+        ```
+        ``` csharp
+        var x = collection.Where(item => item.RegisterDate.Year > 2000) // DO NOT
+            .Join(
+                collection2,
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection2 => new { Date = collection2.Date, Owner = collection2.User },
+                (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
+            .Select(pair =>
+                new
+                {
+                    Id = pair.OldEntry.Id,
+                    X = pair.OldEntry.X,
+                    Y = pair.NewEntry.Y
+                })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => item.RegisterDate.Year > 2000)
+            .Join(
+                collection2,
+                collection1 => new { Date = collection1.RegisterDate, Owner = collection1.RegisteredBy }),
+                collection2 => new { Date = collection2.Date, Owner = collection2.User },
+                (collection1, collection2) => new { OldEntry = collection1, NewEntry = collection2 })
+            .Select(pair => new { // DO NOT
+                    Id = pair.OldEntry.Id,
+                    X = pair.OldEntry.X,
+                    Y = pair.NewEntry.Y }) // DO NOT
+            .ToList();
+        ```
+
+  * ✔ Conditional expressions must declare precedence
+  
+    * C# mentains a hierarchy of precedence for conditional operators.
+    * It is allowed to string multiple operations together on one statement and the compiler will automatically set the order based on pre-established rules.
+    * In order to achieve full understanding of the code, the developer mustt know and understand the basic operator precedente rules in C#.
+    * To increase readability and maintainability and reduce the risk of introducing bugs later, it is recommended to insert parenthesis to explicitly declare the operator precedence.
+    * Inserting parenthesis makes the code more obvious and easy to understand, and removes the need for the reader to make assumptions about the code.
+    
+        ✔
+        ``` csharp
+        if (x || (y && z && a) || b)
+        if ((x || y) && z && (a || b))
+        ```
+        ``` csharp
+        return a || (b && c);
+        return a || b;
+        ```
+
+        ✖
+        ``` csharp
+        if (x || y && z && a || b)
+        ```
+        ``` csharp
+        return a || b && c;
+        return (a || b);
+        ```
+        
+  * ✔ Arithmetic expressions must declare precedence
+  
+    * C# mentains a hierarchy of precedence for arithmetic operators.
+    * It is allowed to string multiple operations together on one statement and the compiler will automatically set the order based on pre-established rules.
+    * In order to achieve full understanding of the code, the developer mustt know and understand the basic operator precedente rules in C#.
+    * To increase readability and maintainability and reduce the risk of introducing bugs later, it is recommended to insert parenthesis to explicitly declare the operator precedence.
+    * Inserting parenthesis makes the code more obvious and easy to understand, and removes the need for the reader to make assumptions about the code.
+    
+        ✔
+        ``` csharp
+        int x = 1 + ((10 % y) * a) / b) - 2;
+        ```
+
+        ✖
+        ``` csharp
+        int x = 1 + 10 % y * a / b - 2;
+        ```
+        
+## Statements
+
+  * ✔ Remove unnecessary code
+  
+    * Remove any code which once removed does not change the overall logic of the code.
+    * Remove duplicate code.
+    
+        ✔
+        ``` csharp
+        try
+        {
+            int x = MethodThrowingException();
+        }
+        catch (Exception ex)
+        {
+        }
+        ```
+
+        ✖
+        ``` csharp
+        try
+        {
+            int x = a + b;
+        }
+        catch (Exception ex)
+        {
+        }
+        ```
+        ``` csharp
+        try
+        {
+        }
+        finally
+        {   
+        }
+        
+        unsafe
+        {
+        }
+        ```
+        
+  * ✔ Comment fall-through cases
+  
+    * Within a switch block, each statement can be terminated abruptly by break, continue, return, or throw keywords.
+    * To mark statements with same result it is recommended, but not mandatory, to use an expressive comment.
+    * Usually **// fall through** is enough.
+    
+        ✔
+        ``` csharp
+        switch (x)
+        {
+            case 1:
+                // fall through
+            case 2:
+                HandleOneAndTwo();
+                break;
+            case 3:
+                HandleThree();
+                break
+            default:
+                HandleDefault();
+                break;
+        }
+        ```
+        ``` csharp
+        switch (ch)
+        {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+            case 'A':
+            case 'E':
+            case 'I':
+            case 'O':
+            case 'U':
+                HandleVowel();
+                break;
+            default:
+                HandleConsonant();
+                break;
+        }
+        ```
+
+        ✖
+        ``` csharp
+        switch (ch)
+        {
+            case 'a':
+                // fall through
+            case 'e':
+                // fall through
+            case 'i':
+                // fall through
+            case 'o':
+                // fall through
+            case 'u':
+                // fall through
+            case 'A':
+                // fall through
+            case 'E':
+                // fall through
+            case 'I':
+                // fall through
+            case 'O':
+                // fall through
+            case 'U':
+                HandleVowel();
+                break;
+            default:
+                HandleConsonant()
+                break;
+        }
+        ```
+        
+  * ✖ Do not use unnecessary parenthesis
+  
+    * It is possible to insert parenthesis around virtually any type of expression, statement, or clause.
+    * Excessive parenthesis can have a negative effect, making it more difficult to read and maintain code.
+    
+        ✔
+        ``` csharp
+        int x = 5 + b;
+        string y = this.Method().ToString();
+        ```
+        ``` csharp
+        return a + b;
+        return x.Value;
+        ```
+
+        ✖
+        ``` csharp
+        int x = (5 + b);
+        string y = (this.Method()).ToString();
+        string y = (this.Method().ToString());
+        ```
+        ``` csharp
+        return (a + b);
+        return (x.Value);
+        ```
+        
+## Classes and objects
+
+  * ✔ Use PascalCasing to name classes, methods, and properties
+  
+    ✔
+    ``` csharp
+    class ClassName
+    void MethodName
+    string PropertyName { get; set; }
+    ```
+
+    ✖
+    ``` csharp
+    class className
+    class class_Name
+    void methodName
+    void method_name
+    string propertyName { get; set; }
+    string property_name { get; set; }
+    ```
+    
+  * ✔ Write each class in its own file
+  
+    * Do not write nested classes.
+    * Use the same notation for file and class name.
+    
+        ✔
+        ``` csharp
+        // Application.cs
+        class Application
+        ```
+        ``` csharp
+        // Program.cs
+        class Program
+        ```
+
+        ✖
+        ``` csharp
+        // File.cs
+        class FileManager
+        ```
+        ``` csharp
+        class Program
+        {
+            class Nested
+            {
+            }
+        }
+        ```
+
+        
+  * ✔ Use PascalCasing when abbreviating three or more characters
+  
+    * When there are two characters, both are uppercase.
+    
+        ✔
+        ``` csharp
+        HtmlHelper htmlHelper;
+        XmlDocument xmlDocument
+        IOException ioException;
+        UIElement uiElement;
+        ```
+
+        ✖
+        ``` csharp
+        HTMLHelper htmlHelper;
+        XMLDocument xmlDocument
+        IoException ioException;
+        UiElement uiElement;
+        ```
+        
+  * ✔ Declare access modifiers
+  
+    * It is allowed to define elements without access modifier, and C# will automatically assign an access level.
+    * It is a good practice to explicitly define an access modifier for each element. This removes the need for the reader to make assumptions about code and improves readability.
+    
+        ✔
+        ``` csharp
+        public class A
+        {
+            public A(int x)
+            {
+            }
+
+            private A()
+            {
+            }
+
+            private void Method()
+            {
+            }
+        }
+        ```
+
+        ✖
+        ``` csharp
+        class A
+        {
+            A(int x)
+            {
+            }
+
+            A()
+            {
+            }
+
+            void Method()
+            {
+            }
+        }
+        ```
+        
+  * ✖ Do not (habitually) add new methods at the end of the class
   
     * text
     * text
     
         ✔
         ``` csharp
-
+        public class DatabaseService<T>
+        {
+            public List<T> GetAll()
+            {
+            }
+            
+            // Newly added method
+            public T GetById()
+            {
+            }
+            
+            public void Create(T entity)
+            {
+            }
+            
+            public void Update(T entity)
+            {
+            }
+            
+            public void Delete(T entity)
+            {
+            }
+        }
         ```
 
         ✖
         ``` csharp
+        public class DatabaseService<T>
+        {
+            public List<T> GetAll()
+            {
+            }
+            
+            public void Create(T entity)
+            {
+            }
+            
+            public void Update(T entity)
+            {
+            }
+            
+            public void Delete(T entity)
+            {
+            }
+            
+            // Newly added method
+            public T GetById()
+            {
+            }
+        }
+        ```
+        
+  * ✖ Do not split overloads
+  
+    * When a class has multiple constructors, or multiple methods with the same name, these appear sequentially, with no code in between (NOT even private members).
+    
+        ✔
+        ``` csharp
+        public class Application
+        {
+            public Application(int x)
+            {
+            }
+            
+            private Application()
+            {
+            }
+            
+            public void Execute(int count)
+            {
+            }
+            
+            public void Execute(int count, int retryCount)
+            {
+            }
+            
+            private void Execute(int count, bool isRetrying)
+            {
+            }
+            
+            public void Display()
+            {
+            }
+        }
+        ```
 
+        ✖
+        ``` csharp
+        public class Application
+        {
+            public Application(int x)
+            {
+            }
+         
+            public void Execute(int count)
+            {
+            }
+
+            private Application()
+            {
+            }
+        }
+        ```
+        ``` csharp
+        public class Application
+        {
+            public void Execute(int count)
+            {
+            }
+            
+            public void Execute(int count, int retryCount)
+            {
+            }
+            
+            public void Display()
+            {
+            }
+            
+            private void Execute(int count, bool isRetrying)
+            {
+            }
+        }
+        ```
+
+## Interfaces
+        
+  * ✔ Prefix interface names with letter **I**
+  
+    * Interface names are noun or adjectives.
+    
+        ✔
+        ``` csharp
+        interface ILogger
+        interface IApplicationBuilder
+        interface ICollection
+        ```
+
+        ✖
+        ``` csharp
+        LoggerSignature
+        LoggerInterface
+        LoggerIFace
+        LoggerIface
         ```

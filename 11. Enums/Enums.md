@@ -1,3 +1,0 @@
-# Enums
-
-TODO: Add content
