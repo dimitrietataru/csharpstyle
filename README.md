@@ -160,16 +160,16 @@ The document contains data collected from various sources, language styles, and 
             return this.x;
         ```
 
-  * ✖ Do not place curly brackets on same line with statements
+  * ✖ Do not place curly brackets on the same line with statements
   
     * Ensure that both opening and closing curly brackets are placed on their own (vertical) line.
     * Curly brackets should not share their line with any other code, other than comments.
     
         ✔
         ``` csharp
-        void Method()
+        object Method()
         {
-            lock (this)
+            lock (...)
             {
                 return this.x;
             }
@@ -178,16 +178,16 @@ The document contains data collected from various sources, language styles, and 
         
         ✖
         ``` csharp
-        void Method() {
-            lock (this) {
+        object Method() {
+            lock (...) {
                 return this.x;
             }
         }
         ```
         ``` csharp
-        void Method()
+        object Method()
         {
-            lock (this) { return this.x; }
+            lock (...) { return this.x; }
         }
         ```
 
@@ -200,9 +200,9 @@ The document contains data collected from various sources, language styles, and 
     * Use PascalCasing to name namespaces.
     
         ``` csharp
-        namespace Company.Product.Module.SubModule;
-        namespace Product.Module.Component;
-        namespace Product.Layer.Module.Group;
+        namespace Company.Product.Module.SubModule
+        namespace Product.Module.Component
+        namespace Product.Layer.Module.Group
         ```
 
   * ✖ Do not place multiple namespaces within a single file
@@ -377,7 +377,7 @@ The document contains data collected from various sources, language styles, and 
   * ✔ Write both accessors single-line or multi-line. Do not mix styles.
   
     * Write both accessors single-line when the accessors are short.
-    * Expand both accessors multi-lines when the accessors are longer.
+    * Expand both accessors multi-lines when the accessors are long.
     
         ✔
         ``` csharp
@@ -547,6 +547,7 @@ The document contains data collected from various sources, language styles, and 
         class Application
         {
             // ...
+            
             public void Execute(int x)
             {
             }
@@ -595,6 +596,7 @@ The document contains data collected from various sources, language styles, and 
     class Transfer
     {
         // ...
+        
         void Stop()
         {
         }
@@ -824,7 +826,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        #region ...
+        #region
         void Method()
         {
         }
@@ -834,14 +836,14 @@ The document contains data collected from various sources, language styles, and 
         ✖
         ``` csharp
         void Method()
-        #region ...
+        #region
         {
         }
         #endregion
         ```
         ``` csharp
         void Method()
-        #region ...
+        #region
         {
         #endregion
         }
@@ -1238,7 +1240,7 @@ The document contains data collected from various sources, language styles, and 
             // ...
         
         }
-        
+         
         ```
 
 ### Square brackets
@@ -1453,7 +1455,7 @@ The document contains data collected from various sources, language styles, and 
         bool isTrue = (x != y);
         ```
         ``` csharp
-        int shift = 1 << 8;
+        int shift = 1 << 32;
         ```
         ``` csharp
         Func<int, int, int> sum = (x, y) => x + y;
@@ -1484,7 +1486,7 @@ The document contains data collected from various sources, language styles, and 
         bool isTrue=(x!=y);
         ```
         ``` csharp
-        int shift = 1<<8;
+        int shift = 1<<32;
         ```
         ``` csharp
         Func<int, int, int> sum = (x, y)=>x + y;
@@ -1642,6 +1644,7 @@ The document contains data collected from various sources, language styles, and 
         int x = y++;
         int x = --y;
         int x = y--;
+        int x = y++ + ++z;
         ```
         
         ✖
@@ -1650,6 +1653,7 @@ The document contains data collected from various sources, language styles, and 
         int x = y ++;
         int x = -- y;
         int x = y --;
+        int x = y ++ + ++ z;
         ```
 
   * ✔ Space member access correctly
@@ -1664,10 +1668,10 @@ The document contains data collected from various sources, language styles, and 
         var x = this.tuple.Item1;
         ```
         ``` csharp
-        var x = collection.Select(item => item.Id).ToList();
+        var ids = collection.Select(item => item.Id).ToList();
         ```
         ``` csharp
-        var x = collection
+        var ids = collection
             .Select(item => item.Id)
             .ToList();
         ```
@@ -1679,10 +1683,10 @@ The document contains data collected from various sources, language styles, and 
         int x = this . count;
         ```
         ``` csharp
-        var x = this .tuple .Item1;
+        var ids = this .tuple .Item1;
         ```
         ``` csharp
-        var x = collection.
+        var ids = collection.
             Select(item => item.Id).
             ToList();
         ```
@@ -1837,7 +1841,7 @@ The document contains data collected from various sources, language styles, and 
 
 ### Layout
 
-  * ✖ NEVER align code
+  * ✖ **Never** align code
   
     * Alignment improves readability.. for a minute, or so. In reality, alignment creates problems for future maintenance!
     * A future change that needs to touch just one line of code will leave the *formerly-pleasing* formatting **mangled**.
@@ -2508,7 +2512,7 @@ The document contains data collected from various sources, language styles, and 
     
         ✔
         ``` csharp
-        int Method(int x, int x)
+        int Sum(int x, int y)
         {
             int sum = x + y;
             return sum;
@@ -2523,7 +2527,7 @@ The document contains data collected from various sources, language styles, and 
 
         ✖
         ``` csharp
-        int Method(int x, int x)
+        int Sum(int x, int y)
         {
             int sum = x + y; return sum;
         }
