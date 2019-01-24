@@ -2603,7 +2603,7 @@ The document contains data collected from various sources, language styles, and 
   
     * Within a switch block, each statement can be terminated abruptly by break, continue, return, or throw keywords.
     * To mark statements with same result it is recommended, but not mandatory, to use an expressive comment.
-    * Usually "**// fall through**" is enough.
+    * Usually **// fall through** is enough.
     
         ✔
         ``` csharp
@@ -2675,3 +2675,184 @@ The document contains data collected from various sources, language styles, and 
         ```
 
 ## Queries and Linq
+
+  * ✔ Write all query clauses on separate lines, or all on one line
+  
+    * Query expressions should be placed on separate lines.
+    * Exception: Short queries can be written on same line.
+    
+        ✔
+        ``` csharp
+        var x = collection.Where(item => item.Date.Year.Equals(currentYear)).ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => item.Date.Year.Equals(currentYear))
+            .ToList();
+        ```
+        ``` csharp
+        var x = select a in b from c;
+        ```
+        ✖
+        ``` csharp
+        var x = collection
+            .Where(item => item.Date.Year.Equals(currentYear)).ToList();
+        var x = collection.Where(item => item.Date.Year.Equals(currentYear))
+            .ToList();
+        var x = collection.Where(item => item.Date.Year.Equals(currentYear))
+                          .ToList();
+        ```
+        ``` csharp
+        var x = select a
+            in b from c;
+        ```
+
+  * ✔ Write query clauses on multiple lines when previous clause spans multiple lines
+  
+    * Write ALL clauses on new lines when one clause spans multiple lines.
+    
+        ✔
+        ``` csharp
+        var x = collection
+            .Where(item => start >= item.StartDate && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item =>
+                start >= item.StartDate
+                && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x =
+            select a
+            in b.Method(
+                2, “x”)
+            from c;
+        ```
+
+        ✖
+        ``` csharp
+        var x = collection
+            .Where(item => start >= item.StartDate && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name }).ToList();
+        ```
+        ``` csharp
+        var x = collection.Where(item =>
+                start >= item.StartDate
+                && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x =
+            select a
+            in b.Method(
+                2, “x”) from c;
+        ```
+
+  * ✔ Write query clauses on own line when spanning multiple lines
+  
+    * Query clauses must be written on own line when spanning multiple lines.
+    
+        ✔
+        ``` csharp
+        var x = collection
+            .Where(item => start >= item.StartDate && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item =>
+                start >= item.StartDate
+                && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item => start >= item.StartDate && end <= item.EndDate)
+            .Select(item =>
+                new
+                {
+                    Id = item.Id,
+                    Name = item.Name
+                })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection
+            .Where(item =>
+                start >= item.StartDate
+                && end <= item.EndDate)
+            .Select(item =>
+                new
+                {
+                    Id = item.Id,
+                    Name = item.Name
+                })
+            .ToList();
+        ```
+        ``` csharp
+        var x =
+            select a
+            in b
+            from c.Method(
+                2, “x”);
+        ```
+
+        ✖
+        ``` csharp
+        var x = collection.Where(item =>
+                start >= item.StartDate
+                && end <= item.EndDate)
+            .Select(item => new { Id = item.Id, Name = item.Name })
+            .ToList();
+        ```
+        ``` csharp
+        var x = collection.Select(item =>
+                new
+                {
+                    Id = item.Id,
+                    Name = item.Name
+                })
+            .ToList();
+        ```
+        ``` csharp
+        var x =
+            select a
+            in b from c.Method(
+                2, “x”);
+        ```
+
+  * ✔ Query clause must follow previous clause
+  
+    * Query clause must begin on the same line as previous clause, or on the next line.
+    
+        ✔
+        ``` csharp
+        var x = select a in b from c;
+        var x =
+            select a
+            in b
+            from c;
+        ```
+
+        ✖
+        ``` csharp
+        var x = select a in b
+            from c;
+        var x = select a in b
+                from c;
+        ```
+        ``` csharp
+        var x = select a
+                in b
+                from c;
+        var x = select a in b
+                         from c;
+        ```
